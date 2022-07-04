@@ -6,6 +6,10 @@ import Home from "./pages";
 import OurTeam from "./pages/ourTeam";
 import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
+import images from "./images";
+import ImageSlider from "./imageSlider";
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -21,7 +25,25 @@ function App() {
           </Routes>
         </Router>
       </div>
-      
+      <div>
+        <h1 className="Heading">OUR INSPIRATIONS</h1>
+        <hr
+          className="Horizontal Line"
+          style={{
+            background: "orange",
+            color: "orange",
+            borderColor: "orange",
+            height: "1px",
+            width: "1200px",
+          }}
+        />
+      </div>
+      <div name="Carousel">
+        <ImageSlider images={images} />
+      </div>
+      <div className="Footer">
+        {/* <Footer /> */}
+      </div>
     </div>
   );
 }
