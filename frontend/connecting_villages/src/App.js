@@ -8,8 +8,7 @@ import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
 import images from "./images";
 import ImageSlider from "./imageSlider";
-import Footer from './components/Footer';
-
+import { FooterContainer } from './containers/footer'
 
 function App() {
   return (
@@ -41,8 +40,15 @@ function App() {
       <div name="Carousel">
         <ImageSlider images={images} />
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+
       <div className="Footer">
-        {/* <Footer /> */}
+      <FooterContainer />
       </div>
     </div>
   );
