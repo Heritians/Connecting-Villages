@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 80px 60px;
+  padding: 5px 80px;
   background: #23188C;
 
   @media (max-width: 1000px) {
@@ -12,8 +12,8 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    max-width: 1000px;
+    justify-content: right;
+    max-width: 700px;
     margin: 0 auto;
     /* background: red; */
 `
@@ -22,7 +22,7 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 60px;
+  margin-left: 10px;
 `;
 
 export const Row = styled.div`
@@ -37,7 +37,7 @@ export const Row = styled.div`
 
 export const Link = styled.a`
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 12px;
   text-decoration: none;
 
@@ -50,6 +50,6 @@ export const Link = styled.a`
 export const Title = styled.p`
   font-size: 22px;
   color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-weight: bold;
 `;
