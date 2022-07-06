@@ -9,8 +9,9 @@ body {
 
 .Heading{
   font-size: 2rem;
-  font-weight: normal;
-  text-align: center;
+  font-weight: 600;
+  width: 90%;
+  margin: auto;
   margin-top: 1rem;
 }
 code {

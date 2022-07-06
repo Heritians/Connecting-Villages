@@ -8,7 +8,18 @@ import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
 import images from "./images";
 import ImageSlider from "./imageSlider";
-import { FooterContainer } from './containers/footer'
+import { FooterContainer } from "./containers/footer";
+
+const ColoredLine = ({ color }) => (
+  <hr
+    style={{
+      color,
+      backgroundColor: color,
+      height: 2,
+      width: 1200
+    }}
+  />
+);
 
 function App() {
   return (
@@ -24,31 +35,23 @@ function App() {
           </Routes>
         </Router>
       </div>
+      <br></br>
       <div>
         <h1 className="Heading">OUR INSPIRATIONS</h1>
-        <hr
-          className="Horizontal Line"
-          style={{
-            background: "orange",
-            color: "orange",
-            borderColor: "orange",
-            height: "1px",
-            width: "1200px",
-          }}
-        />
+        <div>
+          <ColoredLine color="orange" />
+        </div>
       </div>
+      <br></br>
       <div name="Carousel">
         <ImageSlider images={images} />
       </div>
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-
 
       <div className="Footer">
-      <FooterContainer />
+        <FooterContainer />
       </div>
     </div>
   );
