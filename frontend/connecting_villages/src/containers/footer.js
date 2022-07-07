@@ -24,6 +24,8 @@ export function FooterContainer() {
                     </Footer.Column>
             </Footer.Row>
             </Footer.Wrapper>
+            <hr className='line'></hr>
         </Footer>
+
     )
 }
