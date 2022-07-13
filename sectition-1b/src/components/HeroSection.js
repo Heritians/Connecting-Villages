@@ -21,7 +21,16 @@ function HeroSection() {
           GET STARTED
         </Button>
       </div>
+      <div className='hero-gallery'>
+      </div>
       <div className= 'hero-bottom'>
+        <p className= 'hero-bottom-txt'>Want to input new data? Click the button</p>
+        <Button
+          className='form-btn'
+          buttonStyle='btn--outline'
+        >
+          Fill the Form
+        </Button>
       </div>
     </div>
   );
