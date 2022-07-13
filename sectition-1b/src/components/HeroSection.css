@@ -72,7 +72,7 @@ video {
 
   .hero-bottom{
     width:100%;
-    height: 60%;
+    height: 62%;
     background-color:#23188C;
     position: absolute;
     top:710px;
@@ -85,6 +85,12 @@ video {
     top: 370px;
     text-align: center;
 
+  }
+
+  .form-btn{
+    position: relative;
+    top: 375px;
+    text-align: center;
   }
   
   .fa-play-circle {
