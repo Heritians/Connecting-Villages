@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
-// import Home from './components/pages/Home';
+import Home from './components/Pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path='/' exact  />
+          <Route path='/' exact element={<Home />}/>
           <Route path='/services'/>
           <Route path='/products' />
           <Route path='/sign-up' />
