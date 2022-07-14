@@ -25,12 +25,14 @@ function HeroSection() {
       </div>
       <div className= 'hero-bottom'>
         <p className= 'hero-bottom-txt'>Want to input new data? Click the button</p>
-        <Button
-          className='form-btn'
+        <div className='form-btn'>
+        <Button 
+          className='btns'
           buttonStyle='btn--outline'
         >
           Fill the Form
         </Button>
+        </div>
       </div>
     </div>
   );
