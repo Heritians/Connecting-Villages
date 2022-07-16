@@ -30,8 +30,5 @@ const images = [{
     src: "https://bit.ly/3v0kr5t",
     alt: "Image 5"
 },
-{
-    
-}
 ];
 export default images;

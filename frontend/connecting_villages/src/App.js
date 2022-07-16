@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,6 +10,7 @@ import images from "./images";
 import ImageSlider from "./imageSlider";
 import { FooterContainer } from "./containers/footer";
 
+
 const ColoredLine = ({ color }) => (
   <hr
     style={{
@@ -20,6 +21,7 @@ const ColoredLine = ({ color }) => (
     }}
   />
 );
+
 
 function App() {
   return (
@@ -35,24 +37,53 @@ function App() {
           </Routes>
         </Router>
       </div>
-      <br></br>
+
+      <div className="Box">
+        <div className="Contribution" >
+          <div class="main-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-1">
+                  <div className="Contribution-header">
+                    <p className="text">Want to learn how you can make a contribution?</p>
+                  </div>
+                </div>
+
+                <div class="col-2">
+
+                  <div className="ButtonImp">
+                    <button className="Contribute" style={{ color: "white", fontSize: 18, borderWidth: 1, borderRadius: 10, borderColor: 'rgb(100%,100%,100%,100%)', }}>Click Here</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <h1 className="Heading">OUR INSPIRATIONS</h1>
-        <div>
+        <div className="OrangeLine">
           <ColoredLine color="orange" />
         </div>
       </div>
-      <br></br>
-      <div name="Carousel">
-        <ImageSlider images={images} />
-      </div>
-      <br></br>
-      <br></br>
-      <br></br>
 
-      <div className="Footer">
-        <FooterContainer />
+      <div name="Slider">
+        <div name="Carousel">
+          <ImageSlider images={images} />
+        </div>
       </div>
+
+      <div className='Footerings'>
+        <div className="Footer">
+          <FooterContainer />
+        </div>
+      </div>
+
     </div>
   );
 }
