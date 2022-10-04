@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 
-const Home3 = () => {
-  return <h1>Welcome to our website!</h1>;
-};
+// const Home3 = () => {
+//   return <h1>Welcome to our website!</h1>;
+// };
 
-export default Home;
+// export default Home;

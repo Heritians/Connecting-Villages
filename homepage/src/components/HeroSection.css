@@ -14,6 +14,29 @@ video {
     top: 0px;
 
   }
+
+  .herologo-1 {
+    height: 80%;
+    padding-left: 20%;
+    position: absolute;
+    top: 0px;
+  }
+
+  .herologo-2{
+    height: 80%;
+    padding-left: 40%;
+    
+    position: absolute;
+    top: 0px;
+  }
+
+  .herologo-3{
+    height: 80%; 
+    padding-left: 75%;
+    position: absolute;
+    top: 0px;
+  }
+
 /* upper part background image container */
   .hero-container {
     background: url('/public/images/img-2.png') center center/cover no-repeat;
