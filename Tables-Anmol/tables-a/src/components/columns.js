@@ -9,6 +9,9 @@ export const COLUMNS = [
     },
     {
         Header: 'People Benefitted \n(In Numbers)',
-        accessor: 'count'
+        accessor: 'count',
+        field: 'price'
+        
     }
+    
 ]

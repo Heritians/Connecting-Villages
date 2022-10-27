@@ -22,6 +22,8 @@ export const BasicTable = () => {
         prepareRow,
         } = tableInstance
 
+        
+
     return (
         <table {...getTableProps()}>
             <thead>
@@ -44,6 +46,7 @@ export const BasicTable = () => {
                                         return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                                     })
                                 }
+                                
                                 </tr>)
                     })
                 }
