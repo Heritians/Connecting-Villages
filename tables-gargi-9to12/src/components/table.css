@@ -1,0 +1,17 @@
+
+.t-form{
+    padding: 2 rem;
+  }
+   input{
+      width: 99%; 
+      border: 0px;
+      border-color: null;
+      padding: .7rem;
+      font-size:15px;
+      border-radius:5px;
+      background-color: inherit;
+   }
+   .ag-theme-alpine .ag-header-cell-label {
+    font-size: 18px;
+  }
+  
