@@ -3,10 +3,10 @@ import './App.css';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-// import { Table10 } from './components/Table10';
-// import { Table11 } from './components/Table11';
-// import { Table12 } from './components/Table12';
-// import { Table9 } from './components/Table9';
+import { Table10 } from './components/Table10';
+import { Table11 } from './components/Table11';
+import { Table12 } from './components/Table12';
+import { Table9 } from './components/Table9';
 
 function App() {
 
@@ -850,14 +850,14 @@ function App() {
         </AgGridReact>
       </div>
 
-      {/* <h2 align="center">9. Landholding Information (in acres)</h2>
+      <h2 align="center">9. Landholding Information (in acres)</h2>
       <Table9 />
       <h1 align="center">10. Agricultural Produce in a normal year (Top 5)</h1>
       <Table10 />
       <h1 align="center">11. Livestock Numbers (in numbers)</h1>
       <Table11 />
       <h1 align="center">12. Major Problems in village, if any (Top 3)</h1>
-      <Table12 /> */}
+      <Table12 />
 
 
     </div>
