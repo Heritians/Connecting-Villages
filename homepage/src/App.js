@@ -12,6 +12,7 @@ import Home3 from "./components/Pages";
 import images from "./images";
 import ImageSlider from "./imageSlider";
 import { FooterContainer } from "./components/containers/footer";
+import Modal from './components/Navbar/Modal';
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
 // import SignUp from './components/pages/SignUp';
@@ -34,10 +35,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path='/' exact element={<Home />}/>
+          {/* <Route path='/' exact element={<Home />}/> */}
           <Route path='/services'/>
           <Route path='/products' />
-          <Route path='/sign-up' />
+          <Route path="sign-up" element={<Modal />} />
         </Routes>
       </Router>
 
