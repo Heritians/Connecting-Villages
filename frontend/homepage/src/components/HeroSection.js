@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { Button } from './Button';
+import { BigB } from './BigB';
 import './HeroSection.css';
 
 function HeroSection() {
@@ -16,25 +16,25 @@ function HeroSection() {
       <h1>Insert Welcome Title Here.</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <div className='hero-btns'>
-        <Button
+        <BigB
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           GET STARTED
-        </Button>
+        </BigB>
       </div>
       <div className='hero-gallery'>
       </div>
       <div className= 'hero-bottom'>
         <p className= 'hero-bottom-txt'>Want to input new data? Click the button</p>
         <div className='form-btn'>
-        <Button 
+        <BigB 
           className='btns'
           buttonStyle='btn--outline'
         >
           Fill the Form
-        </Button>
+        </BigB>
         </div>
       </div>
     </div>

@@ -12,6 +12,8 @@ import Home3 from "./components/Pages";
 import images from "./images";
 import ImageSlider from "./imageSlider";
 import { FooterContainer } from "./components/containers/footer";
+import Abc from "./components/Navbar/Abc.js";
+import Popup from './components/Popup';
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
 // import SignUp from './components/pages/SignUp';
@@ -37,7 +39,6 @@ function App() {
           <Route path='/' exact element={<Home />}/>
           <Route path='/services'/>
           <Route path='/products' />
-          <Route path='/sign-up' />
         </Routes>
       </Router>
 
@@ -100,7 +101,6 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/OurTeam" component={OurTeam} />
             <Route path="/contact" component={Contact} />
-            <Route path="/sign-up" component={SignUp} />
           </Routes>
         </Router>
       </div>
