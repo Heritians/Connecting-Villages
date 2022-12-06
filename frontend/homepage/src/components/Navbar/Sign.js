@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Sign.css';
 
 //Bootstrap and jQuery libraries
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 // form and modal modules
 import {
@@ -24,11 +24,25 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 
 class Sign extends React.Component {
 
-  state = {
-    value: ''
-  };
+  // state = {
+  //   value: ''
+  // };
 
+  // getValue = (event) => {
+  //   console.log('Event: ', event.target.value);
 
+  //   this.setState({ value: event.target.value });
+  // }
+
+  // handleSubmit = (event) => {
+  //   event.preventDefault(); // Stop reloading
+  //   const value = this.state.value;
+
+  //   console.log
+
+  //   //TODO
+    
+  // };
   
   render(){
 
@@ -213,7 +227,7 @@ class Sign extends React.Component {
                 },
               ]}
             >
-              <Input onChange = {this.getValue } />
+              <Input />
             </Form.Item>
 
             <Form.Item

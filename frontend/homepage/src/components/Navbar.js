@@ -90,7 +90,50 @@ function Navbar() {
           )}
           <Sign/>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-            <h3>my Popup</h3>
+          <form>
+    <label>
+    Adhaar No.:
+    <input type="text" name="name" />
+    </label>
+    <br/>
+    <label>
+    Password:
+    <input type="password" name="name" />
+    </label>
+    <br/>
+    <label>
+    Role:
+    <select >
+            
+            <option value="Owner">Owner</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+    </label>
+    <br/>
+
+    <label>
+    Village Name:
+    <select >
+            <option value="Lasudiya Khas">Lasudiya Khas</option>
+            <option value="Gawa Kheda">Gawa Kheda</option>
+            <option value="Mana Khedi">Mana Khedi</option>
+            <option value="Nipaniya Kalan">Nipaniya Kalan</option>
+            <option value="Beda Khedi">Beda Khedi</option>
+          </select>
+          
+    </label>
+    <br/>
+    <label>
+    <input type = "checkbox"/>
+    I have read
+    <a href={"https://vtop.vitbhopal.ac.in/vtop/initialProcess"}>the agreement</a>
+    </label>
+    <br/>
+
+    
+  <input type="submit" value="Submit" />
+  </form>
           </Popup>
         </div>
       </nav>
