@@ -3,9 +3,8 @@ import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/Pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Cards from "./components/Cards";               //Component 'Cards' is imported 
-import Heading from "./components/Heading";           // Component 'Heading' is imported 
-import OurTeam from "./components/Pages/ourTeam";
+import Cards from "./components/Cards";              
+import Heading from "./components/Heading";           
 import Contact from "./components/Pages/contact";
 import SignUp from "./components/Pages/signup";
 import Home3 from "./components/Pages";
@@ -17,6 +16,7 @@ import Popup from './components/Popup';
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
 // import SignUp from './components/pages/SignUp';
+import OurTeam from './components/Pages/ourTeamPage/OurTeam';
 
 const ColoredLine = ({ color }) => (
   <hr
@@ -43,19 +43,17 @@ function App() {
       </Router>
 
     {/* middle part */}
-    {/* // division tag defines parent class 'App' */}
+   
     <div className="App">             
       
       {/* divison tag for a separate class for headings  */}
-      <div className="head">          
+      <div className="position-absolute top-50 start-150 translate-middle">          
         <Heading></Heading>
       </div>
       
-      {/* division class created to position 5 card components without disrupting the aligment of headings */}
+
       <div className="all_cards">     
        
-        {/* 'Cards' is declared 5 times to render 5 duplicate card components */}
-        {/* with the help of props, the dynamic elements of the card component are declared and then their separate values are referenced */}
         <Cards
           img="https://www.indiaspend.com/wp-content/uploads/village_620.png" 
           alt = "An image of Lasudiya Khas is supposed to be displayed here"
@@ -94,17 +92,6 @@ function App() {
 
     {/* lower part */}
     <div>
-      <div className="Navigation Bar">
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" exact component={Home} />
-            <Route path="/OurTeam" component={OurTeam} />
-            <Route path="/contact" component={Contact} />
-          </Routes>
-        </Router>
-      </div>
-
       <div className="Box">
         <div className="Contribution" >
           <div class="main-footer">
@@ -123,7 +110,8 @@ function App() {
                 <div class="col-2">
 
                   <div className="ButtonImp">
-                    <button className="Contribute" style={{ color: "white", fontSize: 18, borderWidth: 1, borderRadius: 10, borderColor: 'rgb(100%,100%,100%,100%)', }}>Click Here</button>
+                  <button className="Contribute" style={{ color: "white", fontSize: 18, borderWidth: 1, 
+                     borderColor: 'rgb(100%,100%,100%,100%)', position: 'relative', margin: 6}}>Click Here</button>
                   </div>
                 </div>
               </div>
@@ -150,6 +138,7 @@ function App() {
           <FooterContainer />
         </div>
       </div>
+      {/* <OurTeam></OurTeam>     */}
 
     </div>
     </>
