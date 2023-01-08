@@ -1,16 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { BigB } from "./BigB";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Popup from "./Popup";
 import Sign from './Navbar/Sign';
 import "./Navbar/Sign.css";
+import OwnerDropdown from "./Navbar/OwnerDropdown";
+import UserDropdown from "./Navbar/UserDropdown";
+import AdminDropdown from "./Navbar/AdminDropdown";
+
+
 
 function Navbar() {
   const [buttonPopup, setButtonPopup] = useState(false);
 
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+
+  const [isOwner,setOwner] = useState(true)
+  const [isUser,setUser] = useState(false)
+  const [isAdmin,setAdmin] = useState(false)
+  const [isDropdown, setDropdown] = useState(false)
+  
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -68,18 +93,36 @@ function Navbar() {
                 Contact Us
               </Link>
             </li>
-
-            <li>
+            <li className="nav-item"
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+            >
               <Link
-                to="/"
-                className="nav-links-mobile"
+                to="/services"
+                className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Services <i className= 'fas fa-caret-down'/>
               </Link>
+              {isDropdown&& <div>
+              {isOwner&& <div className = "owner-dropdown">
+              <OwnerDropdown/>
+             </div>}
+             {isUser&& <div className = "user-dropdown">
+              <UserDropdown/>
+             </div>}
+             {isAdmin&& <div className = "admin-dropdown">
+              <AdminDropdown/>
+             </div>}
+             </div>}
+
+    
+              
             </li>
+            
           </ul>
-          {button && (
+
+          {/* {button && (
             <BigB
               buttonStyle="btn--outline"
               button
@@ -87,7 +130,7 @@ function Navbar() {
             >
               SIGN UP
             </BigB>
-          )}
+          )} */}
           <Sign/>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
           <form>

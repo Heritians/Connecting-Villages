@@ -11,7 +11,7 @@ import Home3 from "./components/Pages";
 import images from "./images";
 import ImageSlider from "./imageSlider";
 import { FooterContainer } from "./components/containers/footer";
-import Abc from "./components/Navbar/Abc.js";
+
 import Popup from './components/Popup';
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
@@ -32,6 +32,7 @@ const ColoredLine = ({ color }) => (
 function App() {
   return (
     <>
+    
     {/* upper part */}
       <Router>
         <Navbar />
@@ -41,6 +42,7 @@ function App() {
           <Route path='/products' />
         </Routes>
       </Router>
+      
 
     {/* middle part */}
    
