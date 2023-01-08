@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Popup from "./Popup";
-import Sign from './Navbar/Sign';
-import "./Navbar/Sign.css";
-import OwnerDropdown from "./Navbar/OwnerDropdown";
-import UserDropdown from "./Navbar/UserDropdown";
-import AdminDropdown from "./Navbar/AdminDropdown";
+import Popup from "./Login/Popup";
+
+import OwnerDropdown from "./Dropdown/OwnerDropdown";
+import UserDropdown from "./Dropdown/UserDropdown";
+import AdminDropdown from "./Dropdown/AdminDropdown";
 
 
 
@@ -131,7 +130,6 @@ function Navbar() {
               SIGN UP
             </BigB>
           )} */}
-          <Sign/>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
           <form>
     <label>

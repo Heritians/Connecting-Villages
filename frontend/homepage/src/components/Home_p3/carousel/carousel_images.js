@@ -1,4 +1,4 @@
-const images = [{
+const carousel_images = [{
 
     // Modi
     id: 1,
@@ -31,4 +31,4 @@ const images = [{
     alt: "Image 5"
 },
 ];
-export default images;
+export default carousel_images;

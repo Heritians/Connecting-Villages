@@ -1,22 +1,25 @@
 import React from 'react';
-import Navbar from './components/Navbar';
 import './App.css';
-import Home from './components/Pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Cards from "./components/Cards";              
-import Heading from "./components/Heading";           
-import Contact from "./components/Pages/contact";
-import SignUp from "./components/Pages/signup";
-import Home3 from "./components/Pages";
-import images from "./images";
-import ImageSlider from "./imageSlider";
-import { FooterContainer } from "./components/containers/footer";
 
-import Popup from './components/Popup';
+import Navbar from './components/Home_p1/Navbar/Navbar';
+import Home from './components/Home_p1/HomeTop';
+import Popup from './components/Home_p1/Navbar/Login/Popup.js';
+
+
+import Cards from "./components/Home_p2/Cards";              
+import Heading from "./components/Home_p2/Heading";
+
+import carousel_images from "./components/Home_p3/carousel/carousel_images";
+import ImageSlider from "./components/Home_p3/carousel/imageSlider";
+import { FooterContainer } from "./components/Home_p3/footer";
+
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
 // import SignUp from './components/pages/SignUp';
-import OurTeam from './components/Pages/ourTeamPage/OurTeam';
+// import Contact from "./components/Pages/contact";
+// import Home3 from "./components/Pages";
+// import OurTeam from './components/Pages/ourTeamPage/OurTeam';
 
 const ColoredLine = ({ color }) => (
   <hr
@@ -131,7 +134,7 @@ function App() {
 
       <div name="Slider">
         <div name="Carousel">
-          <ImageSlider images={images} />
+          <ImageSlider images={carousel_images} />
         </div>
       </div>
 

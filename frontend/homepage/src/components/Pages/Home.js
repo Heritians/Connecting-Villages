@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../App.css';
 //import Cards from '../Cards';
-import HeroSection from '../HeroSection';
+import HomeTop from '../Home_p1/HomeTop';
 //import Footer from '../Footer';
 
 function Home() {
   return (
     <>
-      <HeroSection />
+      <HomeTop />
     </>
   );
 }

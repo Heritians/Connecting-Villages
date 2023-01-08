@@ -1,13 +1,13 @@
 
 import React from 'react';
-import './BigB.css';
+import './Button.css';
 import { Link } from 'react-router-dom';
 
 const STYLES = ['btn--primary', 'btn--outline', 'btn--test'];
 
 const SIZES = ['btn--medium', 'btn--large'];
 
-export const BigB = ({
+export const Button = ({
   children,
   type,
   onClick,

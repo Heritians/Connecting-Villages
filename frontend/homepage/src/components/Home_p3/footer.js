@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../footer'
+import Footer from './styles'
 
 // import image from 'https://drive.google.com/file/d/1uSh9TSQ5zskRJzQCQK7LAFLvhhhG86cc/view?usp=sharing'
 export function FooterContainer() {
