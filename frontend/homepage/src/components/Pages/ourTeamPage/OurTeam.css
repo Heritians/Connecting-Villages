@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+} 
+
+body {
+  background: #fef5ec;
+  font-family: 'Raleway', sans-serif;
+}
+
+.App {
+  margin-top: 30px;
+}
+
+.head1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  line-height: 72px;
+  margin-top: 50px;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: #23188c;
+}
+.head2 {
+  font-size: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: rgba(35, 24, 140, 0.8);
+  margin-bottom: 20px;
+}
+
+.line1{
+  border: 1px solid #F89607;
+  margin-left: 180px;
+  margin-right: 180px;
+}
+
+.all_cards1 {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+  
+.card1 {
+  overflow: hidden;
+  margin: 20px;
+  margin-bottom: 50px;
+  margin-top: 0px;
+  padding: 0px;
+  width: 240px;
+  line-height: 20px;
+  position: relative;
+}
+
+.container{
+  position: relative;
+}
+
+.img_overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: black;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.content{
+  position: relative;
+  top: 70%;
+  left: 55%;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  color: white;
+  size: 20px;
+  line-height: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+.social_links a {
+  transform: scale(1.5) translate(-185%, 570%);
+  color: white;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  transition: .4s;
+}
+
+
+.container:hover .img_overlay{
+  opacity: 0.8;
+  height: 100%;
+}
+
+
+.img1 {
+  max-width: 100%;
+  height: 400px;
+  width: 240px;
+}
+
+.card_title1 {
+  color: #23188c;
+  font-size: 24px;
+  text-align: left;
+  line-height: 36px;
+}
+
+.card_description1 {
+  font-size: 20px;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(35, 24, 140, 0.8);
+}
