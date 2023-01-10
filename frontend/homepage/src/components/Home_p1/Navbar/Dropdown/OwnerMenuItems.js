@@ -22,11 +22,5 @@ export const OwnerMenuItems = [
         path: './fillTheForm',
         cName: 'dropdown-link'
 
-    },
-    {
-        title: 'Log Out',
-        path: './logOut',
-        cName: 'dropdown-link'
-
-    },
+    }
 ]

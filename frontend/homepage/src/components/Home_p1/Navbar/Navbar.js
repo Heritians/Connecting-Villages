@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Popup from "./Login/Popup";
-
+import { Button } from "./Login/Button";
 import OwnerDropdown from "./Dropdown/OwnerDropdown";
 import UserDropdown from "./Dropdown/UserDropdown";
 import AdminDropdown from "./Dropdown/AdminDropdown";
@@ -19,6 +19,8 @@ function Navbar() {
   const [isUser,setUser] = useState(false)
   const [isAdmin,setAdmin] = useState(false)
   const [isDropdown, setDropdown] = useState(false)
+
+  const [isLoggedIn, setisLoggedIn ] = useState(false)
   
   const onMouseLeave = () => {
     if (window.innerWidth < 960) {
@@ -36,6 +38,7 @@ function Navbar() {
     }
   };
 
+
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -46,6 +49,7 @@ function Navbar() {
       setButton(true);
     }
   };
+  
 
   useEffect(() => {
     showButton();
@@ -92,44 +96,58 @@ function Navbar() {
                 Contact Us
               </Link>
             </li>
+            {isLoggedIn?
             <li className="nav-item"
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-            >
-              <Link
-                to="/services"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Services <i className= 'fas fa-caret-down'/>
-              </Link>
-              {isDropdown&& <div>
-              {isOwner&& <div className = "owner-dropdown">
-              <OwnerDropdown/>
-             </div>}
-             {isUser&& <div className = "user-dropdown">
-              <UserDropdown/>
-             </div>}
-             {isAdmin&& <div className = "admin-dropdown">
-              <AdminDropdown/>
-             </div>}
-             </div>}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
+          <Link
+            to="/services"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Services <i className= 'fas fa-caret-down'/>
+          </Link>
+          {isDropdown&& <div>
+          {isOwner&& <div className = "owner-dropdown">
+          <OwnerDropdown/>
+         </div>}
+         {isUser&& <div className = "user-dropdown">
+          <UserDropdown/>
+         </div>}
+         {isAdmin&& <div className = "admin-dropdown">
+          <AdminDropdown/>
+         </div>}
+         </div>}
 
-    
-              
-            </li>
+
+          
+        </li> : null
+            }
+            
             
           </ul>
 
-          {/* {button && (
-            <BigB
+
+           <div className="auth">
+            {isLoggedIn? 
+            
+            <Button
               buttonStyle="btn--outline"
               button
               onClick={() => setButtonPopup(true)}
             >
-              SIGN UP
-            </BigB>
-          )} */}
+              LOG OUT
+            </Button> :
+            <Button
+              buttonStyle="btn--outline"
+              button
+              onClick={() => setButtonPopup(true)}
+            >
+              SIGN IN
+            </Button>}
+            </div>
+        
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
           <form>
     <label>
@@ -155,12 +173,13 @@ function Navbar() {
 
     <label>
     Village Name:
-    <select >
+    <select>
             <option value="Lasudiya Khas">Lasudiya Khas</option>
             <option value="Gawa Kheda">Gawa Kheda</option>
             <option value="Mana Khedi">Mana Khedi</option>
             <option value="Nipaniya Kalan">Nipaniya Kalan</option>
             <option value="Beda Khedi">Beda Khedi</option>
+            <option value="None" selected disabled hidden>None</option>
           </select>
           
     </label>
