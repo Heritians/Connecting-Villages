@@ -6,6 +6,8 @@ import { Button } from "./Login/Button";
 import OwnerDropdown from "./Dropdown/OwnerDropdown";
 import UserDropdown from "./Dropdown/UserDropdown";
 import AdminDropdown from "./Dropdown/AdminDropdown";
+import  LogOutButton  from "./Login/LogOutButton";
+
 
 
 
@@ -21,6 +23,21 @@ function Navbar() {
   const [isDropdown, setDropdown] = useState(false)
 
   const [isLoggedIn, setisLoggedIn ] = useState(false)
+  
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const IsOwner = (event) => {
+    if(event.target.value === "GOVTOff")
+    {
+      setIsDisabled(true);
+
+    }
+    else{
+      setIsDisabled(false);
+    }
+  }
+ 
+  
   
   const onMouseLeave = () => {
     if (window.innerWidth < 960) {
@@ -110,7 +127,7 @@ function Navbar() {
           </Link>
           {isDropdown&& <div>
           {isOwner&& <div className = "owner-dropdown">
-          <OwnerDropdown/>
+          <OwnerDropdown />
          </div>}
          {isUser&& <div className = "user-dropdown">
           <UserDropdown/>
@@ -132,13 +149,9 @@ function Navbar() {
            <div className="auth">
             {isLoggedIn? 
             
-            <Button
-              buttonStyle="btn--outline"
-              button
-              onClick={() => setButtonPopup(true)}
-            >
-              LOG OUT
-            </Button> :
+            <LogOutButton>
+            </LogOutButton> 
+            :
             <Button
               buttonStyle="btn--outline"
               button
@@ -162,9 +175,8 @@ function Navbar() {
     <br/>
     <label>
     Role:
-    <select >
-            
-            <option value="Owner">Owner</option>
+    <select onChange={IsOwner}>
+            <option value="GOVTOff">Owner</option>
             <option value="Admin">Admin</option>
             <option value="User">User</option>
           </select>
@@ -173,7 +185,7 @@ function Navbar() {
 
     <label>
     Village Name:
-    <select>
+    <select disabled = {isDisabled}>
             <option value="Lasudiya Khas">Lasudiya Khas</option>
             <option value="Gawa Kheda">Gawa Kheda</option>
             <option value="Mana Khedi">Mana Khedi</option>
