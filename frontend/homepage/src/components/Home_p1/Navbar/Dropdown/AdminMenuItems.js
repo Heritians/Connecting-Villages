@@ -22,11 +22,5 @@ export const AdminMenuItems = [
         path: './fillTheForm',
         cName: 'dropdown-link'
 
-    },
-    {
-        title: 'Log Out',
-        path: './logOut',
-        cName: 'dropdown-link'
-
-    },
+    }
 ]
