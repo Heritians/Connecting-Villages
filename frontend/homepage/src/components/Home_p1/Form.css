@@ -1,19 +1,19 @@
-.App {
-  /* text-align: center; */
+.Form {
+  text-align: center;
 }
 
-.App-logo {
+.Form-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .Form-logo {
+    animation: Form-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.Form-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,11 +24,11 @@
   color: white;
 }
 
-.App-link {
+.Form-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes Form-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -36,3 +36,4 @@
     transform: rotate(360deg);
   }
 }
+

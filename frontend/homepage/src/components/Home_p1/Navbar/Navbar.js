@@ -175,7 +175,8 @@ function Navbar() {
     <br/>
     <label>
     Role:
-    <select onChange={IsOwner}>
+    <select onChange={IsOwner} required>
+            <option> </option>
             <option value="GOVTOff">Owner</option>
             <option value="Admin">Admin</option>
             <option value="User">User</option>
