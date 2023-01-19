@@ -116,16 +116,12 @@ function Navbar() {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
               >
-                <Link
-                  to="/"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
-                >
+                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                   Services <i className="fas fa-caret-down" />
                 </Link>
-                {visDropdown && (
+                {isDropdown && (
                   <div>
-                    <ScopesDropdown role={UserRole}/>
+                    <ScopesDropdown role={UserRole} />
                   </div>
                 )}
               </li>
@@ -145,8 +141,6 @@ function Navbar() {
               </Button>
             )}
           </div>
-
-      
         </div>
       </nav>
     </>
