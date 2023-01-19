@@ -1,41 +1,36 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef , useContext} from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Popup from "./Login/Popup";
 import { Button } from "./Login/Button";
-import OwnerDropdown from "./Dropdown/OwnerDropdown";
-import UserDropdown from "./Dropdown/UserDropdown";
-import AdminDropdown from "./Dropdown/AdminDropdown";
 import  LogOutButton  from "./Login/LogOutButton";
+
+import AuthContext,{AuthProvider} from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { ScopesDropdown } from "./Dropdown/ScopesDropdown";
 
 
 
 
 function Navbar() {
+  const loginAuthUser = useContext(AuthContext);
   const [buttonPopup, setButtonPopup] = useState(false);
 
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const [isOwner,setOwner] = useState(true)
-  const [isUser,setUser] = useState(false)
-  const [isAdmin,setAdmin] = useState(false)
-  const [isDropdown, setDropdown] = useState(false)
 
-  const [isLoggedIn, setisLoggedIn ] = useState(false)
-  
+  const UserRole=loginAuthUser.user?loginAuthUser.user["sub"].split('_')[1]:"Not Authenticated"
+
+  const visDropdown=loginAuthUser.user?true:false;
+  console.log(UserRole);
+
+  const [isDropdown, setDropdown] = useState(false);
+
+
   const [isDisabled, setIsDisabled] = useState(false);
+  const history = useNavigate();
 
-  const IsOwner = (event) => {
-    if(event.target.value === "GOVTOff")
-    {
-      setIsDisabled(true);
-
-    }
-    else{
-      setIsDisabled(false);
-    }
-  }
  
   
   
@@ -71,6 +66,8 @@ function Navbar() {
   useEffect(() => {
     showButton();
   }, []);
+
+  const handleSinginButtonClick=()=>history("/signin");
 
   window.addEventListener("resize", showButton);
 
@@ -113,101 +110,43 @@ function Navbar() {
                 Contact Us
               </Link>
             </li>
-            {isLoggedIn?
-            <li className="nav-item"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-        >
-          <Link
-            to="/services"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Services <i className= 'fas fa-caret-down'/>
-          </Link>
-          {isDropdown&& <div>
-          {isOwner&& <div className = "owner-dropdown">
-          <OwnerDropdown />
-         </div>}
-         {isUser&& <div className = "user-dropdown">
-          <UserDropdown/>
-         </div>}
-         {isAdmin&& <div className = "admin-dropdown">
-          <AdminDropdown/>
-         </div>}
-         </div>}
-
-
-          
-        </li> : null
-            }
-            
-            
+            {localStorage.getItem("authTokens") ? (
+              <li
+                className="nav-item"
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+              >
+                <Link
+                  to="/"
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                >
+                  Services <i className="fas fa-caret-down" />
+                </Link>
+                {visDropdown && (
+                  <div>
+                    <ScopesDropdown role={UserRole}/>
+                  </div>
+                )}
+              </li>
+            ) : null}
           </ul>
 
+          <div className="auth">
+            {localStorage.getItem("authTokens") ? (
+              <LogOutButton></LogOutButton>
+            ) : (
+              <Button
+                buttonStyle="btn--outline"
+                button
+                onClick={handleSinginButtonClick}
+              >
+                SIGN IN
+              </Button>
+            )}
+          </div>
 
-           <div className="auth">
-            {isLoggedIn? 
-            
-            <LogOutButton>
-            </LogOutButton> 
-            :
-            <Button
-              buttonStyle="btn--outline"
-              button
-              onClick={() => setButtonPopup(true)}
-            >
-              SIGN IN
-            </Button>}
-            </div>
-        
-          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-          <form>
-    <label>
-    Adhaar No.:
-    <input type="text" name="name" />
-    </label>
-    <br/>
-    <label>
-    Password:
-    <input type="password" name="name" />
-    </label>
-    <br/>
-    <label>
-    Role:
-    <select onChange={IsOwner} required>
-            <option> </option>
-            <option value="GOVTOff">Owner</option>
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-          </select>
-    </label>
-    <br/>
-
-    <label>
-    Village Name:
-    <select disabled = {isDisabled}>
-            <option value="Lasudiya Khas">Lasudiya Khas</option>
-            <option value="Gawa Kheda">Gawa Kheda</option>
-            <option value="Mana Khedi">Mana Khedi</option>
-            <option value="Nipaniya Kalan">Nipaniya Kalan</option>
-            <option value="Beda Khedi">Beda Khedi</option>
-            <option value="None" selected disabled hidden>None</option>
-          </select>
-          
-    </label>
-    <br/>
-    <label>
-    <input type = "checkbox"/>
-    I have read
-    <a href={"https://vtop.vitbhopal.ac.in/vtop/initialProcess"}>the agreement</a>
-    </label>
-    <br/>
-
-    
-  <input type="submit" value="Submit" />
-  </form>
-          </Popup>
+      
         </div>
       </nav>
     </>
