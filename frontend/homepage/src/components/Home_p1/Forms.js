@@ -1,12 +1,14 @@
 // import "./Form.css";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
-export class Form extends Component {
+import { saveAs } from "file-saver";
+
+export class Forms extends Component {
   state = {
     //Table1*****************************
     respondents_name: "0",
@@ -229,8 +231,8 @@ export class Form extends Component {
 
     const appliances_dict = {};
     appliances_dict["appliance_name"] = appliance_name;
-    appliances_dict["appliance_nos"] = appliance_nos;
-    appliances_dict["appliance_dur"] = appliance_dur;
+    appliances_dict["appliance_nos"] = parseInt(appliance_nos);
+    appliances_dict["appliance_dur"] = parseInt(appliance_dur);
 
     const appliances = this.state.appliances;
     appliances.push(appliances_dict);
@@ -286,12 +288,11 @@ export class Form extends Component {
     this.setState({ major_problems });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
     //TABLE1******************************************************
     const respondents_name = this.state.respondents_name;
-    const respondents_gender = this.state.respondents_gender;
     const respondents_age = this.state.respondents_age;
     const relation_w_hoh = this.state.relation_w_hoh;
     const respondents_contact = this.state.respondents_contact;
@@ -300,7 +301,6 @@ export class Form extends Component {
 
     const respondent_prof = {};
     respondent_prof["respondents_name"] = respondents_name;
-    respondent_prof["respondents_gender"] = respondents_gender;
     respondent_prof["respondents_age"] = parseInt(respondents_age);
     respondent_prof["relation_w_hoh"] = relation_w_hoh;
     respondent_prof["respondents_contact"] = respondents_contact;
@@ -308,7 +308,6 @@ export class Form extends Component {
     respondent_prof["id_no"] = id_no;
 
     console.log("respondent_prof", respondent_prof);
-
     //TABLE2*******************************************************
     const ho_id = this.state.ho_id;
     const hoh_name = this.state.hoh_name;
@@ -340,7 +339,6 @@ export class Form extends Component {
     gen_ho_info["annual_income"] = parseInt(annual_income);
 
     console.log("gen_ho_info", gen_ho_info);
-
     //Table3*****************************************************************
 
     const name = this.state.name;
@@ -380,7 +378,6 @@ export class Form extends Component {
     fam_info.push(fam_dict);
     this.setState({ fam_info });
     console.log("fam_info", fam_info);
-
     // table4**************************************************
 
     const are_migrants = this.state.are_migrants;
@@ -395,7 +392,6 @@ export class Form extends Component {
     mig_status["years_since_migration"] = parseInt(years_since_migration);
 
     console.log("mig_status", mig_status);
-
     // table5**************************************************
 
     const PM_jan_dhan_yojana = this.state.PM_jan_dhan_yojana;
@@ -438,24 +434,23 @@ export class Form extends Component {
     govt_schemes["kisan_credit_card"] = parseInt(kisan_credit_card);
 
     console.log("govt_schemes", govt_schemes);
-
     // table6**************************************************
 
     const piped_water = [];
-    const piped_water2 = this.state.piped_water2;
-    const piped_water3 = this.state.piped_water3;
+    const piped_water2 = parseInt(this.state.piped_water2);
+    const piped_water3 = parseInt(this.state.piped_water3);
 
     const hand_pump = [];
-    const hand_pump2 = this.state.hand_pump2;
-    const hand_pump3 = this.state.hand_pump3;
+    const hand_pump2 = parseInt(this.state.hand_pump2);
+    const hand_pump3 = parseInt(this.state.hand_pump3);
 
     const comm_water = [];
-    const comm_water2 = this.state.comm_water2;
-    const comm_water3 = this.state.comm_water3;
+    const comm_water2 = parseInt(this.state.comm_water2);
+    const comm_water3 = parseInt(this.state.comm_water3);
 
     const open_well = [];
-    const open_well2 = this.state.open_well2;
-    const open_well3 = this.state.open_well3;
+    const open_well2 = parseInt(this.state.open_well2);
+    const open_well3 = parseInt(this.state.open_well3);
 
     const mode_of_water_storage = this.state.mode_of_water_storage;
     const other_water_source = this.state.other_water_source;
@@ -474,7 +469,6 @@ export class Form extends Component {
     water_source["other_water_source"] = other_water_source;
 
     console.log("water_source", water_source);
-
     // table7**************************************************
 
     const electricity_conn = this.state.electricity_conn;
@@ -501,15 +495,17 @@ export class Form extends Component {
     this.setState({ appliances_dict });
 
     const source_of_energy = {};
-    source_of_energy["electricity_conn"] = electricity_conn;
-    source_of_energy["elec_avail_perday_hour"] = elec_avail_perday_hour;
+    source_of_energy["electricity_conn"] =
+      electricity_conn == "Yes" ? true : false;
+    source_of_energy["elec_avail_perday_hour"] = parseInt(
+      elec_avail_perday_hour
+    );
     source_of_energy["lighting"] = lighting;
     source_of_energy["cooking"] = cooking;
     source_of_energy["cook_chullah"] = cook_chullah;
     source_of_energy["appliances"] = appliances;
 
     console.log("source_of_energy", source_of_energy);
-
     // table8**************************************************
 
     const total_land = this.state.total_land;
@@ -521,15 +517,14 @@ export class Form extends Component {
 
     const land_holding_info = {};
 
-    land_holding_info["total_land"] = total_land;
-    land_holding_info["irrigated_area"] = irrigated_area;
-    land_holding_info["barren_or_wasteland"] = barren_or_wasteland;
-    land_holding_info["cultivable_area"] = cultivable_area;
-    land_holding_info["unirrigated_area"] = unirrigated_area;
-    land_holding_info["uncultivable_area"] = uncultivable_area;
+    land_holding_info["total_land"] = parseInt(total_land);
+    land_holding_info["irrigated_area"] = parseInt(irrigated_area);
+    land_holding_info["barren_or_wasteland"] = parseInt(barren_or_wasteland);
+    land_holding_info["cultivable_area"] = parseInt(cultivable_area);
+    land_holding_info["unirrigated_area"] = parseInt(unirrigated_area);
+    land_holding_info["uncultivable_area"] = parseInt(uncultivable_area);
 
     console.log("land_holding_info", land_holding_info);
-
     // table9**************************************************
 
     const is_chemical_fertilizer_used2 =
@@ -575,13 +570,12 @@ export class Form extends Component {
     agri_inputs["is_chemical_fertilizer_used"] = is_chemical_fertilizer_used;
     agri_inputs["is_chemical_insecticide_used"] = is_chemical_insecticide_used;
     agri_inputs["is_chemical_weedice_used"] = is_chemical_weedice_used;
-    agri_inputs[" is_chemical_organic_manuevers"] =
+    agri_inputs["is_chemical_organic_manuevers"] =
       is_chemical_organic_manuevers;
     agri_inputs["irrigation"] = this.state.irrigation;
     agri_inputs["irrigation_sys"] = this.state.irrigation_sys;
 
     console.log("agri_inputs", agri_inputs);
-
     // table10**************************************************
 
     const crop_name = this.state.crop_name;
@@ -603,7 +597,6 @@ export class Form extends Component {
     this.setState({ agri_products });
 
     console.log("agri_products", agri_products);
-
     //table11**************************************************
 
     const cows = this.state.cows;
@@ -636,7 +629,6 @@ export class Form extends Component {
     );
 
     console.log("livestock_nos", livestock_nos);
-
     //Table12**************************************************
 
     const problems1 = this.state.problems1;
@@ -647,19 +639,74 @@ export class Form extends Component {
     const Suggestions_by_villagers = [];
     Suggestions_by_villagers.push(Suggestions_by_villagers1);
 
-    const major_problems_dict = {};
-    major_problems_dict["problems"] = problems;
-    major_problems_dict["Suggestions_by_villagers"] = Suggestions_by_villagers;
+    const major_problems = {};
+    major_problems["problems"] = problems;
+    major_problems["Suggestions_by_villagers"] = Suggestions_by_villagers;
 
-    const major_problems = this.state.major_problems;
-    major_problems.push(major_problems_dict);
+    // const major_problems = this.state.major_problems;
+    // major_problems.push(major_problems_dict);
     this.setState({ major_problems });
 
-    console.log("major_problems", major_problems);
+    // console.log("major_problems", major_problems);
+    const postData = {
+      static_vars: {
+        village_name: "Sehore",
+        grampanchyat_name: "bhairaghad",
+        ward_no: "7",
+        block: "141",
+        district: "kothri-kalan",
+        state: "Madhya Pradesh",
+      },
+      respondent_prof: respondent_prof,
+      gen_ho_info: gen_ho_info,
+      fam_info: fam_info,
+      mig_status: mig_status,
+      govt_schemes: govt_schemes,
+      water_source: water_source,
+      source_of_energy: source_of_energy,
+      land_holding_info: land_holding_info,
+      agri_inputs: agri_inputs,
+      agri_products: agri_products,
+      livestock_nos: livestock_nos,
+      major_problems: major_problems,
+    };
+    console.log("postData", JSON.stringify(postData));
+
+    const settings = {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer " +
+          JSON.parse(localStorage.getItem("authTokens")).access_token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(
+        postData,
+      ),
+    };
+    let newURL =
+      "https://ubaformapi-git-prod-fastapis-build.vercel.app/api/post_data";
+    const fetchResponse = await fetch(newURL, settings);
+    const data = await fetchResponse.json();
+
+    if (data?.status === "login successful") {
+      console.log("data", data);
+    } else {
+      console.log("data", data);
+    }
+
+    // var filename = "data.json";
+
+    // var fileToSave = new Blob([JSON.stringify(postData)], {
+    //   type: "application/json",
+    // });
+
+    // saveAs(fileToSave, filename);
   };
 
   render() {
-    console.log("state:", this.state);
+    // console.log("state:", this.state);
     return (
       <div className="vform">
         {/* ************************** TABLE 1 *********************************/}
@@ -679,19 +726,6 @@ export class Form extends Component {
                   onChange={this.getValue}
                   name="respondents_name"
                 />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="respondents_gender">
-                <Form.Label>
-                  <p>
-                    Gender
-                    <br />
-                  </p>
-                </Form.Label>
-                <Form.Select onChange={this.getValue} name="respondents_gender">
-                  <option>Male</option>
-                  <option>Female</option>
-                </Form.Select>
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_age">
@@ -2185,4 +2219,4 @@ export class Form extends Component {
   }
 }
 
-export default Form;
+export default Forms;
