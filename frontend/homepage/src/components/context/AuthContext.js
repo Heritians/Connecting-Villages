@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
   let loginUser = async (e) => {
     e.preventDefault();
-    console.log("inside loginusser")
+    console.log("inside loginusser");
     setFormData({
       AADHAR_NO: e.target.AN.value,
       password: e.target.pwd.value,
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     let newURL =
-      "https://ubaformapi.vercel.app/auth/login" +
+      "https://ubaformapi-git-prod-fastapis-build.vercel.app/auth/login" +
       "?" +
       "AADHAR_NO=" +
       formData.AADHAR_NO +
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       // console.log(authTokens);
       setUser(jwt_decode(data.access_token));
-      console.log(user)
+      console.log(user);
       history("/");
       console.log("login successful");
     } else {
@@ -90,7 +90,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("authTokens");
     console.log("after remove localstrg");
     history("/");
-    
   };
 
   let updateToken = async () => {
@@ -112,7 +111,8 @@ export const AuthProvider = ({ children }) => {
       }),
     };
     // console.log(localStorage.getItem('access_token'));
-    let newURL = "https://ubaformapi.vercel.app/auth/use_refresh_token";
+    let newURL =
+      "https://ubaformapi-git-prod-fastapis-build.vercel.app/auth/use_refresh_token";
     const fetchResponse = await fetch(newURL, settings);
     const data = await fetchResponse.json();
 
@@ -128,7 +128,7 @@ export const AuthProvider = ({ children }) => {
 
       setAuthTokens(data);
       setUser(jwt_decode(data.access_token));
-    //   history.push("/login");
+      //   history.push("/login");
       console.log("token updated");
     } else {
       logoutUser();
