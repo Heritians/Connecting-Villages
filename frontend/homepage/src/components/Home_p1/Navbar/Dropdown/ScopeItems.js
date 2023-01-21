@@ -2,7 +2,7 @@ export const scopeItems={
   "GOVTOff":[
     {
         title: 'Create Account',
-        path: './createAccount',
+        path: './CreateAccount',
         cName: 'dropdown-link'
 
     },

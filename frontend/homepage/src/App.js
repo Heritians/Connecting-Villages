@@ -9,6 +9,7 @@ import Home from './components/Home_p1/HomePage';
 import { AuthProvider } from './components/context/AuthContext';
 import Popup from './components/Home_p1/Navbar/Login/Popup.js';
 import Forms from './components/Home_p1/Forms';
+import CreateAccount from './components/Home_p1/Navbar/CreateAccount/CreateAccount';
 
 
 // import Services from './components/pages/Services';
@@ -41,6 +42,7 @@ function App() {
             <Route path="/" exact element={<Home />} />
             <Route path="/products" />
             <Route path="/fillTheForm" exact element={<Forms />} />
+            <Route path="/CreateAccount" exact element={<CreateAccount trigger={true} />} />
           </Routes>
         </AuthProvider>
       </Router>
