@@ -1,72 +1,72 @@
 body {
-  margin: 0;
+  margin: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
 .Heading {
-  font-size: 2rem;
-  font-weight: 600;
-  width: 90%;
-  margin: auto;
-  margin-top: 1rem;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  width: 90% !important;
+  margin: auto !important;
+  margin-top: 1rem !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace !important;
 }
 
 /*Putting the text in Center*/
 
 
 .Box{
-  padding-top: 30px;
+  padding-top: 30px !important;
 }
 
 .Contribution {
-  background-color: #FAAC38;
-  padding-bottom: 60px;
-  padding-top: 60px;
+  background-color: #FAAC38 !important;
+  padding-bottom: 60px !important;
+  padding-top: 60px !important;
 }
 
 .Contribution-header {
-  font-size: 1.5rem;
-  font-weight: 350;
-  width: 90%;
-  margin-top: 1rem;
-  padding-left: 70px;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.5rem !important;
+  font-weight: 350 !important;
+  width: 90% !important;
+  margin-top: 1rem !important;
+  padding-left: 70px !important;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 
 
 
 .row {
-  display: flex;
+  display: flex !important;
 }
 
 .col-2 { 
-  align-self: center;
+  align-self: center !important;
   
 }
 
 
 .OrangeLine {
-  padding-bottom: 20px;
+  padding-bottom: 20px !important;
 }
 
 .Contribute{
-  background-color: #F89607;
-  border-radius: 4%;
-  border-color: 1px #FFFFFF;
-  height: 40px;
-  width: 180px;
+  background-color: #F89607 !important;
+  border-radius: 4% !important;
+  border-color: 1px #FFFFFF !important;
+  height: 40px !important;
+  width: 180px !important;
 }
 
 .Footerings{
-  padding-top: 50px;
+  padding-top: 50px !important;
 }
 

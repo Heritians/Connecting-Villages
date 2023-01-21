@@ -1,31 +1,29 @@
 import React, { useState, useEffect, useRef , useContext} from "react";
-import AuthContext, {AuthProvider} from "../../../context/AuthContext";
-import './Popup.css';
+import './CreateAccount.css';
 
 
-function Popup(props) {
+function CreateAccount(props) {
 
-  const loginAuthUser = useContext(AuthContext);
   const [isDisabled, setIsDisabled] = useState(false);
   const [isOwner, setOwner] = useState(true);
 
   const IsOwner = (event) => {
     if (event.target.value === "GOVTOff") {
-      setIsDisabled(true);
+      setIsDisabled(true);  
     } else {
       setIsDisabled(false);
     }
   };
   return (
-    <div className="popup">
-      <div className="popup-inner">
+    <div className="CreateAccount">
+      <div className="CreateAccount-inner">
       <a href="/">
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
           Close
         </button>
         </a>
         {/* {props.children} */}
-        <form onSubmit={loginAuthUser.loginUser}>
+        <form >
           <label>
             Adhaar No.:
             <input type="text" name="AN" />
@@ -69,11 +67,11 @@ function Popup(props) {
           </label>
           <br />
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Create Account" />
         </form>
       </div>
     </div>
   );
 }
 
-export default Popup;
+export default CreateAccount;
