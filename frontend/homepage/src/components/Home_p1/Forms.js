@@ -1,4 +1,4 @@
-// import "./Form.css";
+import "./Forms.css";
 import React, { Component, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
