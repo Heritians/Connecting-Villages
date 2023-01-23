@@ -5,8 +5,8 @@ import './CreateAccount.css';
 function CreateAccount(props) {
 
   const [isDisabled, setIsDisabled] = useState(false);
-  const [isOwner, setOwner] = useState(false);
-  const [isAdmin,setAdmin] = useState(true)
+  const [isOwner, setOwner] = useState(true);
+  const [isAdmin,setAdmin] = useState(false)
   const [Village, setVillage] = useState("Lasudiya Khas")
  
 
