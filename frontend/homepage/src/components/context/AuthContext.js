@@ -18,17 +18,19 @@ export const AuthProvider = ({ children }) => {
     village_name: "",
     role: "",
   });
-
+  
   let [user, setUser] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? jwt_decode(localStorage.getItem("authTokens"))
-      : null
+  localStorage.getItem("authTokens")
+  ? jwt_decode(localStorage.getItem("authTokens"))
+  : null
   );
+  let [village, setVillage ] = useState("");
   let [loading, setLoading] = useState(true);
-
+  
   const history = useNavigate();
-
+  
   let loginUser = async (e) => {
+    setVillage(e.target.villname.value);
     e.preventDefault();
     console.log("inside loginusser");
     setFormData({
@@ -146,6 +148,7 @@ export const AuthProvider = ({ children }) => {
     authTokens: authTokens,
     loginUser: loginUser,
     logoutUser: logoutUser,
+    village:village,
   };
 
   useEffect(() => {
