@@ -5,15 +5,10 @@ import './CreateAccount.css';
 function CreateAccount(props) {
 
   const [isDisabled, setIsDisabled] = useState(false);
-  const [isOwner, setOwner] = useState(true);
+  const [isOwner, setOwner] = useState(false);
+  const [isAdmin,setAdmin] = useState(true)
+ 
 
-  const IsOwner = (event) => {
-    if (event.target.value === "GOVTOff") {
-      setIsDisabled(true);  
-    } else {
-      setIsDisabled(false);
-    }
-  };
   return (
     <div className="CreateAccount">
       <div className="CreateAccount-inner">
@@ -34,20 +29,31 @@ function CreateAccount(props) {
             <input type="password" name="pwd" />
           </label>
           <br />
+          {isOwner&& <div>
           <label>
             Role:
-            <select onChange={IsOwner} required name="role">
+            
+            <select required name="role">
               <option defaultValue="None">None</option>
               <option value="GOVTOff">Owner</option>
               <option value="Admin">Admin</option>
               <option value="User">User</option>
             </select>
-          </label>
-          <br />
+          </label> </div>}
+          {isAdmin&& <div>
+          <label>
+          Role:
+          <select required name="role">
+            <option defaultValue="None">None</option>
+            <option value="User">User</option>
+          </select>
+        </label>
+          </div>}
+          
 
           <label>
             Village Name:
-            <select disabled={isDisabled} name="villname">
+            <select name="villname">
               <option value="Lasudiya Khas">Lasudiya Khas</option>
               <option value="Gawa Kheda">Gawa Kheda</option>
               <option value="Mana Khedi">Mana Khedi</option>
