@@ -7,6 +7,7 @@ function CreateAccount(props) {
   const [isDisabled, setIsDisabled] = useState(false);
   const [isOwner, setOwner] = useState(false);
   const [isAdmin,setAdmin] = useState(true)
+  const [Village, setVillage] = useState("Lasudiya Khas")
  
 
   return (
@@ -49,20 +50,27 @@ function CreateAccount(props) {
           </select>
         </label>
           </div>}
-          
 
+          {isOwner&& <div>
+          <label>
+          Village Name:
+          <select name="villname">
+            <option value="Lasudiya Khas">Lasudiya Khas</option>
+            <option value="Gawa Kheda">Gawa Kheda</option>
+            <option value="Mana Khedi">Mana Khedi</option>
+            <option value="Nipaniya Kalan">Nipaniya Kalan</option>
+            <option value="Beda Khedi">Beda Khedi</option>
+            <option value="Sehore" selected disabled hidden>
+              None
+            </option>
+          </select>
+        </label> 
+          </div>}
+          
+        {isAdmin&& <div> 
           <label>
             Village Name:
-            <select name="villname">
-              <option value="Lasudiya Khas">Lasudiya Khas</option>
-              <option value="Gawa Kheda">Gawa Kheda</option>
-              <option value="Mana Khedi">Mana Khedi</option>
-              <option value="Nipaniya Kalan">Nipaniya Kalan</option>
-              <option value="Beda Khedi">Beda Khedi</option>
-              <option value="Sehore" selected disabled hidden>
-                None
-              </option>
-            </select>
+            <input value = {Village} disabled={true}/>
           </label>
           <br />
           <label>
@@ -71,6 +79,7 @@ function CreateAccount(props) {
               the agreement
             </a>
           </label>
+          </div>}
           <br />
 
           <input type="submit" value="Create Account" />
