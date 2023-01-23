@@ -6,14 +6,10 @@ function CreateAccount(props) {
 
   const [isDisabled, setIsDisabled] = useState(false);
   const [isOwner, setOwner] = useState(true);
+  const [isAdmin,setAdmin] = useState(false)
+  const [Village, setVillage] = useState("Lasudiya Khas")
+ 
 
-  const IsOwner = (event) => {
-    if (event.target.value === "GOVTOff") {
-      setIsDisabled(true);  
-    } else {
-      setIsDisabled(false);
-    }
-  };
   return (
     <div className="CreateAccount">
       <div className="CreateAccount-inner">
@@ -34,29 +30,47 @@ function CreateAccount(props) {
             <input type="password" name="pwd" />
           </label>
           <br />
+          {isOwner&& <div>
           <label>
             Role:
-            <select onChange={IsOwner} required name="role">
+            
+            <select required name="role">
               <option defaultValue="None">None</option>
-              <option value="GOVTOff">Owner</option>
+              {/* <option value="GOVTOff">Owner</option> */}
               <option value="Admin">Admin</option>
               <option value="User">User</option>
             </select>
-          </label>
-          <br />
+          </label> </div>}
+          {isAdmin&& <div>
+          <label>
+          Role:
+          <select required name="role">
+            <option defaultValue="None">None</option>
+            <option value="User">User</option>
+          </select>
+        </label>
+          </div>}
 
+          {isOwner&& <div>
+          <label>
+          Village Name:
+          <select name="villname">
+            <option value="Lasudiya Khas">Lasudiya Khas</option>
+            <option value="Gawa Kheda">Gawa Kheda</option>
+            <option value="Mana Khedi">Mana Khedi</option>
+            <option value="Nipaniya Kalan">Nipaniya Kalan</option>
+            <option value="Beda Khedi">Beda Khedi</option>
+            <option value="Sehore" selected disabled hidden>
+              None
+            </option>
+          </select>
+        </label> 
+          </div>}
+          
+        {isAdmin&& <div> 
           <label>
             Village Name:
-            <select disabled={isDisabled} name="villname">
-              <option value="Lasudiya Khas">Lasudiya Khas</option>
-              <option value="Gawa Kheda">Gawa Kheda</option>
-              <option value="Mana Khedi">Mana Khedi</option>
-              <option value="Nipaniya Kalan">Nipaniya Kalan</option>
-              <option value="Beda Khedi">Beda Khedi</option>
-              <option value="Sehore" selected disabled hidden>
-                None
-              </option>
-            </select>
+            <input value = {Village} disabled={true}/>
           </label>
           <br />
           <label>
@@ -65,6 +79,7 @@ function CreateAccount(props) {
               the agreement
             </a>
           </label>
+          </div>}
           <br />
 
           <input type="submit" value="Create Account" />
