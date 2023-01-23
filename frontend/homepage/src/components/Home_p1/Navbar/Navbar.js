@@ -23,7 +23,6 @@ function Navbar() {
   const UserRole=loginAuthUser.user?loginAuthUser.user["sub"].split('_')[1]:"Not Authenticated"
 
   const visDropdown=loginAuthUser.user?true:false;
-  console.log(UserRole);
 
   const [isDropdown, setDropdown] = useState(false);
 
@@ -80,7 +79,7 @@ function Navbar() {
             <p className="navbar-logo2">tians</p>
             <p className="navbar-logoicon">
               {" "}
-              <i class="fa-solid fa-hand-holding-hand"></i>{" "}
+              <i className="fa-solid fa-hand-holding-hand"></i>{" "}
             </p>
           </Link>
           <div className="menu-icon" onClick={handleClick}>

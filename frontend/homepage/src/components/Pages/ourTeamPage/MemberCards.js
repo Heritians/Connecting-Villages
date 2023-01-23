@@ -10,8 +10,8 @@ function MemberCards(props) {
             <p>{props.overlay}</p> 
             </div>
             <div className="social_links">
-            <a href={props.linkedin}><i class="fa fa-linkedin"></i></a>
-            <a href={props.github}><i class="fa fa-github"></i></a>
+            <a href={props.linkedin}><i className="fa fa-linkedin"></i></a>
+            <a href={props.github}><i className="fa fa-github"></i></a>
             </div>
             </div>         
           </div>

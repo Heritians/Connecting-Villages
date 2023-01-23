@@ -28,7 +28,7 @@ export const scopeItems={
   "admin":[
   {
     title: "Create User Account",
-    path: "./createUserAccount",
+    path: "./createAccount",
     cName: "dropdown-link",
   },
   {

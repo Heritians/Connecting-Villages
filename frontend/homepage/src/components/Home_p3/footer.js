@@ -15,7 +15,7 @@ export function FooterContainer() {
                         
                          <Footer.Title><div>Heritians</div></Footer.Title>
                          
-                        <Footer.Link><i class="fa fa-map-pin" aria-hidden="true" style={{display: "inline-block", height: 30, width: 13,}}></i>VIT Bhopal University</Footer.Link>
+                        <Footer.Link><i className="fa fa-map-pin" aria-hidden="true" style={{display: "inline-block", height: 30, width: 13,}}></i>VIT Bhopal University</Footer.Link>
                         
                         <Footer.Link>Bhopal-Indore Highway</Footer.Link>
                         <Footer.Link>Sehore,Madhya Pradesh</Footer.Link>

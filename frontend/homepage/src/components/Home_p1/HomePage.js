@@ -113,13 +113,13 @@ function HomePage() {
       <div>
         <div className="Box">
           <div className="Contribution">
-            <div class="main-footer">
-              <div class="container">
-                <div class="row">
-                  <div class="col-1"></div>
+            <div className="main-footer">
+              <div className="container">
+                <div className="row">
+                  <div className="col-1"></div>
                 </div>
-                <div class="row">
-                  <div class="col-1">
+                <div className="row">
+                  <div className="col-1">
                     <div className="Contribution-header">
                       <p className="text">
                         Want to learn how you can make a contribution?
@@ -127,7 +127,7 @@ function HomePage() {
                     </div>
                   </div>
 
-                  <div class="col-2">
+                  <div className="col-2">
                     <div className="ButtonImp">
                       <button
                         className="Contribute"
