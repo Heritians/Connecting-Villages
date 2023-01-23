@@ -36,7 +36,7 @@ function CreateAccount(props) {
             
             <select required name="role">
               <option defaultValue="None">None</option>
-              <option value="GOVTOff">Owner</option>
+              {/* <option value="GOVTOff">Owner</option> */}
               <option value="Admin">Admin</option>
               <option value="User">User</option>
             </select>
