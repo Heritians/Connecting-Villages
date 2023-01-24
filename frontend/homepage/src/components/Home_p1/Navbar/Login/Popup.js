@@ -41,8 +41,8 @@ function Popup(props) {
             <select onChange={IsOwner} required name="role">
               <option defaultValue="None">None</option>
               <option value="GOVTOff">Owner</option>
-              <option value="Admin">Admin</option>
-              <option value="User">User</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
             </select>
           </label>
           <br />
@@ -54,7 +54,7 @@ function Popup(props) {
               <option value="Gawa Kheda">Gawa Kheda</option>
               <option value="Mana Khedi">Mana Khedi</option>
               <option value="Nipaniya Kalan">Nipaniya Kalan</option>
-              <option value="Beda Khedi">Beda Khedi</option>
+              <option value="Sehore">Sehore</option>
               <option value="Sehore" selected disabled hidden>
                 None
               </option>
