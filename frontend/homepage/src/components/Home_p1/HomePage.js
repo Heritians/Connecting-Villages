@@ -42,7 +42,7 @@ function HomePage() {
           <img className="herologo-3" src="./images/img-1.jpg" alt="UBA"></img>
         </div>
         <div >
-        <h1>Data Collection and Analysis</h1>
+        <h1 className='heading'>Data Collection and Analysis</h1>
         <p>
           The website that digitalizes the ‘Unnat Bharat Abhiyan Baseline
           Household Survey Form’. We also intend to analyze the data entered in

@@ -48,14 +48,19 @@ video {
   
 
   .hero-container > h1 {
-    color: #fff !important;
-    font-size:60px !important;
-    margin-top: -100px !important;
-    position: relative !important; 
-    top: 70px !important;
-    font-family: 'Kaisei Opti', serif !important;
+    color: #fff ;
+    width:500px;
+    text-align: center;
+    font-size:60px;
+    margin-top: -100px;
+    position: relative; 
+    top: 70px;
+    font-family: 'Kaisei Opti', serif;
   }
   
+  .heading{
+    text-align: center;
+  }
   .hero-container > p {
     margin-top: 8px !important;
     color: #fff !important;
