@@ -6,24 +6,24 @@ export const scopeItems={
         cName: 'dropdown-link'
 
     },
-    {
-        title: 'View Village Data',
-        path: './viewVillageData',
-        cName: 'dropdown-link'
+    // {
+    //     title: 'View Village Data',
+    //     path: './viewVillageData',
+    //     cName: 'dropdown-link'
 
-    },
+    // },
     {
         title: 'View Analytics',
         path: './viewAnalytics',
         cName: 'dropdown-link'
 
     },
-    {
-        title: 'Fill the Form',
-        path: './fillTheForm',
-        cName: 'dropdown-link'
+    // {
+    //     title: 'Fill the Form',
+    //     path: './fillTheForm',
+    //     cName: 'dropdown-link'
 
-    }
+    // }
   ],
   "admin":[
   {
@@ -31,11 +31,11 @@ export const scopeItems={
     path: "./createAccount",
     cName: "dropdown-link",
   },
-  {
-    title: "View Village Data",
-    path: "./viewTheirVillageData",
-    cName: "dropdown-link",
-  },
+  // {
+  //   title: "View Village Data",
+  //   path: "./viewTheirVillageData",
+  //   cName: "dropdown-link",
+  // },
   {
     title: "View Analytics",
     path: "./viewTheirAnalytics",
