@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 // Styling file for footer.js
 
+
+
 export const Container = styled.div`
   padding: 5px 80px !important;
   background: #23188C !important;

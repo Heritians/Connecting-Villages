@@ -125,9 +125,8 @@ function Navbar() {
                 )}
               </li>
             ) : null}
-          </ul>
-
-          <div className="auth">
+            <li>
+            <div className="nav-links">
             {localStorage.getItem("authTokens") ? (
               <LogOutButton></LogOutButton>
             ) : (
@@ -140,6 +139,11 @@ function Navbar() {
               </Button>
             )}
           </div>
+
+            </li>
+          </ul>
+
+          
         </div>
       </nav>
     </>

@@ -50,7 +50,7 @@ video {
 /* upper part background image container */
   .hero-container {
     background: url('/public/images/img-2.png') center center/cover no-repeat !important;
-    height: 750px !important;
+    height: 620px !important;
     width: 100% !important;
     background-size: 100% 100% !important;
     display: flex !important;
@@ -64,8 +64,7 @@ video {
   
   .image_section{
     display: grid !important;
-    justify-content: center !important;
-    text-align: center !important;
+    place-items: center;
   }
   .heading{
     
@@ -76,7 +75,7 @@ video {
     position: relative; 
     top: 70px;
     font-family: 'Kaisei Opti', serif;
-    text-align: center !important;
+    text-align: center;
   }
 
   .descp{
@@ -86,10 +85,10 @@ video {
     font-size: 3vmin !important;
     position: relative !important; 
     top: 70px !important;
-    width: 100% !important;
-    text-align: center !important;
+    width: 90% !important;
     font-family: 'Merriweather', serif !important;
     text-align: center;
+
   }
   
   .hero-btns {
