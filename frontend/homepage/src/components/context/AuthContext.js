@@ -80,9 +80,9 @@ export const AuthProvider = ({ children }) => {
       setUser(jwt_decode(data.access_token));
       console.log(user);
       history("/");
-      console.log("login successful");
+      console.log("Login Successful");
     } else {
-      alert("Invalid Credentials");
+      alert("Try Again");
     }
   };
 

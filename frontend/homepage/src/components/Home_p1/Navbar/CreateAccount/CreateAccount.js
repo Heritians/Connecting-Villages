@@ -73,19 +73,19 @@ function CreateAccount(props) {
         <form onSubmit={handleSubmit}>
           <label>
             Adhaar No.:
-            <input type="text" name="AN" />
+            <input className="inpt-adhaar" type="text" name="AN" />
           </label>
           <br />
           <label>
             Password:
-            <input type="password" name="pwd" />
+            <input className="inpt-password" type="password" name="pwd" />
           </label>
           <br />
           {role=="GOVTOff"?<div>
           <label>
             Role:
             
-            <select required name="role">
+            <select className="select-role" required name="role">
               <option defaultValue="None">None</option>
               {/* <option value="GOVTOff">Owner</option> */}
               <option value="admin">Admin</option>
@@ -96,7 +96,7 @@ function CreateAccount(props) {
           <div>
           <label>
           Role:
-          <select required name="role">
+          <select className="select-role"  required name="role">
             <option defaultValue="None">None</option>
             <option value="user">User</option>
           </select>
@@ -107,7 +107,7 @@ function CreateAccount(props) {
           {role=="GOVTOff" ? <div>
           <label>
           Village Name:
-          <select name="villname">
+          <select className="select-village" name="villname">
             <option value="Lasudiya Khas">Lasudiya Khas</option>
             <option value="Gawa Kheda">Gawa Kheda</option>
             <option value="Mana Khedi">Mana Khedi</option>
@@ -135,7 +135,7 @@ function CreateAccount(props) {
           </div>}
           <br />
 
-          <input type="submit" value="Create Account" />
+          <input className="submit-btn" type="submit" value="Create Account" />
         </form>
       </div>
     </div>
