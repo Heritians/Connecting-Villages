@@ -86,7 +86,8 @@ video {
     font-size: 3vmin !important;
     position: relative !important; 
     top: 70px !important;
-    width: 80% !important;
+    width: 100% !important;
+    text-align: center !important;
     font-family: 'Merriweather', serif !important;
     text-align: center;
   }

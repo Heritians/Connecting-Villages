@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Home_p1/Navbar/Navbar';
 import Home from './components/Home_p1/HomePage';
 
-
 import { AuthProvider } from './components/context/AuthContext';
 import Popup from './components/Home_p1/Navbar/Login/Popup.js';
 import Forms from './components/Home_p1/Forms';
 import CreateAccount from './components/Home_p1/Navbar/CreateAccount/CreateAccount';
-
+import ContactUs from './components/Home_p1/Navbar/Nav_elements/ContactUs';
+import AboutUs from './components/Home_p1/Navbar/Nav_elements/AboutUs';
 
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
@@ -40,9 +40,10 @@ function App() {
           <Routes>
             <Route path="/signin" exact element={<Popup trigger={true} />} />
             <Route path="/" exact element={<Home />} />
-            <Route path="/products" />
+            <Route path="/AboutUs" exact element={<AboutUs/>} />
             <Route path="/fillTheForm" exact element={<Forms />} />
             <Route path="/CreateAccount" exact element={<CreateAccount trigger={true} />} />
+            <Route path="/ContactUs" exact element={<ContactUs trigger={true} />} />
           </Routes>
         </AuthProvider>
       </Router>

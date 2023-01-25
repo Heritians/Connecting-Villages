@@ -21,24 +21,24 @@ function Popup(props) {
       <div className="popup-inner">
       <a href="/">
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
-          Close
+         Close
         </button>
         </a>
         {/* {props.children} */}
         <form onSubmit={loginAuthUser.loginUser}>
           <label>
             Adhaar No.:
-            <input type="text" name="AN" />
+            <input className="inpt-adhaar" type="text" name="AN" />
           </label>
           <br />
           <label>
             Password:
-            <input type="password" name="pwd" />
+            <input className="inpt-password" type="password" name="pwd" />
           </label>
           <br />
           <label>
             Role:
-            <select onChange={IsOwner} required name="role">
+            <select className="select-role" onChange={IsOwner} required name="role">
               <option defaultValue="None">None</option>
               <option value="GOVTOff">Owner</option>
               <option value="admin">Admin</option>
@@ -49,7 +49,7 @@ function Popup(props) {
 
           <label>
             Village Name:
-            <select disabled={isDisabled} name="villname">
+            <select className="select-village"disabled={isDisabled} name="villname">
               <option value="Lasudiya Khas">Lasudiya Khas</option>
               <option value="Gawa Kheda">Gawa Kheda</option>
               <option value="Mana Khedi">Mana Khedi</option>
@@ -62,14 +62,14 @@ function Popup(props) {
           </label>
           <br />
           <label>
-            <input type="checkbox" />I have read
-            <a href={"https://vtop.vitbhopal.ac.in/vtop/initialProcess"}>
+            <input className = "inpt " type="checkbox" /> I have read 
+            <a className="agree-link" href={"https://vtop.vitbhopal.ac.in/vtop/initialProcess"}>
               the agreement
             </a>
           </label>
           <br />
 
-          <input type="submit" value="Submit" />
+          <input className=" inpt submit-btn" type="submit" value="Submit" />
         </form>
       </div>
     </div>
