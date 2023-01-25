@@ -10,7 +10,7 @@
     top: 0 !important;
     z-index: 999 !important;
   }
-  
+   
   .navbar-container {
     display: flex !important;
     flex-direction: row !important;
@@ -92,6 +92,10 @@
   .menu-icon {
     display: none !important;
     
+  }
+
+  .btn2{
+    margin-top: 1000px;
   }
   
   @media screen and (max-width: 960px) {

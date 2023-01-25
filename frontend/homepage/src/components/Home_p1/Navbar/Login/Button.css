@@ -6,7 +6,7 @@
     padding: 8px 20px !important;
     border-radius: 2px !important;
     outline: none !important;
-    border: none !important;
+    border: none !important; 
     cursor: pointer !important;
   }
   
@@ -14,6 +14,7 @@
     background-color: var(--primary) !important;
     color: #242424 !important;
     border: 1px solid var(--primary) !important;
+    position : absolute !important;
   }
   
   .btn--outline {
