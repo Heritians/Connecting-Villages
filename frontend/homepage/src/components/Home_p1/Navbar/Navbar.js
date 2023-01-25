@@ -23,7 +23,6 @@ function Navbar() {
   const UserRole=loginAuthUser.user?loginAuthUser.user["sub"].split('_')[1]:"Not Authenticated"
 
   const visDropdown=loginAuthUser.user?true:false;
-  console.log(UserRole);
 
   const [isDropdown, setDropdown] = useState(false);
 
@@ -80,7 +79,7 @@ function Navbar() {
             <p className="navbar-logo2">tians</p>
             <p className="navbar-logoicon">
               {" "}
-              <i class="fa-solid fa-hand-holding-hand"></i>{" "}
+              <i className="fa-solid fa-hand-holding-hand"></i>{" "}
             </p>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
@@ -88,11 +87,11 @@ function Navbar() {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/AboutUs" className="nav-links" onClick={closeMobileMenu}>
                 About Us
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 to="/services"
                 className="nav-links"
@@ -100,10 +99,10 @@ function Navbar() {
               >
                 Our Team
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link
-                to="/products"
+                to="/ContactUs"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >

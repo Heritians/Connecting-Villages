@@ -34,7 +34,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.popup{
+.ContactUs{
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -49,11 +49,7 @@
 }
 
 
-.agree-link{
-    margin-left: 4px !important;
-}
-
-.popup-inner{
+.ContactUs-inner{
     color: #000000 !important;
     font-family: "Poppins", sans-serif;
     position: relative !important;
@@ -64,7 +60,7 @@
     border: 2px solid #580feb !important;
 }
 
-.popup-inner .close-btn{
+.ContactUs-inner .close-btn{
     font-family: "Poppins", sans-serif;
     position: absolute !important;
     top: 16px !important;
