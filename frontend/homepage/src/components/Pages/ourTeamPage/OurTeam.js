@@ -1,7 +1,8 @@
 import React from "react";
 import MemberCards from "./MemberCards";
 import './OurTeam.css';
-import Headings from "./Heading";
+import { FooterContainer } from "../../Home_p3/footer";
+
 
 
 
@@ -10,21 +11,21 @@ import Headings from "./Heading";
 const OurTeam = () => {
   return (
     <>
-    <Headings/>
-    <div className="all_cards">
+    <p className="head1">Our Team</p>
+    {/* <hr className="line1"></hr>
+    <p className="head2">Lorem ipsum</p> */}
+    <div className="all_cards1">
     <MemberCards
-          img="./images/hemanth.jfif" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="HEMANTH SAI"
+         img ="./images/hemanth.jfif" 
+          title="HEMANTH"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/HemanthSai7"
           linkedin = "https://www.linkedin.com/in/hemanthsai3187/"
     />
     <MemberCards
-          img="./images/sample.jpeg" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="MAYURESH AGASHE"
+          img="./images/Mayuresh.jpeg" 
+          title="MAYURESH"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/mayureshagashe2105"
@@ -32,17 +33,15 @@ const OurTeam = () => {
     />
     <MemberCards
           img="./images/sayan.jpeg" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="SAYAN SHAH"
+          title="SAYAN"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/SayanSaha01"
           linkedin = "https://www.linkedin.com/in/sayan-saha001/"
     />
     <MemberCards
-          img="./images/sample.jpeg" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="SUYOG KASTURE"
+          img="./images/" 
+          title="SUYOG"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/bumpansy"
@@ -51,8 +50,7 @@ const OurTeam = () => {
           />
           <MemberCards
           img="./images/anmol.png" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="ANMOL GARG"
+          title="ANMOL"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/Scholasticpal"
@@ -60,8 +58,7 @@ const OurTeam = () => {
     />
     <MemberCards
           img="./images/gargi.jpeg" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="GARGI SINGH"
+          title="GARGI"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/Gargi1971"
@@ -72,8 +69,7 @@ const OurTeam = () => {
     
     <MemberCards
           img="./images/vishesh.jpg" 
-          alt = "An image of Lasudiya Khas is supposed to be displayed here"
-          title="VISHESH TRIPATHI"
+          title="VISHESH"
           description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/Vishesht27"
@@ -82,6 +78,16 @@ const OurTeam = () => {
     />
     
     </div>
+    <div className="back">
+          <a href="/">
+            <button className="back-btn">Back to Homepage</button>
+          </a>
+        </div>
+
+        {/* footer */}
+        <div className="FooterWhole">
+          <FooterContainer />
+        </div>
     </>
   );
 };
