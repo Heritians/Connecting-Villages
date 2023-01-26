@@ -115,7 +115,7 @@ function Navbar() {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
               >
-                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                <Link to="/ServicesSmall" className="nav-links" onClick={closeMobileMenu}>
                   Services <i className="fas fa-caret-down" />
                 </Link>
                 {isDropdown && (
@@ -125,9 +125,8 @@ function Navbar() {
                 )}
               </li>
             ) : null}
-          </ul>
-
-          <div className="auth">
+            <li>
+            <div className="nav-links">
             {localStorage.getItem("authTokens") ? (
               <LogOutButton></LogOutButton>
             ) : (
@@ -140,6 +139,11 @@ function Navbar() {
               </Button>
             )}
           </div>
+
+            </li>
+          </ul>
+
+          
         </div>
       </nav>
     </>

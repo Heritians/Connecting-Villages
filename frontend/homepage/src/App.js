@@ -11,6 +11,7 @@ import Forms from './components/Home_p1/Forms';
 import CreateAccount from './components/Home_p1/Navbar/CreateAccount/CreateAccount';
 import ContactUs from './components/Home_p1/Navbar/Nav_elements/ContactUs';
 import AboutUs from './components/Home_p1/Navbar/Nav_elements/AboutUs';
+import ServicesSmall from './components/Home_p1/Navbar/Dropdown/ServicesSmall';
 
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
@@ -44,6 +45,7 @@ function App() {
             <Route path="/fillTheForm" exact element={<Forms />} />
             <Route path="/CreateAccount" exact element={<CreateAccount trigger={true} />} />
             <Route path="/ContactUs" exact element={<ContactUs trigger={true} />} />
+            <Route path="/ServicesSmall" exact element={<ServicesSmall trigger={true} />} />
           </Routes>
         </AuthProvider>
       </Router>

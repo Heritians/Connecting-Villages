@@ -6,7 +6,6 @@ import { Button } from './Navbar/Login/Button';
 import { FooterContainer } from '../Home_p3/footer';
 import ImageSlider from '../Home_p3/carousel/imageSlider';
 import carousel_images from '../Home_p3/carousel/carousel_images';
-import Heading from '../Home_p2/Heading';
 import Cards from '../Home_p2/Cards';
 
 
@@ -41,9 +40,9 @@ function HomePage() {
           ></img>
           <img className="herologo-3" src="./images/img-1.jpg" alt="UBA"></img>
         </div>
-        <div >
-        <h1>Data Collection and Analysis</h1>
-        <p>
+        <div className='image_section'>
+        <h1 className='heading'>Data Collection and Analysis</h1>
+        <p className='descp'>
           The website that digitalizes the ‘Unnat Bharat Abhiyan Baseline
           Household Survey Form’. We also intend to analyze the data entered in
           the form from the villages and present it graphically for easy
@@ -73,7 +72,8 @@ function HomePage() {
         </div>
       </div>
       <div className="position-absolute top-50 start-150 translate-middle">
-        <Heading></Heading>
+      <h1 className='subhead1'>Explore the Prosperous Villages</h1>
+      <h6 className='subhead2'>Sehore District</h6>
       </div>
 
       <div className="all_cards">

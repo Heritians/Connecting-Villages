@@ -710,10 +710,10 @@ export class Forms extends Component {
       <div className="vform">
         {/* ************************** TABLE 1 *********************************/}
 
-        <div>
+        <div className="table1">
           <Form >
             
-          <h2>1. Respondent's Profile</h2>
+          <h2 className="h2title" >1. Respondent's Profile</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
                 <Form.Label>
@@ -786,7 +786,7 @@ export class Forms extends Component {
                 <Form.Control onChange={this.getValue} name="id_no" />
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/* *************************** TABLE 2 ********************************************* */}
@@ -794,21 +794,21 @@ export class Forms extends Component {
         <div>
           <Form>
           
-          <h2>2. General Household Information</h2>
+          <h2 className="h2title" >2. General Household Information</h2>
             <Row className="mb-3">
             <div>
               <Form.Group as={Col} controlId="">
-                <Form.Label>Household</Form.Label> 
+                <Form.Label>Household  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Control onChange={this.getValue} name="ho_id" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="">
-                <Form.Label>Name of Household</Form.Label> 
+                <Form.Label>Name of Household &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Control onChange={this.getValue} name="hoh_name" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Gender</Form.Label> 
+                <Form.Label>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="hoh_gender">
                   <option>Male</option>
                   <option>Female</option>
@@ -816,7 +816,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Category</Form.Label> 
+                <Form.Label>Category &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="category">
                   <option>Gen</option>
                   <option>SC</option>
@@ -826,7 +826,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Poverty Status</Form.Label> 
+                <Form.Label>Poverty Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="pov_status">
                   <option>APL</option>
                   <option>BPL</option>
@@ -834,7 +834,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Own House</Form.Label> 
+                <Form.Label>Own House &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="own_house">
                   <option>Yes</option>
                   <option>No</option>
@@ -842,7 +842,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Type of House</Form.Label> 
+                <Form.Label>Type of House &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="house_type">
                   <option>Kutcha</option>
                   <option>Semi Pucca</option>
@@ -853,7 +853,7 @@ export class Forms extends Component {
               </div>
               <div>
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Toilet</Form.Label> 
+                <Form.Label>Toilet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="toilet">
                   <option>Private</option>
                   <option>Community</option>
@@ -885,7 +885,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="">
-                <Form.Label>Compost Pit</Form.Label> 
+                <Form.Label>Compost Pit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="compost_pit">
                   <option>Individual</option>
                   <option>Group</option>
@@ -894,7 +894,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="">
-                <Form.Label>Biogas Plant</Form.Label> 
+                <Form.Label>Biogas Plant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Select onChange={this.getValue} name="biogas_plant">
                   <option>Individual</option>
                   <option>Group</option>
@@ -915,14 +915,14 @@ export class Forms extends Component {
               </Form.Group>
               </div>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/********************** TABLE 3 ******************************************************** */}
 
         <div>
           <Form>
-            <h2>3. Family Member Information</h2>
+            <h2 className="h2title" >3. Family Member Information</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
                 <p>Name (Family Members)</p>
@@ -1059,11 +1059,11 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Major Health Problems (mention if Any)</p>
+                <p>Major Health Problems </p>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Control onChange={this.getValue} name="health_prob" />
+                <Form.Control placeholder="(mention if Any)" onChange={this.getValue} name="health_prob" />
               </Form.Group>
             </Row>
 
@@ -1082,7 +1082,8 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Self Help Groups (Select 'Yes' if member is involved)</p>
+                <p>Self Help Groups</p>
+                <p> (Select 'Yes' if member is involved)</p>
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name">
@@ -1095,7 +1096,7 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Occupations</p>
+                <p>Occupation</p>
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name">
@@ -1104,6 +1105,7 @@ export class Forms extends Component {
             </Row>
 
             <Button
+            className="btns"
               variant="secondary"
               type="reset"
               onClick={() => {
@@ -1116,7 +1118,7 @@ export class Forms extends Component {
             >
               Add New
             </Button>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/* ***************************** TABLE 4 **************************************** */}
@@ -1124,7 +1126,7 @@ export class Forms extends Component {
         <div>
           <Form>
           
-          <h2>4. Migration Status in Family</h2>
+          <h2 className="h2title" >4. Migration Status in Family</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Does any member migrate for work?</Form.Label><br/>
@@ -1165,14 +1167,14 @@ export class Forms extends Component {
                 />
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/* ***************************** TABLE 5 **************************************** */}
         <div>
           <Form>
           
-          <h2>5. Information of Government Schemes</h2>
+          <h2 className="h2title" >5. Information of Government Schemes</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
                 <h4>Sno.</h4>
@@ -1492,7 +1494,7 @@ export class Forms extends Component {
                 />
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/* ***************************** TABLE 6 **************************************** */}
@@ -1500,7 +1502,7 @@ export class Forms extends Component {
         <div>
           <Form>
           
-          <h2>6. Source of Water</h2>
+          <h2 className="h2title" >6. Source of Water</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
                 <h4>Sources of water</h4>
@@ -1521,7 +1523,7 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
-                <p>Piped water at home</p>
+                <p>Piped water at home &nbsp;&nbsp;</p>
               </Form.Group>
 
               {/* <Form.Group as={Col} controlId="formGridState">
@@ -1581,7 +1583,7 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
-                <p>Hand pump</p>
+                <p>Hand pump &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </Form.Group>
 
               {/* <Form.Group as={Col} controlId="formGridState">
@@ -1611,7 +1613,7 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
-                <p>Open Well</p>
+                <p>Open Well &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </Form.Group>
 
               {/* <Form.Group as={Col} controlId="formGridState">
@@ -1667,7 +1669,7 @@ export class Forms extends Component {
                 />
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/**************TABLE 7***************/}
@@ -1676,7 +1678,7 @@ export class Forms extends Component {
           <div>
             <Form>
             
-            <h2>7. Sources of Energy and Power</h2>
+            <h2 className="h2title" >7. Sources of Energy and Power</h2>
               <Row>
                 <Form.Group as={Col} controlId="formGridState">
                   <Form.Label>Electricity Connection to household</Form.Label>
@@ -1756,7 +1758,7 @@ export class Forms extends Component {
                   </Form.Select>
                 </Form.Group>
               </Row>
-            </Form>
+            </Form><hr/>
           </div>
           <br />
           <div>
@@ -1802,6 +1804,7 @@ export class Forms extends Component {
               </Row>
 
               <Button
+              className="btns"
                 variant="secondary"
                 type="reset"
                 onClick={() => {
@@ -1814,7 +1817,7 @@ export class Forms extends Component {
               >
                 Add New
               </Button>
-            </Form>
+            </Form><hr/>
           </div>
         </div>
 
@@ -1822,10 +1825,10 @@ export class Forms extends Component {
         <div>
           <Form>
           
-          <h2>8. Landholding Information (In Acres)</h2>
+          <h2 className="h2title" >8. Landholding Information (In Acres)</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <Form.Label>Total:</Form.Label>
+                <Form.Label>Total:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -1834,7 +1837,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Irrigated Area:</Form.Label>
+                <Form.Label>Irrigated Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -1843,7 +1846,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Barren/Wasteland Area:</Form.Label>
+                <Form.Label>Barren/Wasteland Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -1852,7 +1855,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Cultivable Area:</Form.Label>
+                <Form.Label>Cultivable Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -1861,7 +1864,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Unirrigated Area:</Form.Label>
+                <Form.Label>Unirrigated Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -1870,7 +1873,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Uncultivable Area:</Form.Label>
+                <Form.Label>Uncultivable Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -1878,34 +1881,40 @@ export class Forms extends Component {
                 />
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/**************TABLE 9***************/}
         <div>
-          <Form>
+          <Form className="table9">
           
-          <h2>9. Agricultural Inputs</h2>
-            <Row className="mb-3">
+          <h2 className="h2title" >9. Agricultural Inputs</h2>
+            {/* <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
-                <h4>Particulars</h4>
+                
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name">
-                <h4>Yes/No</h4>
+                
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name">
-                <h4>If Yes, Fertiliser used (kg/acre)</h4>
+                
               </Form.Group>
-            </Row>
-
+            </Row> */}
+            
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
+               <h4>Particulars</h4><br/>
+                
+                <div className="invidiv">
                 <p>Do you use Chemical Fertilisers ?</p>
+                <p className="invi"> .....</p>
+              </div>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
+              <h4>Yes/No</h4><br/>
                 <Form.Select
                   onChange={this.getValue}
                   name="is_chemical_fertilizer_used2"
@@ -1916,7 +1925,9 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
+               <h4 className="invi"> .</h4><br/>
                 <Form.Control
+                  placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
                   onChange={this.getValue}
                   name="is_chemical_fertilizer_used3"
@@ -1927,6 +1938,7 @@ export class Forms extends Component {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
                 <p>Do you use Chemical Insecticides ?</p>
+                
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
@@ -1941,6 +1953,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
+                placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
                   onChange={this.getValue}
                   name="is_chemical_insecticide_used3"
@@ -1965,6 +1978,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
+                placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
                   onChange={this.getValue}
                   name="is_chemical_weedice_used3"
@@ -1974,7 +1988,10 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridState">
+              <div className="invidiv">
                 <p>Do you use Manure ?</p>
+                <p className="invi"> ..............................</p>
+              </div>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
@@ -1989,6 +2006,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
+                placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
                   onChange={this.getValue}
                   name="is_chemical_organic_manuevers3"
@@ -2026,7 +2044,7 @@ export class Forms extends Component {
                 </Form.Select>
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/**************TABLE 10***************/}
@@ -2034,25 +2052,27 @@ export class Forms extends Component {
         <div>
           <Form>
           
-          <h2>10. Agricultural Produce in a normal year (Top 5)</h2>
-            <Row className="mb-3">
+          <h2 className="h2title" >10. Agricultural Produce in a normal year (Top 5)</h2>
+            {/* <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <h4>Crops</h4>
+                
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name">
-                <h4>Area Under Crop in Prev (Acre)</h4>
               </Form.Group>
               <Form.Group as={Col} controlId="respondents_name">
-                <h4>Persons Benefitted (in numbers)</h4>
+                
               </Form.Group>
-            </Row>
+            </Row> */}
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Crop Name</Form.Label><br/>
                 <Form.Control onChange={this.getValue} name="crop_name" />
               </Form.Group>
+              
               <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>Persons Benefitted (in numbers)</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2061,6 +2081,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>Productivity (in quintals per acre)</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2070,6 +2091,7 @@ export class Forms extends Component {
             </Row>
 
             <Button
+              className="btns"
               variant="secondary"
               type="reset"
               onClick={() => {
@@ -2082,7 +2104,7 @@ export class Forms extends Component {
             >
               Add New
             </Button>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/**************TABLE 11***************/}
@@ -2090,15 +2112,15 @@ export class Forms extends Component {
         <div>
           <Form>
           
-          <h2>11.Livestock Numbers (in numbers)</h2>
+          <h2 className="h2title" >11.Livestock Numbers (in numbers)</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <Form.Label>Cows:</Form.Label>
+                <Form.Label>Cows:</Form.Label><br/>
                 <Form.Control onChange={this.getValue} name="cows" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Buffalo:</Form.Label>
+                <Form.Label>Buffalo:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2107,7 +2129,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Goat/Sheep:</Form.Label>
+                <Form.Label>Goat/Sheep:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2116,7 +2138,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Calves:</Form.Label>
+                <Form.Label>Calves:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2125,7 +2147,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Bullocks:</Form.Label>
+                <Form.Label>Bullocks:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2134,7 +2156,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Poultry/ Ducks:</Form.Label>
+                <Form.Label>Poultry/ Ducks:</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2143,7 +2165,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Shelters for Livestocks</Form.Label>
+                <Form.Label>Shelters for Livestocks</Form.Label><br/>
                 <Form.Select onChange={this.getValue} name="livestock_shelter2">
                   <option>Pucca</option>
                   <option>Kutcha</option>
@@ -2152,7 +2174,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Average Daily Milk Produce (liters):</Form.Label>
+                <Form.Label>Average Daily Milk Produce (liters):</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2161,7 +2183,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Animal Waste/Cow Dung (in kgs):</Form.Label>
+                <Form.Label>Animal Waste/Cow Dung (in kgs):</Form.Label><br/>
                 <Form.Control
                   type="number"
                   onChange={this.getValue}
@@ -2169,14 +2191,14 @@ export class Forms extends Component {
                 />
               </Form.Group>
             </Row>
-          </Form>
+          </Form><hr/>
         </div>
 
         {/**************TABLE 12***************/}
         <div>
           <Form>
           
-          <h2>12. Major Problems in Village, If Any (Top 3)</h2>
+          <h2 className="h2title" >12. Major Problems in Village, If Any (Top 3)</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
                 <h4>Problems</h4>
@@ -2200,6 +2222,7 @@ export class Forms extends Component {
             </Row>
 
             <Button
+              className="btns"
               variant="secondary"
               type="reset"
               onClick={() => {
@@ -2212,12 +2235,12 @@ export class Forms extends Component {
             >
               Add New
             </Button>
-          </Form>
+          </Form><hr/>
         </div>
 
         <br />
 
-        <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+        <Button className="btns submitt-btn" variant="primary" type="submit" onClick={this.handleSubmit}>
           Submit Form
         </Button>
       </div>
