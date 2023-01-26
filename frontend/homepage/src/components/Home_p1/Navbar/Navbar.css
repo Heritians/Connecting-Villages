@@ -34,7 +34,7 @@
     align-items: center !important;  
   }
 
-  .navbar-logo2{
+  .navbar-logo2{ 
     color: #7D4BDF !important;
     display: flex !important;
     flex-direction: row !important;
@@ -53,7 +53,7 @@
   
   .nav-menu {
     display: grid !important;
-    grid-template-columns: repeat(4, auto) !important;
+    grid-template-columns: repeat(5, auto) !important;
     grid-gap: 10px !important;
     list-style: none !important;
     text-align: center !important;
@@ -185,4 +185,8 @@
       color: #7D4BDF !important;
       transition: 250ms !important;
     }
+
+    @media screen and (min-width: 768px){
+      .collapse{ display:block;}
+  }
   }
