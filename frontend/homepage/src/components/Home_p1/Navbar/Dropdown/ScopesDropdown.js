@@ -22,7 +22,7 @@ export const ScopesDropdown = (props) => {
           {scopeItems[props.role].map((item, index) => {
             return (
               <li key={index}>
-                <Link
+                <Link 
                   className={item.cName}
                   to={item.path}
                   onClick={() => setClick(false)}

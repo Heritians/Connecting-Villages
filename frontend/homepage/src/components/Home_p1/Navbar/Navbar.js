@@ -4,7 +4,6 @@ import "./Navbar.css";
 import Popup from "./Login/Popup";
 import { Button } from "./Login/Button";
 import  LogOutButton  from "./Login/LogOutButton";
-
 import AuthContext,{AuthProvider} from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ScopesDropdown } from "./Dropdown/ScopesDropdown";
@@ -73,7 +72,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <div className="navbar-container">
+        <div className="navbar-container"> 
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             Heri
             <p className="navbar-logo2">tians</p>
@@ -91,15 +90,15 @@ function Navbar() {
                 About Us
               </Link>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <Link
-                to="/services"
+                to="/OurTeam"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
                 Our Team
               </Link>
-            </li> */}
+            </li>
             <li className="nav-item">
               <Link
                 to="/ContactUs"

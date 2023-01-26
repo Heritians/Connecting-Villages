@@ -1,7 +1,7 @@
 import React from "react";
 import "./AboutUs.css";
 import { FooterContainer } from "../../../Home_p3/footer";
-
+ 
 function AboutUs() {
   return (
     <>
