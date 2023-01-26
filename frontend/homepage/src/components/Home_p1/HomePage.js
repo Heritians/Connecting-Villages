@@ -50,13 +50,13 @@ function HomePage() {
           authorities to identify which areas need immediate help
         </p>
         <div className="hero-btns">
-          <Button
+          {/* <Button
             className="btns"
             buttonStyle="btn--outline"
             buttonSize="btn--large"
           >
             GET STARTED
-          </Button>
+          </Button> */}
         </div >
         {/* <div className="hero-gallery"></div>
         <div className="hero-bottom">
