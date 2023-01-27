@@ -52,16 +52,16 @@ export const AuthProvider = ({ children }) => {
       "https://ubaformapi-git-prod-fastapis-build.vercel.app/auth/login" +
       "?" +
       "AADHAR_NO=" +
-      formData.AADHAR_NO +
+      e.target.AN.value +
       "&" +
       "password=" +
-      formData.password +
+      e.target.pwd.value +
       "&" +
       "village_name=" +
-      formData.village_name +
+      e.target.villname.value +
       "&" +
       "role=" +
-      formData.role;
+      e.target.role.value;
     const fetchResponse = await fetch(newURL, settings);
     const data = await fetchResponse.json();
 
