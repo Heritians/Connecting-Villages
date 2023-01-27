@@ -134,7 +134,7 @@ function Navbar() {
                 button
                 onClick={handleSinginButtonClick}
               >
-                SIGN IN
+                LOGIN
               </Button>
             )}
           </div>

@@ -18,15 +18,15 @@ const OurTeam = () => {
     <MemberCards
          img ="./images/hemanth.jfif" 
           title="HEMANTH"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/HemanthSai7"
           linkedin = "https://www.linkedin.com/in/hemanthsai3187/"
     />
     <MemberCards
-          img="./images/Mayuresh.jpeg" 
+          img="./images/Mayuresh.png" 
           title="MAYURESH"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/mayureshagashe2105"
           linkedin = "https://www.linkedin.com/in/mayureshagashe2105/"
@@ -34,15 +34,15 @@ const OurTeam = () => {
     <MemberCards
           img="./images/sayan.jpeg" 
           title="SAYAN"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/SayanSaha01"
           linkedin = "https://www.linkedin.com/in/sayan-saha001/"
     />
     <MemberCards
-          img="./images/" 
+          img="./images/Suyog.png" 
           title="SUYOG"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/bumpansy"
           linkedin = "https://www.linkedin.com/in/suyog-kasture-0756a913b/"
@@ -51,7 +51,7 @@ const OurTeam = () => {
           <MemberCards
           img="./images/anmol.png" 
           title="ANMOL"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/Scholasticpal"
           linkedin = "https://www.linkedin.com/in/anmol-garg-790516203/"
@@ -59,7 +59,7 @@ const OurTeam = () => {
     <MemberCards
           img="./images/gargi.jpeg" 
           title="GARGI"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/Gargi1971"
           linkedin = "https://www.linkedin.com/in/gargi-singh-1b9830222/"
@@ -70,7 +70,7 @@ const OurTeam = () => {
     <MemberCards
           img="./images/vishesh.jpg" 
           title="VISHESH"
-          description="Lorem ipsum dolor sit amet."
+      //     description="Lorem ipsum dolor sit amet."
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/Vishesht27"
           linkedin = "https://www.linkedin.com/in/vishesh-tripathi/"
