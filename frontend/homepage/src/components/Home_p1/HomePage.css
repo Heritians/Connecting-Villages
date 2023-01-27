@@ -78,6 +78,13 @@ video {
     text-align: center;
   }
 
+  @media screen and (max-width: 600px) {
+    .heading {
+      width: 60% !important;
+      font-size: 45px;
+    }
+  }
+
   .descp{
     margin-top: 8px !important;
     color: #fff !important;
@@ -89,6 +96,12 @@ video {
     font-family: 'Merriweather', serif !important;
     text-align: center;
 
+  }
+
+  @media screen and (max-width: 600px) {
+    .descp {
+      width: 70% !important;
+    }
   }
   
   .hero-btns {

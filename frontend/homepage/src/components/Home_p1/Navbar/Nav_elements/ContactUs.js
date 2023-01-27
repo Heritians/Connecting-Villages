@@ -19,8 +19,8 @@ function ContactUs(props) {
         <h1>Contact Us</h1>
         <p>For any queries, please contact us at:</p>
         <ul>
-            <li>Phone: +91 1234567890</li>
-            <li>Email: abc@gmail.com </li>
+            <li>Phone: 076978 67027</li>
+            <li>Email: uba@vitbhopal.ac.in</li>
             <li>Address: <br/>
                         <p>VIT Bhopal University,</p>
                          <p>Kothri Kalan, Sehore</p>
