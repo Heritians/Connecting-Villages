@@ -45,7 +45,7 @@ const OurTeam = () => {
     <MemberCards
          img ="./images/hemanth.jfif" 
           title="HEMANTH SAI GARLADINNE"
-          description="DevOps Architect"
+          description="DevOps"
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/HemanthSai7"
           linkedin = "https://www.linkedin.com/in/hemanthsai3187/"
@@ -53,7 +53,7 @@ const OurTeam = () => {
     <MemberCards
           img="./images/Mayuresh.png" 
           title="MAYURESH AGASHE"
-          description="DevOps Architect"
+          description="DevOps"
           overlay = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis libero at mauris elementum cursus. Duis iaculis viverra eros ac ultrices."
           github = "https://github.com/mayureshagashe2105"
           linkedin = "https://www.linkedin.com/in/mayureshagashe2105/"
