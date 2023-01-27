@@ -31,11 +31,11 @@
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-around !important;
-    align-items: center !important;  
+    align-items: center !important;
   }
 
   .navbar-logo2{ 
-    color: #7D4BDF !important;
+    color: #231BBC !important;
     display: flex !important;
     flex-direction: row !important;
   }
@@ -44,6 +44,12 @@
     color: #f4d5a7 !important;
     display: flex !important;
     flex-direction: row !important;
+  }
+
+  .logo-img{
+    width: 35px !important;
+    height: 35px !important;
+    margin-right: 10px !important;
   }
   
   .fa-typo3 {
@@ -67,7 +73,7 @@
   }
   
   .nav-links {
-    color: #7D4BDF !important;
+    color: #231BBC !important;
     display: flex !important;
     align-items: center !important;
     text-decoration: none !important;
@@ -132,7 +138,7 @@
   
     .nav-links:hover {
       background-color: #fff !important;
-      color: #7D4BDF !important;
+      color: #231BBC !important;
       border-radius: 0 !important;
     }
   
@@ -156,12 +162,12 @@
     }
 
     .fa-bars{
-      color:#7D4BDF !important;
+      color:#231BBC !important;
     }
 
   
     .fa-times {
-      color:#7D4BDF !important;
+      color:#231BBC !important;
       font-size: 2rem !important;
     }
   

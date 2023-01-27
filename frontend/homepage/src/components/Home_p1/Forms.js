@@ -14,7 +14,7 @@ export class Forms extends Component {
     respondents_age: "0",
     relation_w_hoh: "0",
     respondents_contact: "0",
-    id_type: "0",
+    id_type: "Adhaar Card",
     id_no: "0",
 
     //Table2 ******************************
@@ -703,6 +703,12 @@ export class Forms extends Component {
     // saveAs(fileToSave, filename);
   };
 
+  maxLengthCheck = (object) => {
+    if (object.target.value.length > object.target.maxLength) {
+     object.target.value = object.target.value.slice(0, object.target.maxLength)
+      }
+    }
+
   render() {
     // console.log("state:", this.state);
     return (
@@ -736,6 +742,8 @@ export class Forms extends Component {
                 </Form.Label>
                 <Form.Control
                   type="number"
+                  maxLength = "3" onInput={this.maxLengthCheck}
+                  min="0"
                   onChange={this.getValue}
                   name="respondents_age"
                 />
@@ -760,8 +768,10 @@ export class Forms extends Component {
                 </Form.Label>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="respondents_contact"
+                  maxLength = "10" onInput={this.maxLengthCheck}
                 />
               </Form.Group>
 
@@ -772,7 +782,11 @@ export class Forms extends Component {
                     <br />
                   </p>
                 </Form.Label>
-                <Form.Control onChange={this.getValue} name="id_type" />
+                <Form.Select onChange={this.getValue} name="id_type" >
+                  <option>Adhaar Card</option>
+                  <option>Driving License</option>
+                  <option>PAN Card</option>
+                </Form.Select>
               </Form.Group>
 
               <Form.Group as={Col} controlId="id_no">
@@ -782,7 +796,7 @@ export class Forms extends Component {
                     <br />
                   </p>
                 </Form.Label>
-                <Form.Control onChange={this.getValue} name="id_no" />
+                <Form.Control onChange={this.getValue} name="id_no" maxlength="15" placeholder="Without Spaces"/>
               </Form.Group>
             </Row>
           </Form><hr/>
@@ -797,8 +811,8 @@ export class Forms extends Component {
             <Row className="mb-3">
             <div>
               <Form.Group as={Col} controlId="">
-                <Form.Label>Household  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
-                <Form.Control onChange={this.getValue} name="ho_id" />
+                <Form.Label>Household ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <Form.Control disabled = "true" onChange={this.getValue} name="ho_id" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="">
@@ -908,6 +922,7 @@ export class Forms extends Component {
                 </Form.Label> 
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="annual_income"
                 />
@@ -940,6 +955,8 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="respondents_name">
                 <Form.Control
                   type="number"
+                  maxLength = "3" onInput={this.maxLengthCheck}
+                  min="0"
                   onChange={this.getValue}
                   name="age"
                 />
@@ -980,6 +997,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="respondents_name">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="education"
                 />
@@ -1008,6 +1026,9 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Control
                   type="number"
+                  maxLength = "12" onInput={this.maxLengthCheck}
+                
+                  min="0"
                   onChange={this.getValue}
                   name="AADHAR_No"
                 />
@@ -1143,6 +1164,7 @@ export class Forms extends Component {
                 <Form.Label>If yes, how many members migrate?</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="num_migrants"
                 />
@@ -1152,6 +1174,7 @@ export class Forms extends Component {
                 <Form.Label>Family migrate for how many months?</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="migration_period_months"
                 />
@@ -1161,6 +1184,7 @@ export class Forms extends Component {
                 <Form.Label>Since how many years family migrates?</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="years_since_migration"
                 />
@@ -1200,6 +1224,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="PM_jan_dhan_yojana"
                 />
@@ -1218,6 +1243,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="PM_ujjawala_yojana"
                 />
@@ -1236,6 +1262,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="PM_awas_yojana"
                 />
@@ -1254,6 +1281,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="sukanya_samriddhi_yojana"
                 />
@@ -1272,6 +1300,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="mudra_yojana"
                 />
@@ -1290,6 +1319,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="PM_jivan_jyoti_yojana"
                 />
@@ -1308,6 +1338,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="PM_suraksha_bima_yojana"
                 />
@@ -1326,6 +1357,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="atal_pension_yojana"
                 />
@@ -1344,6 +1376,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="fasal_bima_yojana"
                 />
@@ -1362,6 +1395,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="kaushal_vikas_yojana"
                 />
@@ -1380,6 +1414,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="krishi_sinchai_yojana"
                 />
@@ -1398,6 +1433,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="jan_aushadhi_yojana"
                 />
@@ -1416,6 +1452,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="SBM_toilet"
                 />
@@ -1434,6 +1471,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="soil_health_card"
                 />
@@ -1452,6 +1490,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="ladli_lakshmi_yojana"
                 />
@@ -1470,6 +1509,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="janni_suraksha_yojana"
                 />
@@ -1488,6 +1528,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="kisan_credit_card"
                 />
@@ -1536,7 +1577,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Select onChange={this.getValue} name="piped_water2">
                   <option> </option>
-                      <option>Yes</option>
+                  <option>Yes</option>
                   <option>No</option>
                 </Form.Select>
               </Form.Group>
@@ -1544,6 +1585,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="piped_water3"
                 />
@@ -1574,6 +1616,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="comm_water3"
                 />
@@ -1604,6 +1647,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="hand_pump3"
                 />
@@ -1634,6 +1678,7 @@ export class Forms extends Component {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="open_well3"
                 />
@@ -1697,6 +1742,7 @@ export class Forms extends Component {
                   </Form.Label>
                   <Form.Control
                     type="number"
+                  min="0"
                     onChange={this.getValue}
                     name="elec_avail_perday_hour"
                   />
@@ -1782,6 +1828,7 @@ export class Forms extends Component {
                 <Form.Group as={Col} controlId="formGridState">
                   <Form.Control
                     type="number"
+                  min="0"
                     onChange={this.getValue}
                     name="appliance_nos"
                   />
@@ -1796,6 +1843,7 @@ export class Forms extends Component {
                 <Form.Group as={Col} controlId="formGridState">
                   <Form.Control
                     type="number"
+                  min="0"
                     onChange={this.getValue}
                     name="appliance_dur"
                   />
@@ -1830,6 +1878,7 @@ export class Forms extends Component {
                 <Form.Label>Total:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="total_land"
                 />
@@ -1839,6 +1888,7 @@ export class Forms extends Component {
                 <Form.Label>Irrigated Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="irrigated_area"
                 />
@@ -1848,6 +1898,7 @@ export class Forms extends Component {
                 <Form.Label>Barren/Wasteland Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="barren_or_wasteland"
                 />
@@ -1857,6 +1908,7 @@ export class Forms extends Component {
                 <Form.Label>Cultivable Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="cultivable_area"
                 />
@@ -1866,6 +1918,7 @@ export class Forms extends Component {
                 <Form.Label>Unirrigated Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="unirrigated_area"
                 />
@@ -1875,6 +1928,7 @@ export class Forms extends Component {
                 <Form.Label>Uncultivable Area:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="uncultivable_area"
                 />
@@ -1928,6 +1982,7 @@ export class Forms extends Component {
                 <Form.Control
                   placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="is_chemical_fertilizer_used3"
                 />
@@ -1954,6 +2009,7 @@ export class Forms extends Component {
                 <Form.Control
                 placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="is_chemical_insecticide_used3"
                 />
@@ -1979,6 +2035,7 @@ export class Forms extends Component {
                 <Form.Control
                 placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="is_chemical_weedice_used3"
                 />
@@ -2007,6 +2064,7 @@ export class Forms extends Component {
                 <Form.Control
                 placeholder="If Yes, Fertiliser used (kg/acre)"
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="is_chemical_organic_manuevers3"
                 />
@@ -2074,6 +2132,7 @@ export class Forms extends Component {
               <Form.Label>Persons Benefitted (in numbers)</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="crop_area_prev_yr_acre"
                 />
@@ -2083,6 +2142,7 @@ export class Forms extends Component {
               <Form.Label>Productivity (in quintals per acre)</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="productivity_in_quintals_per_acre"
                 />
@@ -2122,6 +2182,7 @@ export class Forms extends Component {
                 <Form.Label>Buffalo:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="buffalo"
                 />
@@ -2131,6 +2192,7 @@ export class Forms extends Component {
                 <Form.Label>Goat/Sheep:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="goats_and_sheeps"
                 />
@@ -2140,6 +2202,7 @@ export class Forms extends Component {
                 <Form.Label>Calves:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="calves"
                 />
@@ -2149,6 +2212,7 @@ export class Forms extends Component {
                 <Form.Label>Bullocks:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="bullocks"
                 />
@@ -2158,6 +2222,7 @@ export class Forms extends Component {
                 <Form.Label>Poultry/ Ducks:</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="poultry_and_ducks"
                 />
@@ -2176,6 +2241,7 @@ export class Forms extends Component {
                 <Form.Label>Average Daily Milk Produce (liters):</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="avg_daily_milk_prod_litres"
                 />
@@ -2185,6 +2251,7 @@ export class Forms extends Component {
                 <Form.Label>Animal Waste/Cow Dung (in kgs):</Form.Label><br/>
                 <Form.Control
                   type="number"
+                  min="0"
                   onChange={this.getValue}
                   name="animal_waste_or_cow_dung_kgs"
                 />
@@ -2209,13 +2276,16 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridCity">
-                <Form.Control onChange={this.getValue} name="problems1" />
+                <Form.Control onChange={this.getValue} name="problems1" maxlength="200" 
+                  placeholder="200 words limit"/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Control
                   onChange={this.getValue}
                   name="Suggestions_by_villagers1"
+                  maxlength="200"
+                  placeholder="200 words limit"
                 />
               </Form.Group>
             </Row>
