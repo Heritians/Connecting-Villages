@@ -78,7 +78,7 @@ function Navbar() {
             <p className="navbar-logo2">tians</p>
             <p className="navbar-logoicon">
               {" "}
-              <i className="fa-solid fa-hand-holding-hand"></i>{" "}
+              <img src="./images/logo_sm.png" className="logo-img"></img>{" "}
             </p>
           </Link>
           <div className="menu-icon" onClick={handleClick}>

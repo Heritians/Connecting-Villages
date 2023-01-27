@@ -37,7 +37,7 @@ function HomePage() {
         <div className="hero-top">
           <img
             className="herologo-1"
-            src="./images/vit logo.jpg"
+            src="./images/vitb-logo.png"
             alt="VIT Logo"
           ></img>
           <img
