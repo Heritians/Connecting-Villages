@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import '../../App.css';
 import './HomePage.css';
 
@@ -23,6 +24,12 @@ function HomePage() {
       }}
     />
   );
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `/Instructions`;
+    navigate(path);
+  };
   return (
     <>
       <div className="hero-container">
@@ -50,14 +57,15 @@ function HomePage() {
           authorities to identify which areas need immediate help
         </p>
         <div className="hero-btns">
-          {/* <Button
+          <Button
             className="btns"
             buttonStyle="btn--outline"
             buttonSize="btn--large"
+            onClick={routeChange}
           >
             GET STARTED
-          </Button> */}
-        </div >
+          </Button>
+        </div>
         {/* <div className="hero-gallery"></div>
         <div className="hero-bottom">
           <p className="hero-bottom-txt">
@@ -139,6 +147,7 @@ function HomePage() {
                           position: "relative",
                           margin: 6,
                         }}
+                        onClick = {routeChange}
                       >
                         Click Here
                       </button>

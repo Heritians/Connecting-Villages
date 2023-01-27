@@ -13,6 +13,7 @@ import ContactUs from './components/Home_p1/Navbar/Nav_elements/ContactUs';
 import AboutUs from './components/Home_p1/Navbar/Nav_elements/AboutUs';
 import ServicesSmall from './components/Home_p1/Navbar/Dropdown/ServicesSmall';
 import OurTeam from './components/Pages/ourTeamPage/OurTeam';
+import Instructions from './components/Home_p1/Instructions';
 
 // import Services from './components/pages/Services';
 // import Products from './components/pages/Products';
@@ -48,6 +49,7 @@ function App() {
             <Route path="/ContactUs" exact element={<ContactUs trigger={true} />} />
             <Route path="/ServicesSmall" exact element={<ServicesSmall trigger={true} />} />
             <Route path="/OurTeam" exact element={<OurTeam trigger={true} />} />
+            <Route path="/Instructions" exact element={<Instructions/>} />
 
           </Routes>
         </AuthProvider>
