@@ -35,7 +35,7 @@ export function FooterContainer() {
                         <Footer.Link href="https://www.facebook.com/UBAVITBhopal/">Facebook</Footer.Link>
                         {/* <Footer.Link href="">Instagram</Footer.Link> */}
                         <Footer.Link href="https://www.linkedin.com/company/ubavitbhopal/?originalSubdomain=in">LinkedIn</Footer.Link>
-                        {/* <Footer.Link href="#">Twitter</Footer.Link> */}
+                        <Footer.Link href="https://github.com/Heritians">GitHub</Footer.Link>
                     </Footer.Column>
                 </Footer.Row>    
                 </Footer.Row>

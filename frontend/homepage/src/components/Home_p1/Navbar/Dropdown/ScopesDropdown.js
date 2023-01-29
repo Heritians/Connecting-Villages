@@ -21,14 +21,18 @@ export const ScopesDropdown = (props) => {
         >
           {scopeItems[props.role].map((item, index) => {
             return (
-              <li key={index}>
+              <li key={index} className="dropd">
+              <div className='dropdiv'>
                 <Link 
-                  className={item.cName}
+                  className={item.cName} 
                   to={item.path}
                   onClick={() => setClick(false)}
                 >
+                <p className='dropdp'>
                   {item.title}
+                  </p>
                 </Link>
+                </div>
               </li>
             );
           })}
