@@ -15,7 +15,7 @@ function Instructions() {
             <h2 className="name1ii">Getting Started</h2>
             <p className="p1ii">
                 <li className="l1ii">Step 1: <a href="/ContactUs">Contact</a> an Admin/ Owner to get registered for an account.</li>
-                <li className="l1ii">Step 2: Using the unique credentials you receive after registration, <a href="/ContactUs">Login</a> to the website.</li>
+                <li className="l1ii">Step 2: Using the unique credentials you receive after registration, <a href="/signin">Login</a> to the website.</li>
                 <li className="l1ii">Step 3: Access the available actions you can perform, from the Services Tab.</li>
             </p>
           </div>

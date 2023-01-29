@@ -34,7 +34,7 @@ function AboutUs() {
 
           <div class="column">
             <img
-              src="./images/AboutUs2.png"
+              src="./images/aboutUs22.jpg"
               className="img2"
               alt="Heading2"
             ></img>
