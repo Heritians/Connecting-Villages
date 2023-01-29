@@ -774,7 +774,7 @@ export class Forms extends Component {
                   maxLength = "10" onInput={this.maxLengthCheck}
                 />
               </Form.Group>
-
+              
               <Form.Group as={Col} controlId="id_type">
                 <Form.Label>
                   <p>
@@ -782,7 +782,7 @@ export class Forms extends Component {
                     <br />
                   </p>
                 </Form.Label>
-                <Form.Select onChange={this.getValue} name="id_type" >
+                <Form.Select onChange={this.getValue} name="id_type" className="id_type">
                   <option>Adhaar Card</option>
                   <option>Driving License</option>
                   <option>PAN Card</option>
@@ -812,16 +812,17 @@ export class Forms extends Component {
             <div>
               <Form.Group as={Col} controlId="">
                 <Form.Label>Household ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
-                <Form.Control disabled = "true" onChange={this.getValue} name="ho_id" />
+                <Form.Control onChange={this.getValue} name="ho_id" />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="">
+              <Form.Group as={Col} controlId="" >
                 <Form.Label>Name of Household &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
                 <Form.Control onChange={this.getValue} name="hoh_name" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="hoh_gender">
                   <option>Male</option>
                   <option>Female</option>
@@ -830,6 +831,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Category &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="category">
                   <option>Gen</option>
                   <option>SC</option>
@@ -840,6 +842,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Poverty Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="pov_status">
                   <option>APL</option>
                   <option>BPL</option>
@@ -848,6 +851,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Own House &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="own_house">
                   <option>Yes</option>
                   <option>No</option>
@@ -856,6 +860,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Type of House &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="house_type">
                   <option>Kutcha</option>
                   <option>Semi Pucca</option>
@@ -865,9 +870,9 @@ export class Forms extends Component {
               </Form.Group>
               </div>
               <div>
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
                 <Form.Label>Toilet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
-                <Form.Select onChange={this.getValue} name="toilet">
+                <Form.Select onChange={this.getValue} name="toilet" className="gov_schemes_inp">
                   <option>Private</option>
                   <option>Community</option>
                   <option>Open Defecation</option>
@@ -878,6 +883,7 @@ export class Forms extends Component {
             <Row className="mb-3"> */}
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Dainage Linked to house</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="drainage_status">
                   <option>Covered</option>
                   <option>Open</option>
@@ -887,6 +893,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="">
                 <Form.Label>Waste Collection System</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select
                   onChange={this.getValue}
                   name="waste_collection_sys"
@@ -899,6 +906,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="">
                 <Form.Label>Compost Pit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="compost_pit">
                   <option>Individual</option>
                   <option>Group</option>
@@ -908,6 +916,7 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="">
                 <Form.Label>Biogas Plant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Form.Label> 
+                <span className="narrow"></span>
                 <Form.Select onChange={this.getValue} name="biogas_plant">
                   <option>Individual</option>
                   <option>Group</option>
@@ -920,6 +929,7 @@ export class Forms extends Component {
                 <Form.Label>
                   Annual Income from all Sources (Approx.):{" "}
                 </Form.Label> 
+                <span className="narrow"></span>
                 <Form.Control
                   type="number"
                   min="0"
@@ -939,11 +949,11 @@ export class Forms extends Component {
             <h2 className="h2title" >3. Family Member Information</h2>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Name (Family Members)</p>
+                <p>Name <span class="narrow"></span>(Family Members)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
-                <Form.Control onChange={this.getValue} name="name" />
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
+                <Form.Control onChange={this.getValue} name="name" className="gov_schemes_inp"/>
               </Form.Group>
             </Row>
 
@@ -952,13 +962,14 @@ export class Forms extends Component {
                 <p>Age (Yrs.)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
                 <Form.Control
                   type="number"
                   maxLength = "3" onInput={this.maxLengthCheck}
                   min="0"
                   onChange={this.getValue}
                   name="age"
+                  className="gov_schemes_inp"
                 />
               </Form.Group>
             </Row>
@@ -968,8 +979,8 @@ export class Forms extends Component {
                 <p>Sex (M/F/O)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Select onChange={this.getValue} name="sex">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="sex" className="gov_schemes_inp">
                   <option>Male</option>
                   <option>Female</option>
                 </Form.Select>
@@ -981,8 +992,8 @@ export class Forms extends Component {
                 <p>Marital Status</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Select onChange={this.getValue} name="marital_status">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="marital_status" className="gov_schemes_inp">
                   <option>Married</option>
                   <option>Unmarried</option>
                 </Form.Select>
@@ -991,26 +1002,31 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Level of Education (in Yrs)</p>
+                <p>Level of Education<span class="narrow"></span> (in Yrs)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
-                <Form.Control
-                  type="number"
-                  min="0"
-                  onChange={this.getValue}
-                  name="education"
-                />
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="education" className="gov_schemes_inp">
+                  <option>Not Literate</option>
+                  <option>Literate</option>
+                  <option>Completed Class 5th</option>
+                  <option>Completed Class 8th</option>
+                  <option>Completed Class 10th</option>
+                  <option>Completed Class 12th</option>
+                  <option>ITI Diploma</option>
+                  <option>Graduate</option>
+                  <option>Post Graduate/ Professional</option>
+                </Form.Select>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Going to AWC/ School/ College</p>
+                <p>Going to AWC/ <span class="narrow"></span>School/ College</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Select onChange={this.getValue} name="schooling_status">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="schooling_status" className="gov_schemes_inp">
                   <option>AWC</option>
                   <option>School</option>
                   <option>College</option>
@@ -1020,28 +1036,28 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Aadhar Card Number</p>
+                <p>Aadhar Card <span class="narrow"></span>Number</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
                 <Form.Control
                   type="number"
                   maxLength = "12" onInput={this.maxLengthCheck}
-                
                   min="0"
                   onChange={this.getValue}
                   name="AADHAR_No"
+                  className="gov_schemes_inp"
                 />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Bank A/C (Yes/No)</p>
+                <p>Bank A/C <span class="narrow"></span>(Yes/No)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Select onChange={this.getValue} name="has_bank_acc">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="has_bank_acc" className="gov_schemes_inp">
                   <option>Yes</option>
                   <option>No</option>
                 </Form.Select>
@@ -1050,13 +1066,14 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Computer Literate (Yes/ No)</p>
+                <p>Computer Literate <span class="narrow"></span>(Yes/ No)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
                 <Form.Select
                   onChange={this.getValue}
                   name="is_computer_literate"
+                  className="gov_schemes_inp"
                 >
                   <option>Yes</option>
                   <option>No</option>
@@ -1066,11 +1083,11 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Social Security Pension</p>
+                <p>Social Security <span class="narrow"></span>Pension</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
-                <Form.Select onChange={this.getValue} name="has_SSP">
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="has_SSP" className="gov_schemes_inp">
                   <option>Yes</option>
                   <option>No</option>
                 </Form.Select>
@@ -1079,21 +1096,22 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Major Health Problems </p>
+                <p>Major Health <span class="narrow"></span>Problems </p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Control placeholder="(mention if Any)" onChange={this.getValue} name="health_prob" />
+              <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
+                <Form.Control placeholder="(mention if Any)" onChange={this.getValue} 
+                name="health_prob" className="gov_schemes_inp"/>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>MNREGA Job Card (Yes/ No)</p>
+                <p>MNREGA Job Card <span class="narrow"></span>(Yes/ No)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
-                <Form.Select onChange={this.getValue} name="has_MNREGA">
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="has_MNREGA" className="gov_schemes_inp">
                   <option>Yes</option>
                   <option>No</option>
                 </Form.Select>
@@ -1103,11 +1121,11 @@ export class Forms extends Component {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
                 <p>Self Help Groups</p>
-                <p> (Select 'Yes' if member is involved)</p>
+                <p> (Select 'Yes' if involved)</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
-                <Form.Select onChange={this.getValue} name="SHG">
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
+                <Form.Select onChange={this.getValue} name="SHG" className="gov_schemes_inp">
                   <option>Yes</option>
                   <option>No</option>
                 </Form.Select>
@@ -1119,8 +1137,8 @@ export class Forms extends Component {
                 <p>Occupation</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="respondents_name">
-                <Form.Control onChange={this.getValue} name="occupations" />
+              <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
+                <Form.Control onChange={this.getValue} name="occupations" className="gov_schemes_inp"/>
               </Form.Group>
             </Row>
 
@@ -1208,7 +1226,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name">
-                <h4>Persons Benefitted (in numbers)</h4>
+                <h4>Persons Benefitted<span class="narrow"></span> (in numbers)</h4>
               </Form.Group>
             </Row>
 
@@ -1218,15 +1236,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>PM Jan Dhan Yojana</p>
+                <p>PM Jan Dhan <span class="narrow"></span>Yojana</p>
               </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridCity">
+              
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes">
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="PM_jan_dhan_yojana"
+                  className="gov_schemes_inp"  
                 />
               </Form.Group>
             </Row>
@@ -1237,15 +1256,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>PM Ujjwala Yojana</p>
+                <p>PM Ujjwala <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
-                  name="PM_ujjawala_yojana"
+                  name="PM_ujjawala_yojana"                  
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1256,15 +1276,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>PM Awas Yojana</p>
+                <p>PM Awas <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="PM_awas_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1275,15 +1296,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Sukanya Samridhi Yojana</p>
+                <p>Sukanya Samridhi <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="sukanya_samriddhi_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1294,34 +1316,36 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Mudra Yojana</p>
+                <p>Mudra <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="mudra_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridState" >
                 <p>6.</p>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>PM Jivan Jyoti Bima Yojana</p>
+                <p>PM Jivan Jyoti <span class="narrow"></span> Bima Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="PM_jivan_jyoti_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1332,34 +1356,36 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>PM Suraksha Bima Yojana</p>
+                <p>PM Suraksha <span class="narrow"></span> Bima Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="PM_suraksha_bima_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridState" >
                 <p>8.</p>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Atal Pension Yojana</p>
+                <p>Atal Pension <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="atal_pension_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1370,15 +1396,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Fasal Bima Yojana</p>
+                <p>Fasal Bima <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="fasal_bima_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1389,15 +1416,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Kaushal Vikas Yojana</p>
+                <p>Kaushal Vikas <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="kaushal_vikas_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1408,15 +1436,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Krishi Sinchai Yojana</p>
+                <p>Krishi Sinchai <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="krishi_sinchai_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1427,15 +1456,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Jan Aushadi Yojana</p>
+                <p>Jan Aushadi <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="jan_aushadhi_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1446,15 +1476,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Swacch Bharat Mission Toilet</p>
+                <p>Swacch Bharat <span class="narrow"></span>Mission Toilet</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes">
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="SBM_toilet"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1465,15 +1496,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Soil Health Card</p>
+                <p>Soil Health <span class="narrow"></span>Card</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="soil_health_card"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1484,15 +1516,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Ladli Lakshmi Yojana</p>
+                <p>Ladli Lakshmi <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="ladli_lakshmi_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1503,15 +1536,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Janani Suraksha Yojana</p>
+                <p>Janani Suraksha <span class="narrow"></span>Yojana</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="janni_suraksha_yojana"
+                  className="gov_schemes_inp" 
                 />
               </Form.Group>
             </Row>
@@ -1522,15 +1556,16 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
-                <p>Kisan Credit Card</p>
+                <p>Kisan Credit <span class="narrow"></span>Card</p>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridCity">
+              <Form.Group as={Col} controlId="formGridCity" className="gov_schemes" >
                 <Form.Control
                   type="number"
                   min="0"
                   onChange={this.getValue}
                   name="kisan_credit_card"
+                  className="gov_schemes_inp"
                 />
               </Form.Group>
             </Row>
@@ -1824,7 +1859,7 @@ export class Forms extends Component {
                 <Form.Group as={Col} controlId="respondents_name">
                   <h4>Nos. </h4>
                 </Form.Group>
-
+                
                 <Form.Group as={Col} controlId="formGridState">
                   <Form.Control
                     type="number"
@@ -1837,7 +1872,7 @@ export class Forms extends Component {
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="respondents_name">
-                  <h4>Duration per day (in Hours)</h4>
+                  <h4>Duration per day  <span className="narrow"></span>(in Hours)</h4>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridState">
