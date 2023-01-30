@@ -36,17 +36,18 @@ export class Forms extends Component {
     name: "0",
     age: "0",
     sex: "Male",
-    marital_status: "Married",
-    education: "0",
-    schooling_status: "School",
+    marital_status: "Not Married",
+    education: "Not Literate",
+    schooling_status: "Going to AWC",
     AADHAR_No: "0",
     has_bank_acc: "Yes",
     is_computer_literate: "Yes",
-    has_SSP: "Yes",
+    has_SSP: "No Pension",
+    // has_SSP: "Yes",
     health_prob: "None",
     has_MNREGA: "Yes",
     SHG: "Yes",
-    occupations: "0",
+    occupations: "Farming on own Land",
     fam_info: [],
 
     //Table4*********************************
@@ -165,17 +166,18 @@ export class Forms extends Component {
       name: "0",
       age: "0",
       sex: "Male",
-      marital_status: "Married",
-      education: "0",
-      schooling_status: "School",
+      marital_status: "Not Married",
+      education: "Not Literate",
+      schooling_status: "Going to AWC",
       AADHAR_No: "0",
       has_bank_acc: "Yes",
       is_computer_literate: "Yes",
-      has_SSP: "Yes",
+      has_SSP: "No Pension",
+      // has_SSP: "Yes",
       health_prob: "0",
       has_MNREGA: "Yes",
       SHG: "Yes",
-      occupations: "0",
+      occupations: "Farming on own Land",
     });
 
     const name = this.state.name;
@@ -205,7 +207,8 @@ export class Forms extends Component {
     fam_dict["has_bank_acc"] = has_bank_acc == "Yes" ? true : false;
     fam_dict["is_computer_literate"] =
       is_computer_literate == "Yes" ? true : false;
-    fam_dict["has_SSP"] = has_SSP == "Yes" ? true : false;
+    fam_dict["has_SSP"] = has_SSP;
+    // fam_dict["has_SSP"] = has_SSP == "Yes" ? true : false;
     fam_dict["health_prob"] = health_prob;
     fam_dict["has_MNREGA"] = has_MNREGA == "Yes" ? true : false;
     fam_dict["SHG"] = SHG == "Yes" ? true : false;
@@ -364,9 +367,9 @@ export class Forms extends Component {
     fam_dict["schooling_status"] = schooling_status;
     fam_dict["AADHAR_No"] = parseInt(AADHAR_No);
     fam_dict["has_bank_acc"] = has_bank_acc == "Yes" ? true : false;
-    fam_dict["is_computer_literate"] =
-      is_computer_literate == "Yes" ? true : false;
-    fam_dict["has_SSP"] = has_SSP == "Yes" ? true : false;
+    fam_dict["is_computer_literate"] = is_computer_literate == "Yes" ? true : false;
+    fam_dict["has_SSP"] = has_SSP;
+    // fam_dict["has_SSP"] = has_SSP == "Yes" ? true : false;
     fam_dict["health_prob"] = health_prob;
     fam_dict["has_MNREGA"] = has_MNREGA == "Yes" ? true : false;
     fam_dict["SHG"] = SHG == "Yes" ? true : false;
@@ -690,8 +693,10 @@ export class Forms extends Component {
 
     if (data?.status === "login successful") {
       console.log("data", data);
+      alert("Form Submitted Successfully.");
     } else {
       console.log("data", data);
+      alert("Form Submission Failed, Try Again.");
     }
 
     // var filename = "data.json";
@@ -994,8 +999,10 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
                 <Form.Select onChange={this.getValue} name="marital_status" className="gov_schemes_inp">
+                  <option>Not Married</option>
                   <option>Married</option>
-                  <option>Unmarried</option>
+                  <option>Widowed</option>
+                  <option>Divorced/Seperated</option>
                 </Form.Select>
               </Form.Group>
             </Row>
@@ -1027,9 +1034,11 @@ export class Forms extends Component {
 
               <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
                 <Form.Select onChange={this.getValue} name="schooling_status" className="gov_schemes_inp">
-                  <option>AWC</option>
+                  <option>Going to AWC</option>
                   <option>School</option>
                   <option>College</option>
+                  <option>Not Going</option>
+                  <option>Not Applicable</option>
                 </Form.Select>
               </Form.Group>
             </Row>
@@ -1087,9 +1096,12 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
-                <Form.Select onChange={this.getValue} name="has_SSP" className="gov_schemes_inp">
-                  <option>Yes</option>
-                  <option>No</option>
+                <Form.Select disabled="true" onChange={this.getValue} name="has_SSP" className="gov_schemes_inp">
+                  <option>No Pension</option>
+                  <option>Old Age Pension</option>
+                  <option>Widow Pension</option>
+                  <option>Disability Pension</option>
+                  <option>Other Pension</option>
                 </Form.Select>
               </Form.Group>
             </Row>
@@ -1138,7 +1150,20 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
-                <Form.Control onChange={this.getValue} name="occupations" className="gov_schemes_inp"/>
+              <Form.Select onChange={this.getValue} name="occupations" className="gov_schemes_inp">
+                  <option>Farming on own Land</option>
+                  <option>Sharecropping /Farming Leased Land</option>
+                  <option>Animal Husbandry</option>
+                  <option>Pisci-culture/Poultry</option>
+                  <option>Fishing</option>
+                  <option>Skilled Wage Worker</option>
+                  <option>Unskilled Wage Worker</option>
+                  <option>Salaried Employment in Government</option>
+                  <option>Salaried Employment in Private Sector</option>
+                  <option>Weaving</option>
+                  <option>Other Artisan</option>
+                  <option>Other Trade & Business</option>
+                </Form.Select>
               </Form.Group>
             </Row>
 
