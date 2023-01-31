@@ -127,7 +127,7 @@ function Navbar() {
             <li>
             <div className="nav-links">
             {localStorage.getItem("authTokens") ? (
-              <LogOutButton></LogOutButton>
+              <LogOutButton ></LogOutButton>
             ) : (
               <Button
                 buttonStyle="btn--outline"
