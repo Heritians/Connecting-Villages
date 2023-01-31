@@ -735,6 +735,7 @@ export class Forms extends Component {
                 <Form.Control
                   onChange={this.getValue}
                   name="respondents_name"
+                  placeholder="Full Name"
                 />
               </Form.Group>
 
@@ -776,7 +777,9 @@ export class Forms extends Component {
                   min="0"
                   onChange={this.getValue}
                   name="respondents_contact"
-                  maxLength = "10" onInput={this.maxLengthCheck}
+                  placeholder="10 digit mobile number"
+                  maxLength = "10" 
+                  onInput={this.maxLengthCheck}
                 />
               </Form.Group>
               
@@ -788,7 +791,7 @@ export class Forms extends Component {
                   </p>
                 </Form.Label>
                 <Form.Select onChange={this.getValue} name="id_type" className="id_type">
-                  <option>Adhaar Card</option>
+                  <option>Aadhaar Card</option>
                   <option>Driving License</option>
                   <option>PAN Card</option>
                 </Form.Select>
@@ -801,7 +804,11 @@ export class Forms extends Component {
                     <br />
                   </p>
                 </Form.Label>
-                <Form.Control onChange={this.getValue} name="id_no" maxlength="15" placeholder="Without Spaces"/>
+                <Form.Control 
+                onChange={this.getValue} 
+                name="id_no" 
+                maxLength = {this.state.id_type === "Adhaar Card" ? "12" : this.state.id_type === "PAN Card" ? "10" : "18"}
+                placeholder= {this.state.id_type === "Adhaar Card" ? "123488001234" : this.state.id_type === "PAN Card" ? "AAAA1234A" : "DL-12345678901234"}/>
               </Form.Group>
             </Row>
           </Form><hr/>
@@ -1045,7 +1052,7 @@ export class Forms extends Component {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="respondents_name">
-                <p>Aadhar Card <span class="narrow"></span>Number</p>
+                <p>Aadhaar Card <span class="narrow"></span>Number</p>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState" className="gov_schemes">
@@ -1096,7 +1103,7 @@ export class Forms extends Component {
               </Form.Group>
 
               <Form.Group as={Col} controlId="respondents_name" className="gov_schemes">
-                <Form.Select disabled="true" onChange={this.getValue} name="has_SSP" className="gov_schemes_inp">
+                <Form.Select onChange={this.getValue} name="has_SSP" className="gov_schemes_inp">
                   <option>No Pension</option>
                   <option>Old Age Pension</option>
                   <option>Widow Pension</option>
