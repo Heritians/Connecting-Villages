@@ -132,10 +132,10 @@ function Navbar() {
               <Button
                 buttonStyle="btn--outline"
                 button
-                onClick={handleSinginButtonClick}
+                onClick={()=> {handleSinginButtonClick(); closeMobileMenu();}}
               >
                 LOGIN
-              </Button>
+              </Button> 
             )}
           </div>
 
