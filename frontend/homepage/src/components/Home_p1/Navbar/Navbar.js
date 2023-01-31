@@ -127,15 +127,15 @@ function Navbar() {
             <li>
             <div className="nav-links">
             {localStorage.getItem("authTokens") ? (
-              <LogOutButton></LogOutButton>
+              <LogOutButton ></LogOutButton>
             ) : (
               <Button
                 buttonStyle="btn--outline"
                 button
-                onClick={handleSinginButtonClick}
+                onClick={()=> {handleSinginButtonClick(); closeMobileMenu();}}
               >
                 LOGIN
-              </Button>
+              </Button> 
             )}
           </div>
 

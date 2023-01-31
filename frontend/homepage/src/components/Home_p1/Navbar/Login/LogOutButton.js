@@ -8,9 +8,13 @@ import AuthContext from "../../../context/AuthContext";
 function LogOutButton() {
   const loginAuthUser = useContext(AuthContext);
     return (
-        <button className="btn" onClick={loginAuthUser.logoutUser}>
+      <a href="/">
+        <button 
+        className="btn" 
+        onClick={loginAuthUser.logoutUser}>
             LOG OUT
       </button>
+      </a>
     );
   }
   export default LogOutButton;
