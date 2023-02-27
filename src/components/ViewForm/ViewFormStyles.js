@@ -14,11 +14,13 @@ export const InputContainer = styled.div`
 `;
 
 export const InputLabel = styled.label`
+  margin: 0.01rem;
   font-size: 1rem;
   font-weight: 600;
   padding: 0 0.5rem;
 `;
 export const OutputLabel = styled.label`
+  margin: 0.01rem;
   width: 100%;
   text-transform: capitalize;
   font-size: 1rem;

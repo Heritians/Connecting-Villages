@@ -19,7 +19,7 @@ export default class LogosRow extends Component {
           <LogoRow>
             <LogoContainer src={vitb_Logo} alt="VITB" />
             <Link
-              to={"https://unnatbharatabhiyan.gov.in/wordpress/"}
+              to={"https://unnatbharatabhiyan.gov.in/"}
               style={{ textDecoration: "none" }}
               target="_blank"
             >

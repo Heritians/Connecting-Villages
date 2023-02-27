@@ -1,4 +1,4 @@
-import profimage from "../images/team/img.jpg";
+import DrSharadImg from "../images/team/DrSharadC.jpeg";
 import AnmolImg from "../images/team/Anmol.png";
 import GargiImg from "../images/team/Gargi.jpeg";
 import HemanthImg from "../images/team/Hemanth.jfif";
@@ -12,12 +12,10 @@ const TeamMembers = [
     id: 1,
     name: "Dr. Sharad C. Tripathi",
     title: "Project Mentor,\n\nUBA Cell Head, VIT Bhopal",
-    image: profimage,
+    image: DrSharadImg,
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: null,
     linkedin: null,
   },
@@ -29,8 +27,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/Scholasticpal",
     linkedin: "https://www.linkedin.com/in/anmol-garg-790516203/",
   },
@@ -42,8 +38,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/Gargi1971",
     linkedin: "https://www.linkedin.com/in/gargi-singh-1b9830222/",
   },
@@ -55,8 +49,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/HemanthSai7",
     linkedin: "https://www.linkedin.com/in/hemanthsai3187/",
   },
@@ -68,8 +60,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/mayureshagashe2105",
     linkedin: "https://www.linkedin.com/in/mayureshagashe2105/",
   },
@@ -81,8 +71,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/Vishesht27",
     linkedin: "https://www.linkedin.com/in/vishesh-tripathi/",
   },
@@ -94,8 +82,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/SayanSaha01",
     linkedin: "https://www.linkedin.com/in/sayan-saha001/",
   },
@@ -107,8 +93,6 @@ const TeamMembers = [
     imageAlt: "Image",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    portfolio: null,
-    twitter: null,
     github: "https://github.com/bumpansy",
     linkedin: "https://www.linkedin.com/in/suyog-kasture-0756a913b/",
   },

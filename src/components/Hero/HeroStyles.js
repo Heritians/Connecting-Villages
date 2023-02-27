@@ -43,8 +43,8 @@ export const HeadingText = styled.h1`
 
 export const HeadingPara = styled.p`
   color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.3rem;
+  font-weight: 600;
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 2rem;

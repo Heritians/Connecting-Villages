@@ -19,6 +19,10 @@ import {
   SubmitButtonRow,
   MessageSentAlert,
   OutputLabel,
+  DetailsRow,
+  DetailLabel,
+  DetailInput,
+  DetailsContainer,
 } from "./FormStyles";
 
 export default class Form extends Component {
@@ -695,6 +699,39 @@ export default class Form extends Component {
   render() {
     return (
       <>
+        <DetailsRow>
+          <DetailsContainer>
+            <DetailLabel>Village:</DetailLabel>
+            <DetailInput type="text" disabled value="Sehore"></DetailInput>
+          </DetailsContainer>
+          {/* <DetailsContainer>
+          <DetailLabel>Gram Panchayat:</DetailLabel>
+          <DetailInput type="text" disabled value="Pata Nahi"></DetailInput>
+        </DetailsContainer>
+        <DetailsContainer>
+          <DetailLabel>Ward No.:</DetailLabel>
+          <DetailInput type="text" disabled value="Pata Nahi"></DetailInput>
+        </DetailsContainer>
+      </DetailsRow>
+      <DetailsRow>
+        <DetailsContainer>
+          <DetailLabel>Block:</DetailLabel>
+          <DetailInput type="text" disabled value="Sehore"></DetailInput>
+        </DetailsContainer>
+        <DetailsContainer>
+          <DetailLabel>District:</DetailLabel>
+          <DetailInput type="text" disabled value="Pata Nahi"></DetailInput>
+        </DetailsContainer> */}
+          <DetailsContainer>
+            <DetailLabel>State:</DetailLabel>
+            <DetailInput
+              type="text"
+              disabled
+              value="Madhya Pradesh"
+            ></DetailInput>
+          </DetailsContainer>
+        </DetailsRow>
+
         <form onSubmit={this.handleSubmit}>
           {/* ------------------- 1. Respondent's Profile ---------------------------------------------------------------*/}
 

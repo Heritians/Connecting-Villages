@@ -1,16 +1,13 @@
 import styled from "styled-components";
 
 export const TeamContainer = styled.div`
-  margin-top: 1rem;
   text-align: center;
   justify-content: space-evenly;
   height: max-content;
-  min-height: 80vh;
 `;
 
 export const TeamCard = styled.div`
   width: 22rem;
-  min-height: 29rem;
   background-color: #ffe8c2;
   border-radius: 0.7rem;
   padding: 1.2rem;
@@ -27,6 +24,8 @@ export const TeamCardImg = styled.img`
   display: inline-block;
   height: 10rem;
   position: relative;
+  border-radius: 1rem;
+  border: 0.2rem solid #ff7400;
 `;
 
 export const TeamCardName = styled.h3`

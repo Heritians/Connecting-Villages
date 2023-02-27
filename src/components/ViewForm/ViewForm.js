@@ -1215,56 +1215,6 @@ export default class ViewForm extends Component {
             </InputContainer>
           </SectionContainer>
         </div>
-
-        {/* ------------------- Form filled by details ---------------------------------------------------------------*/}
-
-        <div className="container">
-          <SectionContainer>
-            <SectionTitle style={{ fontSize: "1rem" }}>
-              Form filled by
-            </SectionTitle>
-            <InputContainer>
-              <Table>
-                <tbody>
-                  <TableRow>
-                    <TableData>
-                      <InputLabel
-                        style={{ fontWeight: "normal", width: "30%" }}
-                      >
-                        Aadhaar No:
-                      </InputLabel>
-                      <OutputLabel
-                        style={{ fontWeight: "normal", width: "70%" }}
-                      >
-                        {this.props.formdata["filled_by"] !== null
-                          ? this.props.formdata["filled_by"]
-                          : "Cannot be displayed"}
-                      </OutputLabel>
-                    </TableData>
-                    <TableData>
-                      <InputLabel
-                        style={{ fontWeight: "normal", width: "30%" }}
-                      >
-                        Date Filled:
-                      </InputLabel>
-                      <OutputLabel
-                        style={{ fontWeight: "normal", width: "70%" }}
-                      >
-                        {this.props.formdata["filled_time"] !== null
-                          ? this.props.formdata["filled_time"].split("T")[0] +
-                            " " +
-                            this.props.formdata["filled_time"]
-                              .split("T")[1]
-                              .slice(0, 8)
-                          : "Cannot be displayed"}
-                      </OutputLabel>
-                    </TableData>
-                  </TableRow>
-                </tbody>
-              </Table>
-            </InputContainer>
-          </SectionContainer>
-        </div>
       </div>
     );
   }
