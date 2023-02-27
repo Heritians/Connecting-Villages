@@ -32,8 +32,6 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/team" element={<TeamPage />} />
-          <Route path="/testform" element={<FormTest />} />
-          <Route path="/testvillages" element={<VillagesList />} />
           <Route path="/instructions" element={<GettingStartedPage />} />
           <Route
             path="/login"

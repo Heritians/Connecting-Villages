@@ -226,6 +226,11 @@ export const SubmitButton = styled.button`
     background: #ff841d;
     color: #000000;
   }
+  &:disabled {
+    background: #ff7400;
+    color: #ffffff;
+    opacity: 0.5;
+    cursor: not-allowed;
 `;
 
 export const MessageSentAlert = styled.div`

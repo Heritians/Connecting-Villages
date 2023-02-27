@@ -316,6 +316,8 @@ export default class Form extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    document.getElementById("form-submit-button").disabled = true;
+    document.getElementById("form-submit-button").innerHTML = "Submitting...";
 
     //TABLE1******************************************************
     const respondents_name = this.state.respondents_name;
@@ -649,42 +651,28 @@ export default class Form extends Component {
     const data = await fetchResponse.json();
     console.log("data", data.status);
     if (data?.status === "success") {
-      console.log("data", data);
+      console.log("data", data.status);
       document.getElementById("alert").innerHTML =
         "Form Submitted Successfully";
       document.getElementById("alert").style.display = "block";
+      document.getElementById("form-submit-button").innerHTML = "Submit Form";
       setTimeout(function () {
         document.getElementById("alert").style.display = "none";
       }, 4000);
-      window.location.reload();
-    } else if (data?.status === "abort") {
-      console.log("data", data);
-      document.querySelector(".alert_style").style.display = "block";
-      document.querySelector(".alert_style").style.backgroundColor = "#f44336";
-      document.getElementById("alert").innerHTML =
-        "Respondent with this ID already exists, Please try again!";
-      setTimeout(function () {
-        document.querySelector(".alert_style").style.display = "none";
+      setTimeout(() => {
+        window.location.reload();
       }, 4000);
     } else {
-      console.log("data", data);
       document.querySelector(".alert_style").style.display = "block";
       document.querySelector(".alert_style").style.backgroundColor = "#f44336";
       document.getElementById("alert").innerHTML =
         "Form Submission Failed, Please Try Again.";
-
+      document.getElementById("form-submit-button").disabled = false;
+      document.getElementById("form-submit-button").innerHTML = "Submit Form";
       setTimeout(function () {
         document.querySelector(".alert_style").style.display = "none";
       }, 4000);
     }
-
-    // var filename = "data.json";
-
-    // var fileToSave = new Blob([JSON.stringify(postData)], {
-    //   type: "application/json",
-    // });
-
-    // saveAs(fileToSave, filename);
   };
 
   maxLengthCheck = (object) => {
@@ -795,7 +783,7 @@ export default class Form extends Component {
 
                     <TableRow>
                       <TableData colSpan={1}>
-                        <InputLabel>Indentity Card Type:</InputLabel>
+                        <InputLabel>Identity Card Type:</InputLabel>
                         <InputSelect
                           name="id_type"
                           onChange={this.getValue}
@@ -813,7 +801,7 @@ export default class Form extends Component {
                         </InputSelect>
                       </TableData>
                       <TableData colSpan={2}>
-                        <InputLabel>Indentity Card Number:</InputLabel>
+                        <InputLabel>Identity Card Number:</InputLabel>
                         <Input
                           // required={this.state.id_type !== "select"}
                           type="text"
@@ -1964,7 +1952,7 @@ export default class Form extends Component {
                       </TableData>
                       <TableData>
                         <InputLabel>
-                          Electicity Availability per day (hours)
+                          Electricity Availability per day (hours)
                         </InputLabel>
                         <Input
                           type="number"
@@ -1989,8 +1977,8 @@ export default class Form extends Component {
                           <InputOption defaultValue="Select">
                             Select
                           </InputOption>
-                          <InputOption value="Electicity">
-                            Electicity
+                          <InputOption value="Electricity">
+                            Electricity
                           </InputOption>
                           <InputOption value="Kerosene">Kerosene</InputOption>
                           <InputOption value="Solar Power">
@@ -2686,7 +2674,9 @@ export default class Form extends Component {
               Form Submitted
             </MessageSentAlert>
             <SubmitButtonRow>
-              <SubmitButton type="submit">Submit Form</SubmitButton>
+              <SubmitButton id="form-submit-button" type="submit">
+                Submit Form
+              </SubmitButton>
             </SubmitButtonRow>
           </div>
         </form>
