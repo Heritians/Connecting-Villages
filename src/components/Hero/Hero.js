@@ -21,7 +21,7 @@ export default class Hero extends Component {
                 and Analysis
               </HeadingText>
               <HeadingPara>
-                The website that digitalizes the ‘Unnat Bharat Abhiyan Baseline
+                The website that digitizes the ‘Unnat Bharat Abhiyan Baseline
                 Household Survey Form’. We also intend to analyze the data
                 entered in the form from the villages and present it graphically
                 for easy comprehension. With this data, it will be easier for

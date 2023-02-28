@@ -17,7 +17,7 @@ const TeamMembers = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     github: null,
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/sharad-c-tripathi-614396197/",
   },
   {
     id: 2,

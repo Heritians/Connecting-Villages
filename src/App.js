@@ -10,7 +10,6 @@ import TeamPage from "./pages/Team/TeamPage";
 import CreateUserPage from "./pages/CreateUser/CreateUserPage";
 import BulkUserPage from "./pages/BulkUser/BulkUserPage";
 import FormPage from "./pages/Form/FormPage";
-import FormTest from "./components/Form/FormTest";
 import ViewFormPage from "./pages/ViewForm/ViewFormPage";
 import {
   // AuthContext,
@@ -32,8 +31,6 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/team" element={<TeamPage />} />
-          <Route path="/testform" element={<FormTest />} />
-          <Route path="/testvillages" element={<VillagesList />} />
           <Route path="/instructions" element={<GettingStartedPage />} />
           <Route
             path="/login"

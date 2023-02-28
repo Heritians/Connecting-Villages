@@ -24,12 +24,18 @@ export default function CreateUserForm1() {
   const role = loginAuthUser.user
     ? loginAuthUser.user["sub"].split("_")[1]
     : "Not Authenticated";
-  const village = loginAuthUser.user
-    ? loginAuthUser.user["sub"].split("_")[2]
-    : "Sehore";
+  const village = loginAuthUser?.user
+    ? loginAuthUser.user["sub"].split("_")[2] +
+      " " +
+      (loginAuthUser.user["sub"].split("_")[3]
+        ? loginAuthUser.user["sub"].split("_")[3]
+        : "")
+    : "Not Authenticated";
 
   const [aadhaarNo, setAadhaarNo] = useState("");
   const [password, setPassword] = useState("");
+  const [userRole, setUserRole] = useState("user");
+  const [userVillage, setUserVillage] = useState(village.split(" ").join("_"));
 
   const handleAadhaarChange = (e) => {
     setAadhaarNo(e.target.value);
@@ -37,19 +43,26 @@ export default function CreateUserForm1() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+  const handleUserRoleChange = (e) => {
+    setUserRole(e.target.value);
+  };
+  const handleUserVillageChange = (e) => {
+    setUserVillage(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     document.getElementById("create-user-page-button").disabled = true;
     document.getElementById("create-user-page-button").innerHTML =
       "Creating User...";
+
     const settings = {
       method: "POST",
       body: JSON.stringify({
         AADHAR_NO: aadhaarNo,
         password: password,
-        village_name: "Sehore",
-        role: "user",
+        village_name: userVillage,
+        role: userRole,
       }),
       headers: {
         Authorization:
@@ -59,6 +72,7 @@ export default function CreateUserForm1() {
         "Content-Type": "application/json",
       },
     };
+    console.log(settings);
 
     let newURL = "https://ubaformapi.vercel.app/auth/signup";
     const fetchResponse = await fetch(newURL, settings);
@@ -124,17 +138,25 @@ export default function CreateUserForm1() {
             </div>
             <div className="col-md-5 form-group mt-3">
               {role === "GOVTOff" ? (
-                <CreateUserSelect name="role">
+                <CreateUserSelect name="role" onChange={handleUserRoleChange}>
                   <CreateUserOption defaultValue="None">None</CreateUserOption>
                   <CreateUserOption value="admin">Admin</CreateUserOption>
                   <CreateUserOption value="user">User</CreateUserOption>
                 </CreateUserSelect>
               ) : role === "admin" ? (
-                <CreateUserSelect name="role" disabled>
+                <CreateUserSelect
+                  name="role"
+                  disabled
+                  onChange={handleUserRoleChange}
+                >
                   <CreateUserOption defaultValue="user">User</CreateUserOption>
                 </CreateUserSelect>
               ) : (
-                <CreateUserSelect name="role" disabled>
+                <CreateUserSelect
+                  name="role"
+                  disabled
+                  onChange={handleUserRoleChange}
+                >
                   <CreateUserOption defaultValue="user">User</CreateUserOption>
                 </CreateUserSelect>
               )}
@@ -146,24 +168,31 @@ export default function CreateUserForm1() {
             </div>
             <div className="col-md-5 form-group mt-3">
               {role === "GOVTOff" ? (
-                <CreateUserSelect name="villname">
+                <CreateUserSelect
+                  name="villname"
+                  onChange={handleUserVillageChange}
+                >
                   <CreateUserOption defaultValue="None">None</CreateUserOption>
                   <CreateUserOption value="Sehore">Sehore</CreateUserOption>
-                  <CreateUserOption value="Lasudiya Khas">
+                  <CreateUserOption value="Lasudiya_Khas">
                     Lasudiya Khas
                   </CreateUserOption>
-                  <CreateUserOption value="Gawa Kheda">
+                  <CreateUserOption value="Gawa_Kheda">
                     Gawa Kheda
                   </CreateUserOption>
-                  <CreateUserOption value="Mana Khedi">
+                  <CreateUserOption value="Mana_Khedi">
                     Mana Khedi
                   </CreateUserOption>
-                  <CreateUserOption value="Nipaniya Kalan">
+                  <CreateUserOption value="Nipaniya_Kalan">
                     Nipaniya Kalan
                   </CreateUserOption>
                 </CreateUserSelect>
               ) : (
-                <CreateUserSelect name="villname" disabled>
+                <CreateUserSelect
+                  name="villname"
+                  disabled
+                  onChange={handleUserVillageChange}
+                >
                   <CreateUserOption defaultValue={village}>
                     {village}
                   </CreateUserOption>

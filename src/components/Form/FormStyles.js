@@ -226,6 +226,11 @@ export const SubmitButton = styled.button`
     background: #ff841d;
     color: #000000;
   }
+  &:disabled {
+    background: #ff7400;
+    color: #ffffff;
+    opacity: 0.5;
+    cursor: not-allowed;
 `;
 
 export const MessageSentAlert = styled.div`
@@ -236,37 +241,4 @@ export const MessageSentAlert = styled.div`
   color: #000000;
   border-radius: 0.5rem;
   display: none;
-`;
-
-export const DetailsRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0.5rem;
-  width: 100%;
-`;
-
-export const DetailsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const DetailLabel = styled.label`
-  margin-right: 1rem;
-  font-size: 1rem;
-  font-weight: 550;
-`;
-
-export const DetailInput = styled.input`
-  padding: 0.5rem;
-  border: 0.5px solid #000000;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 550;
-  &:focus {
-    outline: none;
-  }
 `;
