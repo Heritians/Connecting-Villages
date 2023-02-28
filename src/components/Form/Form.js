@@ -1299,13 +1299,13 @@ export default class Form extends Component {
                               Farming on own Land
                             </InputOption>
                             <InputOption value="Sharecropping/Farming Leased Land">
-                              Sharecropping/Farming Leased Land
+                              Sharecropping/ Farming Leased Land
                             </InputOption>
                             <InputOption value="Animal Husbandry">
                               Animal Husbandry
                             </InputOption>
                             <InputOption value="Pisci-culture/Poultry">
-                              Pisci-culture/Poultry
+                              Pisci-culture/ Poultry
                             </InputOption>
                             <InputOption value="Fishing">Fishing</InputOption>
                             <InputOption value="Skilled Wage Worker">

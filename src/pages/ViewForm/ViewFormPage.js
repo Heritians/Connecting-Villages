@@ -74,7 +74,11 @@ export default function ViewFormPage() {
   return (
     <>
       <Helmet>
-        <title>View Form | Heritians</title>
+        {famdata?.gen_ho_info ? (
+          <title>Annexture_VI_{famdata.respondent_prof[0].id_no}</title>
+        ) : (
+          <title>View Form | Heritians</title>
+        )}
       </Helmet>
       <Header />
 
