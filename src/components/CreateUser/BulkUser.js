@@ -24,9 +24,13 @@ export default function BulkUserForm() {
   const role = loginAuthUser.user
     ? loginAuthUser.user["sub"].split("_")[1]
     : "Not Authenticated";
-  const village = loginAuthUser.user
-    ? loginAuthUser.user["sub"].split("_")[2]
-    : "Sehore";
+  const village = loginAuthUser?.user
+    ? loginAuthUser.user["sub"].split("_")[2] +
+      " " +
+      (loginAuthUser.user["sub"].split("_")[3]
+        ? loginAuthUser.user["sub"].split("_")[3]
+        : "")
+    : "Not Authenticated";
 
   const [aadhaarNo, setAadhaarNo] = useState("");
   const [password, setPassword] = useState("");
@@ -49,7 +53,13 @@ export default function BulkUserForm() {
     const postingdata = JSON.stringify({
       AADHAR_NOS: newaadhaarnos,
       passwords: newpasswords,
-      village_name: "Sehore",
+      village_name: loginAuthUser?.user
+        ? loginAuthUser.user["sub"].split("_")[2] +
+          "_" +
+          (loginAuthUser.user["sub"].split("_")[3]
+            ? loginAuthUser.user["sub"].split("_")[3]
+            : "")
+        : "Not Authenticated",
       role: "user",
     });
     const settings = {
@@ -85,9 +95,9 @@ export default function BulkUserForm() {
         document.getElementById("create-user-alert-new").style.backgroundColor =
           "#f44336";
       } else {
-        document.getElementById(
-          "create-user-alert"
-        ).innerHTML = `Users Created Successfully!`;
+        // document.getElementById(
+        //   "create-user-alert"
+        // ).innerHTML = `Users Created Successfully!`;
       }
       document.getElementById("create-user-alert").style.backgroundColor =
         "#6eca46";

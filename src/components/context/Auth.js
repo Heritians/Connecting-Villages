@@ -31,8 +31,8 @@ export const AuthProvider = ({ children }) => {
   const history = useNavigate();
 
   let loginUser = async (e) => {
-    setVillage(e.target.villname.value);
     e.preventDefault();
+    setVillage(e.target.villname.value);
     document.getElementById("login-page-button").disabled = true;
     document.getElementById("login-page-button").innerHTML = "Logging in...";
 
@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       // console.log(authTokens);
       setUser(jwt_decode(data.access_token));
-      console.log(user);
+      // console.log(user);
       if (window.location.pathname === "/login") {
         navigate("/");
         // eslint-disable-next-line no-restricted-globals
@@ -107,7 +107,7 @@ export const AuthProvider = ({ children }) => {
         document.getElementById("login-user-alert").style.display = "none";
       }, 4000);
     }
-    console.log(e.target.villname.value);
+    // console.log(e.target.villname.value);
   };
 
   let logoutUser = () => {

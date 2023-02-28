@@ -92,10 +92,10 @@ export default function LoginForm1() {
               >
                 <LoginOption defaultValue="None">None</LoginOption>
                 <LoginOption value="Sehore">Sehore</LoginOption>
-                <LoginOption value="Lasudiya Khas">Lasudiya Khas</LoginOption>
-                <LoginOption value="Gawa Kheda">Gawa Kheda</LoginOption>
-                <LoginOption value="Mana Khedi">Mana Khedi</LoginOption>
-                <LoginOption value="Nipaniya Kalan">Nipaniya Kalan</LoginOption>
+                <LoginOption value="Lasudiya_Khas">Lasudiya Khas</LoginOption>
+                <LoginOption value="Gawa_Kheda">Gawa Kheda</LoginOption>
+                <LoginOption value="Mana_Khedi">Mana Khedi</LoginOption>
+                <LoginOption value="Nipaniya_Kalan">Nipaniya Kalan</LoginOption>
               </LoginSelect>
             </div>
           </InputsRow>

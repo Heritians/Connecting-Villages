@@ -19,11 +19,8 @@ import {
   SubmitButtonRow,
   MessageSentAlert,
   OutputLabel,
-  DetailsRow,
-  DetailLabel,
-  DetailInput,
-  DetailsContainer,
 } from "./FormStyles";
+import VillageDetails from "./VillageDetails/VillageDetails";
 
 export default class Form extends Component {
   state = {
@@ -613,7 +610,7 @@ export default class Form extends Component {
 
     const postData = {
       static_vars: {
-        village_name: "Sehore",
+        village_name: this.props.usersVillage,
         grampanchyat_name: "bhairaghad",
         ward_no: "7",
         block: "141",
@@ -687,39 +684,7 @@ export default class Form extends Component {
   render() {
     return (
       <>
-        <DetailsRow>
-          <DetailsContainer>
-            <DetailLabel>Village:</DetailLabel>
-            <DetailInput type="text" disabled value="Sehore"></DetailInput>
-          </DetailsContainer>
-          {/* <DetailsContainer>
-          <DetailLabel>Gram Panchayat:</DetailLabel>
-          <DetailInput type="text" disabled value="Pata Nahi"></DetailInput>
-        </DetailsContainer>
-        <DetailsContainer>
-          <DetailLabel>Ward No.:</DetailLabel>
-          <DetailInput type="text" disabled value="Pata Nahi"></DetailInput>
-        </DetailsContainer>
-      </DetailsRow>
-      <DetailsRow>
-        <DetailsContainer>
-          <DetailLabel>Block:</DetailLabel>
-          <DetailInput type="text" disabled value="Sehore"></DetailInput>
-        </DetailsContainer>
-        <DetailsContainer>
-          <DetailLabel>District:</DetailLabel>
-          <DetailInput type="text" disabled value="Pata Nahi"></DetailInput>
-        </DetailsContainer> */}
-          <DetailsContainer>
-            <DetailLabel>State:</DetailLabel>
-            <DetailInput
-              type="text"
-              disabled
-              value="Madhya Pradesh"
-            ></DetailInput>
-          </DetailsContainer>
-        </DetailsRow>
-
+        <VillageDetails />
         <form onSubmit={this.handleSubmit}>
           {/* ------------------- 1. Respondent's Profile ---------------------------------------------------------------*/}
 
@@ -1117,6 +1082,7 @@ export default class Form extends Component {
                             required
                             type={"number"}
                             name="age"
+                            min={0}
                             value={this.state.fam_info[index].age}
                             onChange={this.handleFamMemberChange(index)}
                           />
