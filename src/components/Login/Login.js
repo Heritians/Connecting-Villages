@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/Auth";
 import GlobalLinks from "../../assets/js/GlobalLinks";
+import Villages from "../../assets/js/Villages";
 import {
   LoginContainer,
   LoginWrapper,
@@ -26,6 +27,7 @@ export default function LoginForm1() {
   const IsOwner = (event) => {
     if (event.target.value === "GOVTOff" || event.target.value === "None") {
       setIsDisabled(true);
+      document.getElementById("Village").value = "None";
     } else {
       setIsDisabled(false);
     }
@@ -84,7 +86,7 @@ export default function LoginForm1() {
             <div className="col-md-5 form-group mt-3">
               <LoginSelect
                 name="villname"
-                // id="Village"
+                id="Village"
                 // value={this.state.VillageName}
                 // onChange={this.onVillageNameChange.bind(this)}
                 // disabled={this.state.isDisabled}
@@ -92,10 +94,11 @@ export default function LoginForm1() {
               >
                 <LoginOption defaultValue="None">None</LoginOption>
                 <LoginOption value="Sehore">Sehore</LoginOption>
-                <LoginOption value="Lasudiya_Khas">Lasudiya Khas</LoginOption>
-                <LoginOption value="Gawa_Kheda">Gawa Kheda</LoginOption>
-                <LoginOption value="Mana_Khedi">Mana Khedi</LoginOption>
-                <LoginOption value="Nipaniya_Kalan">Nipaniya Kalan</LoginOption>
+                {Villages.map((village, index) => (
+                  <LoginOption value={village.DB_Name} key={index}>
+                    {village.title}
+                  </LoginOption>
+                ))}
               </LoginSelect>
             </div>
           </InputsRow>

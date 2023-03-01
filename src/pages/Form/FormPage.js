@@ -12,9 +12,8 @@ export default function FormPage() {
   const loginAuthUser = useContext(AuthContext);
   const userVillage = loginAuthUser?.user
     ? loginAuthUser.user["sub"].split("_")[2] +
-      "_" +
       (loginAuthUser.user["sub"].split("_")[3]
-        ? loginAuthUser.user["sub"].split("_")[3]
+        ? "_" + loginAuthUser.user["sub"].split("_")[3]
         : "")
     : "Not Authenticated";
   const scrollToTop = () => {

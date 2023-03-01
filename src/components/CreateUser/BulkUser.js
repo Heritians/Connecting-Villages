@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/Auth";
 import GlobalLinks from "../../assets/js/GlobalLinks";
+import Villages from "../../assets/js/Villages";
 import {
   CreateUserContainer,
   CreateUserWrapper,
@@ -26,9 +27,8 @@ export default function BulkUserForm() {
     : "Not Authenticated";
   const village = loginAuthUser?.user
     ? loginAuthUser.user["sub"].split("_")[2] +
-      " " +
       (loginAuthUser.user["sub"].split("_")[3]
-        ? loginAuthUser.user["sub"].split("_")[3]
+        ? " " + loginAuthUser.user["sub"].split("_")[3]
         : "")
     : "Not Authenticated";
 
@@ -55,9 +55,8 @@ export default function BulkUserForm() {
       passwords: newpasswords,
       village_name: loginAuthUser?.user
         ? loginAuthUser.user["sub"].split("_")[2] +
-          "_" +
           (loginAuthUser.user["sub"].split("_")[3]
-            ? loginAuthUser.user["sub"].split("_")[3]
+            ? " " + loginAuthUser.user["sub"].split("_")[3]
             : "")
         : "Not Authenticated",
       role: "user",
@@ -180,18 +179,11 @@ export default function BulkUserForm() {
                 <CreateUserSelect name="villname">
                   <CreateUserOption defaultValue="None">None</CreateUserOption>
                   <CreateUserOption value="Sehore">Sehore</CreateUserOption>
-                  <CreateUserOption value="Lasudiya Khas">
-                    Lasudiya Khas
-                  </CreateUserOption>
-                  <CreateUserOption value="Gawa Kheda">
-                    Gawa Kheda
-                  </CreateUserOption>
-                  <CreateUserOption value="Mana Khedi">
-                    Mana Khedi
-                  </CreateUserOption>
-                  <CreateUserOption value="Nipaniya Kalan">
-                    Nipaniya Kalan
-                  </CreateUserOption>
+                  {Villages.map((village, index) => (
+                    <CreateUserOption value={village.DB_Name} key={index}>
+                      {village.title}
+                    </CreateUserOption>
+                  ))}
                 </CreateUserSelect>
               ) : (
                 <CreateUserSelect name="villname" disabled>
