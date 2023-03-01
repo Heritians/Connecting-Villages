@@ -11,9 +11,8 @@ export default function VillageDetails() {
   const loginAuthUser = useContext(AuthContext);
   const userVillage = loginAuthUser?.user
     ? loginAuthUser.user["sub"].split("_")[2] +
-      " " +
       (loginAuthUser.user["sub"].split("_")[3]
-        ? loginAuthUser.user["sub"].split("_")[3]
+        ? " " + loginAuthUser.user["sub"].split("_")[3]
         : "")
     : "Not Authenticated";
   return (
