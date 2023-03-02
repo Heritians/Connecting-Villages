@@ -53,12 +53,7 @@ export default function BulkUserForm() {
     const postingdata = JSON.stringify({
       AADHAR_NOS: newaadhaarnos,
       passwords: newpasswords,
-      village_name: loginAuthUser?.user
-        ? loginAuthUser.user["sub"].split("_")[2] +
-          (loginAuthUser.user["sub"].split("_")[3]
-            ? " " + loginAuthUser.user["sub"].split("_")[3]
-            : "")
-        : "Not Authenticated",
+      village_name: "Lasudiya_Khas",
       role: "user",
     });
     const settings = {
@@ -116,8 +111,8 @@ export default function BulkUserForm() {
       document.getElementById(
         "create-user-alert"
       ).innerHTML = `Error Creating Users, Please Try Again!`;
-      document.getElementById("create-user-alert-new").innerHTML =
-        data?.message[1];
+      // document.getElementById("create-user-alert-new").innerHTML =
+      //   data?.message[1];
       setTimeout(function () {
         document.getElementById("create-user-alert").style.display = "none";
         document.getElementById("create-user-alert-new").style.display = "none";
