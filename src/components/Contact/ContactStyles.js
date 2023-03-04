@@ -138,6 +138,12 @@ export const FormButton = styled.button`
     background: #ff841d;
     color: #000000;
   }
+  &:disabled {
+    background: #ff7400;
+    color: #000000;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
 export const MessageSentAlert = styled.div`

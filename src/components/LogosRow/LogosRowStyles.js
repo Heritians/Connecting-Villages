@@ -80,5 +80,3 @@ export const UBAPara = styled.p`
     font-size: 0.45rem;
   }
 `;
-
-// #ff9944

@@ -36,7 +36,6 @@ export const AuthProvider = ({ children }) => {
     document.getElementById("login-page-button").disabled = true;
     document.getElementById("login-page-button").innerHTML = "Logging in...";
 
-    console.log("inside login user");
     setFormData({
       AADHAR_NO: e.target.AN.value,
       password: e.target.pwd.value,
@@ -72,8 +71,6 @@ export const AuthProvider = ({ children }) => {
     document.getElementById("login-page-button").disabled = false;
     document.getElementById("login-page-button").innerHTML = "Login";
 
-    // console.log(data);
-
     if (data?.status === "login successful") {
       if (data.hasOwnProperty("role")) {
         delete data.role;
@@ -85,9 +82,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("authTokens", JSON.stringify(data));
 
       setAuthTokens(data);
-      // console.log(authTokens);
       setUser(jwt_decode(data.access_token));
-      // console.log(user);
       if (window.location.pathname === "/login") {
         navigate("/");
         // eslint-disable-next-line no-restricted-globals
@@ -96,7 +91,6 @@ export const AuthProvider = ({ children }) => {
         // eslint-disable-next-line no-restricted-globals
         location.reload();
       }
-      console.log("Login Successful");
     } else {
       document.getElementById("login-user-alert").style.display = "block";
       document.getElementById("login-user-alert").style.backgroundColor =
@@ -107,21 +101,16 @@ export const AuthProvider = ({ children }) => {
         document.getElementById("login-user-alert").style.display = "none";
       }, 4000);
     }
-    // console.log(e.target.villname.value);
   };
 
   let logoutUser = () => {
     setAuthTokens(null);
     setUser(null);
     localStorage.removeItem("authTokens");
-    console.log("after remove localstrg");
     history("/");
   };
 
   let updateToken = async () => {
-    // console.log("updating token", localStorage.getItem("authTokens"));
-    // console.log("refresh token", authTokens?.refresh_token)
-
     const settings = {
       method: "POST",
       headers: {
@@ -136,7 +125,6 @@ export const AuthProvider = ({ children }) => {
           .refresh_token,
       }),
     };
-    // console.log(localStorage.getItem('access_token'));
     let newURL = "https://ubaformapi.vercel.app/auth/use_refresh_token";
     const fetchResponse = await fetch(newURL, settings);
     const data = await fetchResponse.json();
@@ -153,12 +141,8 @@ export const AuthProvider = ({ children }) => {
 
       setAuthTokens(data);
       setUser(jwt_decode(data.access_token));
-      //   history.push("/login");
-      console.log("token updated");
     } else {
       logoutUser();
-      // alert("Invalid Credentials");
-      console.log("Invalid Credentials");
     }
 
     if (loading) {

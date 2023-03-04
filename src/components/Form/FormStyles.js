@@ -68,7 +68,7 @@ export const Input = styled.input`
   }
   &:disabled {
     background-color: #dfdfdf;
-    opacity: 0.8;
+    opacity: 0.6;
   }
   &::-webkit-input-placeholder {
     color: #000000;
@@ -80,7 +80,7 @@ export const Input = styled.input`
   }
   &::placeholder {
     color: #000000;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 `;
 

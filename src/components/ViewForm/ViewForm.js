@@ -1134,14 +1134,6 @@ export default class ViewForm extends Component {
                           this.props.formdata.livestock_nos[0]
                             .livestock_shelter[0]
                         }
-                        {/* {this.props.formdata.livestock_nos[0].livestock_shelter.map(
-                              (item, index) => {
-                                <div key={index}>
-                                  {item}
-                                  {", "}
-                                </div>;
-                              }
-                            )} */}
                       </OutputLabel>
                     </TableData>
                   </TableRow>

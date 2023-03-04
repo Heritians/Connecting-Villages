@@ -31,6 +31,12 @@ export default function BulkUserForm() {
         ? " " + loginAuthUser.user["sub"].split("_")[3]
         : "")
     : "Not Authenticated";
+  const villageValue = loginAuthUser?.user
+    ? loginAuthUser.user["sub"].split("_")[2] +
+      (loginAuthUser.user["sub"].split("_")[3]
+        ? "_" + loginAuthUser.user["sub"].split("_")[3]
+        : "")
+    : "Not Authenticated";
 
   const [aadhaarNo, setAadhaarNo] = useState("");
   const [password, setPassword] = useState("");
@@ -53,7 +59,7 @@ export default function BulkUserForm() {
     const postingdata = JSON.stringify({
       AADHAR_NOS: newaadhaarnos,
       passwords: newpasswords,
-      village_name: "Lasudiya_Khas",
+      village_name: villageValue,
       role: "user",
     });
     const settings = {
@@ -74,7 +80,6 @@ export default function BulkUserForm() {
     document.getElementById("create-user-page-button").disabled = false;
     document.getElementById("create-user-page-button").innerHTML =
       "Create User";
-    console.log(data);
     if (data?.status === "success") {
       document.getElementById("create-user-alert").style.display = "block";
       if (data?.message[1].length > 61) {
@@ -111,8 +116,8 @@ export default function BulkUserForm() {
       document.getElementById(
         "create-user-alert"
       ).innerHTML = `Error Creating Users, Please Try Again!`;
-      // document.getElementById("create-user-alert-new").innerHTML =
-      //   data?.message[1];
+      document.getElementById("create-user-alert-new").innerHTML =
+        data?.message[1];
       setTimeout(function () {
         document.getElementById("create-user-alert").style.display = "none";
         document.getElementById("create-user-alert-new").style.display = "none";
@@ -182,7 +187,7 @@ export default function BulkUserForm() {
                 </CreateUserSelect>
               ) : (
                 <CreateUserSelect name="villname" disabled>
-                  <CreateUserOption defaultValue={village}>
+                  <CreateUserOption defaultValue={villageValue}>
                     {village}
                   </CreateUserOption>
                 </CreateUserSelect>
