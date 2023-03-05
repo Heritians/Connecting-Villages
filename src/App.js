@@ -19,6 +19,7 @@ import ViewFormPage from "./pages/ViewForm/ViewFormPage";
 import { AuthProvider } from "./components/context/Auth";
 import VillagesList from "./pages/VillagesList/VillagesList";
 import RouteAuth from "./components/context/RouteAuth";
+import UnauthorizedPage from "./pages/Unauthorized/UnauthorizedPage";
 
 export default function App() {
   return (
@@ -30,7 +31,6 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/instructions" element={<GettingStartedPage />} />
-          <Route path="/adminform" element={<FormPage />} />
           <Route
             path="/login"
             element={
@@ -62,7 +62,7 @@ export default function App() {
               </Route>
             </>
           ) : null}
-          <Route path="/unauthorized" element={<h1>Not Authorized</h1>} />
+          <Route path="/unauthorized" element={<UnauthorizedPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </AuthProvider>

@@ -58,7 +58,7 @@ export default class Form extends Component {
         marital_status: "",
         education: "",
         schooling_status: "",
-        AADHAR_No: "0",
+        AADHAR_No: "000000000000",
         has_bank_acc: "",
         is_computer_literate: "",
         has_SSP: "",
@@ -1153,7 +1153,6 @@ export default class Form extends Component {
                         </TableData>
                         <TableData>
                           <Input
-                            required
                             type={"text"}
                             name="AADHAR_No"
                             minLength={12}
