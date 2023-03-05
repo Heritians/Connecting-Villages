@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
 import ContactPage from "./pages/Contact/ContactPage";
@@ -11,18 +16,12 @@ import CreateUserPage from "./pages/CreateUser/CreateUserPage";
 import BulkUserPage from "./pages/BulkUser/BulkUserPage";
 import FormPage from "./pages/Form/FormPage";
 import ViewFormPage from "./pages/ViewForm/ViewFormPage";
-import {
-  // AuthContext,
-  AuthProvider,
-} from "./components/context/Auth";
+import { AuthProvider } from "./components/context/Auth";
 import VillagesList from "./pages/VillagesList/VillagesList";
-// import { useContext } from "react";
+import RouteAuth from "./components/context/RouteAuth";
+import UnauthorizedPage from "./pages/Unauthorized/UnauthorizedPage";
 
 export default function App() {
-  // const loginAuthUser = useContext(AuthContext);
-  // const role = loginAuthUser?.user
-  //   ? loginAuthUser.user["sub"].split("_")[1]
-  //   : "Not Authenticated";
   return (
     <Router>
       <AuthProvider>
@@ -35,55 +34,34 @@ export default function App() {
           <Route
             path="/login"
             element={
-              localStorage.getItem("authTokens") ? <HomePage /> : <LoginPage />
-            }
-          />
-          <Route
-            path="/villages"
-            element={
               localStorage.getItem("authTokens") ? (
-                <VillagesList />
+                <Navigate to={"/"} />
               ) : (
                 <LoginPage />
               )
             }
           />
-          <Route
-            path="/createuser"
-            element={
-              localStorage.getItem("authTokens") ? (
-                <CreateUserPage />
-              ) : (
-                <LoginPage />
-              )
-            }
-          />
-          <Route
-            path="/bulkuser"
-            element={
-              localStorage.getItem("authTokens") ? (
-                <BulkUserPage />
-              ) : (
-                <LoginPage />
-              )
-            }
-          />
-          <Route
-            path="/viewform"
-            element={
-              localStorage.getItem("authTokens") ? (
-                <ViewFormPage />
-              ) : (
-                <LoginPage />
-              )
-            }
-          />
-          <Route
-            path="/form"
-            element={
-              localStorage.getItem("authTokens") ? <FormPage /> : <LoginPage />
-            }
-          />
+          {localStorage.getItem("authTokens") ? (
+            <>
+              <Route element={<RouteAuth allowedRoles={["GOVTOff"]} />}>
+                <Route path="/villages" element={<VillagesList />} />
+              </Route>
+              <Route
+                element={<RouteAuth allowedRoles={["admin", "GOVTOff"]} />}
+              >
+                <Route path="/createuser" element={<CreateUserPage />} />
+              </Route>
+              <Route element={<RouteAuth allowedRoles={["admin"]} />}>
+                <Route path="/bulkuser" element={<BulkUserPage />} />
+              </Route>
+              <Route element={<RouteAuth allowedRoles={["admin"]} />}>
+                <Route path="/viewform" element={<ViewFormPage />} />
+              </Route>
+              <Route element={<RouteAuth allowedRoles={["admin", "user"]} />}>
+                <Route path="/form" element={<FormPage />} />
+              </Route>
+            </>
+          ) : null}
           <Route path="*" element={<NoPage />} />
         </Routes>
       </AuthProvider>

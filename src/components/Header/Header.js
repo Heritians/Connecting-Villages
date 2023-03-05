@@ -21,12 +21,7 @@ import Dropdown from "../Dropdown/Dropdown";
 
 export default function Header() {
   const loginAuthUser = useContext(AuthContext);
-  // const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
-  // const handleClick = () => setClick(!click);
-  // const closeMobileMenu = () => setClick(false);
-
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
       setDropdown(false);
@@ -76,23 +71,6 @@ export default function Header() {
                         <NavLinks>Contact Us</NavLinks>
                       </Link>
 
-                      {/* <NavDropdown>
-                    <DropdownBtn>
-                      Services <i class="bi bi-caret-down-fill"></i>
-                    </DropdownBtn>
-                    <DropdownItems>
-                      <Link to="/" style={{ textDecoration: "none" }}>
-                        <NavLinks>View Analytics</NavLinks>
-                      </Link>
-                      <Link to="/form" style={{ textDecoration: "none" }}>
-                        <NavLinks>Fill the form</NavLinks>
-                      </Link>
-                      <Link to="/createuser" style={{ textDecoration: "none" }}>
-                        <NavLinks>Create User</NavLinks>
-                      </Link>
-                    </DropdownItems>
-                  </NavDropdown>
-  */}
                       {localStorage.getItem("authTokens") ? (
                         <>
                           <NavLinks

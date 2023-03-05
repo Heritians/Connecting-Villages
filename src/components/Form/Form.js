@@ -58,7 +58,7 @@ export default class Form extends Component {
         marital_status: "",
         education: "",
         schooling_status: "",
-        AADHAR_No: "0",
+        AADHAR_No: "000000000000",
         has_bank_acc: "",
         is_computer_literate: "",
         has_SSP: "",
@@ -243,11 +243,11 @@ export default class Form extends Component {
     setTimeout(() => {
       this.setState({
         total_land:
-          parseInt(this.state.irrigated_area) +
-          parseInt(this.state.barren_or_wasteland) +
-          parseInt(this.state.cultivable_area) +
-          parseInt(this.state.unirrigated_area) +
-          parseInt(this.state.uncultivable_area),
+          parseFloat(this.state.irrigated_area) +
+          parseFloat(this.state.barren_or_wasteland) +
+          parseFloat(this.state.cultivable_area) +
+          parseFloat(this.state.unirrigated_area) +
+          parseFloat(this.state.uncultivable_area),
       });
     }, 200);
   };
@@ -293,7 +293,6 @@ export default class Form extends Component {
       problems: "",
       Suggestions_by_villagers: "",
     };
-    // this.state.major_problems.push(item);
     this.setState({
       major_problems: [...this.state.major_problems, item],
     });
@@ -317,131 +316,106 @@ export default class Form extends Component {
     document.getElementById("form-submit-button").innerHTML = "Submitting...";
 
     //TABLE1******************************************************
-    const respondents_name = this.state.respondents_name;
-    const respondents_age = this.state.respondents_age;
-    const relation_w_hoh = this.state.relation_w_hoh;
-    const respondents_contact = this.state.respondents_contact;
-    const id_type = this.state.id_type;
-    const id_no = this.state.id_no;
-
     const respondent_prof = {};
-    respondent_prof["respondents_name"] = respondents_name;
-    respondent_prof["respondents_age"] = parseInt(respondents_age);
-    respondent_prof["relation_w_hoh"] = relation_w_hoh;
-    respondent_prof["respondents_contact"] = respondents_contact;
-    respondent_prof["id_type"] = id_type;
-    respondent_prof["id_no"] = id_no;
+    respondent_prof["respondents_name"] = this.state.respondents_name;
+    respondent_prof["respondents_age"] = parseInt(this.state.respondents_age);
+    respondent_prof["relation_w_hoh"] = this.state.relation_w_hoh;
+    respondent_prof["respondents_contact"] = this.state.respondents_contact;
+    respondent_prof["id_type"] = this.state.id_type;
+    respondent_prof["id_no"] = this.state.id_no;
 
-    console.log("respondent_prof", respondent_prof);
     //TABLE2*******************************************************
-    const ho_id = this.state.ho_id;
-    const hoh_name = this.state.hoh_name;
-    const hoh_gender = this.state.hoh_gender;
-    const category = this.state.category;
-    const pov_status = this.state.pov_status;
-    const own_house = this.state.own_house;
-    const house_type = this.state.house_type;
-    const toilet = this.state.toilet;
-    const drainage_status = this.state.drainage_status;
-    const waste_collection_sys = this.state.waste_collection_sys;
-    const compost_pit = this.state.compost_pit;
-    const biogas_plant = this.state.biogas_plant;
-    const annual_income = this.state.annual_income;
-
     const gen_ho_info = {};
-    gen_ho_info["ho_id"] = ho_id;
-    gen_ho_info["hoh_name"] = hoh_name;
-    gen_ho_info["hoh_gender"] = hoh_gender;
-    gen_ho_info["category"] = category;
-    gen_ho_info["pov_status"] = pov_status;
-    gen_ho_info["own_house"] = own_house === "Yes" ? true : false;
-    gen_ho_info["house_type"] = house_type;
-    gen_ho_info["toilet"] = toilet;
-    gen_ho_info["drainage_status"] = drainage_status;
-    gen_ho_info["waste_collection_sys"] = waste_collection_sys;
-    gen_ho_info["compost_pit"] = compost_pit;
-    gen_ho_info["biogas_plant"] = biogas_plant;
-    gen_ho_info["annual_income"] = parseInt(annual_income);
+    gen_ho_info["ho_id"] = this.state.ho_id;
+    gen_ho_info["hoh_name"] =
+      this.state.relation_w_hoh === "Self"
+        ? this.state.respondents_name
+        : this.state.hoh_name;
+    gen_ho_info["hoh_gender"] = this.state.hoh_gender;
+    gen_ho_info["category"] = this.state.category;
+    gen_ho_info["pov_status"] = this.state.pov_status;
+    gen_ho_info["own_house"] = this.state.own_house === "Yes" ? true : false;
+    gen_ho_info["house_type"] = this.state.house_type;
+    gen_ho_info["toilet"] = this.state.toilet;
+    gen_ho_info["drainage_status"] = this.state.drainage_status;
+    gen_ho_info["waste_collection_sys"] = this.state.waste_collection_sys;
+    gen_ho_info["compost_pit"] = this.state.compost_pit;
+    gen_ho_info["biogas_plant"] = this.state.biogas_plant;
+    gen_ho_info["annual_income"] = parseInt(this.state.annual_income);
 
-    console.log("gen_ho_info", gen_ho_info);
     //Table3*****************************************************************
-
     const fam_info = this.state.fam_info;
 
-    console.log("fam_info", fam_info);
     // table4**************************************************
-
-    const are_migrants = this.state.are_migrants;
-    const num_migrants = this.state.num_migrants;
-    const migration_period_months = this.state.migration_period_months;
-    const years_since_migration = this.state.years_since_migration;
-
     const mig_status = {};
-    mig_status["are_migrants"] = are_migrants === "Yes" ? true : false;
-    mig_status["num_migrants"] = parseInt(num_migrants);
-    mig_status["migration_period_months"] = parseInt(migration_period_months);
-    mig_status["years_since_migration"] = parseInt(years_since_migration);
-
-    console.log("mig_status", mig_status);
-    // table5**************************************************
-
-    const PM_jan_dhan_yojana = this.state.PM_jan_dhan_yojana;
-    const PM_ujjawala_yojana = this.state.PM_ujjawala_yojana;
-    const PM_awas_yojana = this.state.PM_awas_yojana;
-    const sukanya_samriddhi_yojana = this.state.sukanya_samriddhi_yojana;
-    const mudra_yojana = this.state.mudra_yojana;
-    const PM_jivan_jyoti_yojana = this.state.PM_jivan_jyoti_yojana;
-    const PM_suraksha_bima_yojana = this.state.PM_suraksha_bima_yojana;
-    const atal_pension_yojana = this.state.atal_pension_yojana;
-    const fasal_bima_yojana = this.state.fasal_bima_yojana;
-    const kaushal_vikas_yojana = this.state.kaushal_vikas_yojana;
-    const krishi_sinchai_yojana = this.state.krishi_sinchai_yojana;
-    const jan_aushadhi_yojana = this.state.jan_aushadhi_yojana;
-    const SBM_toilet = this.state.SBM_toilet;
-    const soil_health_card = this.state.soil_health_card;
-    const ladli_lakshmi_yojana = this.state.ladli_lakshmi_yojana;
-    const janni_suraksha_yojana = this.state.janni_suraksha_yojana;
-    const kisan_credit_card = this.state.kisan_credit_card;
-
-    const govt_schemes = {};
-    govt_schemes["PM_jan_dhan_yojana"] = parseInt(PM_jan_dhan_yojana);
-    govt_schemes["PM_ujjawala_yojana"] = parseInt(PM_ujjawala_yojana);
-    govt_schemes["PM_awas_yojana"] = parseInt(PM_awas_yojana);
-    govt_schemes["sukanya_samriddhi_yojana"] = parseInt(
-      sukanya_samriddhi_yojana
+    mig_status["are_migrants"] =
+      this.state.are_migrants === "Yes" ? true : false;
+    mig_status["num_migrants"] = parseInt(this.state.num_migrants);
+    mig_status["migration_period_months"] = parseInt(
+      this.state.migration_period_months
     );
-    govt_schemes["mudra_yojana"] = parseInt(mudra_yojana);
-    govt_schemes["PM_jivan_jyoti_yojana"] = parseInt(PM_jivan_jyoti_yojana);
-    govt_schemes["PM_suraksha_bima_yojana"] = parseInt(PM_suraksha_bima_yojana);
-    govt_schemes["atal_pension_yojana"] = parseInt(atal_pension_yojana);
-    govt_schemes["fasal_bima_yojana"] = parseInt(fasal_bima_yojana);
-    govt_schemes["kaushal_vikas_yojana"] = parseInt(kaushal_vikas_yojana);
-    govt_schemes["krishi_sinchai_yojana"] = parseInt(krishi_sinchai_yojana);
-    govt_schemes["jan_aushadhi_yojana"] = parseInt(jan_aushadhi_yojana);
-    govt_schemes["SBM_toilet"] = parseInt(SBM_toilet);
-    govt_schemes["soil_health_card"] = parseInt(soil_health_card);
-    govt_schemes["ladli_lakshmi_yojana"] = parseInt(ladli_lakshmi_yojana);
-    govt_schemes["janni_suraksha_yojana"] = parseInt(janni_suraksha_yojana);
-    govt_schemes["kisan_credit_card"] = parseInt(kisan_credit_card);
+    mig_status["years_since_migration"] = parseInt(
+      this.state.years_since_migration
+    );
 
-    console.log("govt_schemes", govt_schemes);
+    // table5**************************************************
+    const govt_schemes = {};
+    govt_schemes["PM_jan_dhan_yojana"] = parseInt(
+      this.state.PM_jan_dhan_yojana
+    );
+    govt_schemes["PM_ujjawala_yojana"] = parseInt(
+      this.state.PM_ujjawala_yojana
+    );
+    govt_schemes["PM_awas_yojana"] = parseInt(this.state.PM_awas_yojana);
+    govt_schemes["sukanya_samriddhi_yojana"] = parseInt(
+      this.state.sukanya_samriddhi_yojana
+    );
+    govt_schemes["mudra_yojana"] = parseInt(this.state.mudra_yojana);
+    govt_schemes["PM_jivan_jyoti_yojana"] = parseInt(
+      this.state.PM_jivan_jyoti_yojana
+    );
+    govt_schemes["PM_suraksha_bima_yojana"] = parseInt(
+      this.state.PM_suraksha_bima_yojana
+    );
+    govt_schemes["atal_pension_yojana"] = parseInt(
+      this.state.atal_pension_yojana
+    );
+    govt_schemes["fasal_bima_yojana"] = parseInt(this.state.fasal_bima_yojana);
+    govt_schemes["kaushal_vikas_yojana"] = parseInt(
+      this.state.kaushal_vikas_yojana
+    );
+    govt_schemes["krishi_sinchai_yojana"] = parseInt(
+      this.state.krishi_sinchai_yojana
+    );
+    govt_schemes["jan_aushadhi_yojana"] = parseInt(
+      this.state.jan_aushadhi_yojana
+    );
+    govt_schemes["SBM_toilet"] = parseInt(this.state.SBM_toilet);
+    govt_schemes["soil_health_card"] = parseInt(this.state.soil_health_card);
+    govt_schemes["ladli_lakshmi_yojana"] = parseInt(
+      this.state.ladli_lakshmi_yojana
+    );
+    govt_schemes["janni_suraksha_yojana"] = parseInt(
+      this.state.janni_suraksha_yojana
+    );
+    govt_schemes["kisan_credit_card"] = parseInt(this.state.kisan_credit_card);
+
     // table6**************************************************
-
     const piped_water = [];
     const piped_water2 = this.state.piped_water2;
-    const piped_water3 = parseInt(this.state.piped_water3);
+    const piped_water3 = parseFloat(this.state.piped_water3);
 
     const hand_pump = [];
     const hand_pump2 = this.state.hand_pump2;
-    const hand_pump3 = parseInt(this.state.hand_pump3);
+    const hand_pump3 = parseFloat(this.state.hand_pump3);
 
     const comm_water = [];
     const comm_water2 = this.state.comm_water2;
-    const comm_water3 = parseInt(this.state.comm_water3);
+    const comm_water3 = parseFloat(this.state.comm_water3);
 
     const open_well = [];
     const open_well2 = this.state.open_well2;
-    const open_well3 = parseInt(this.state.open_well3);
+    const open_well3 = parseFloat(this.state.open_well3);
 
     const mode_of_water_storage = this.state.mode_of_water_storage;
     const other_water_source = this.state.other_water_source;
@@ -459,9 +433,7 @@ export default class Form extends Component {
     water_source["mode_of_water_storage"] = mode_of_water_storage;
     water_source["other_water_source"] = other_water_source;
 
-    console.log("water_source", water_source);
     // table7**************************************************
-
     const electricity_conn = this.state.electricity_conn;
     const elec_avail_perday_hour = this.state.elec_avail_perday_hour;
     const lighting1 = this.state.lighting1;
@@ -485,28 +457,24 @@ export default class Form extends Component {
     source_of_energy["cook_chullah"] = cook_chullah;
     source_of_energy["appliances"] = appliances;
 
-    console.log("source_of_energy", source_of_energy);
     // table8**************************************************
-
-    const total_land = this.state.total_land;
-    const irrigated_area = this.state.irrigated_area;
-    const barren_or_wasteland = this.state.barren_or_wasteland;
-    const cultivable_area = this.state.cultivable_area;
-    const unirrigated_area = this.state.unirrigated_area;
-    const uncultivable_area = this.state.uncultivable_area;
-
     const land_holding_info = {};
+    land_holding_info["total_land"] = parseFloat(this.state.total_land);
+    land_holding_info["irrigated_area"] = parseFloat(this.state.irrigated_area);
+    land_holding_info["barren_or_wasteland"] = parseFloat(
+      this.state.barren_or_wasteland
+    );
+    land_holding_info["cultivable_area"] = parseFloat(
+      this.state.cultivable_area
+    );
+    land_holding_info["unirrigated_area"] = parseFloat(
+      this.state.unirrigated_area
+    );
+    land_holding_info["uncultivable_area"] = parseFloat(
+      this.state.uncultivable_area
+    );
 
-    land_holding_info["total_land"] = parseInt(total_land);
-    land_holding_info["irrigated_area"] = parseInt(irrigated_area);
-    land_holding_info["barren_or_wasteland"] = parseInt(barren_or_wasteland);
-    land_holding_info["cultivable_area"] = parseInt(cultivable_area);
-    land_holding_info["unirrigated_area"] = parseInt(unirrigated_area);
-    land_holding_info["uncultivable_area"] = parseInt(uncultivable_area);
-
-    console.log("land_holding_info", land_holding_info);
     // table9**************************************************
-
     const is_chemical_fertilizer_used2 =
       this.state.is_chemical_fertilizer_used2;
     const is_chemical_fertilizer_used3 =
@@ -531,22 +499,22 @@ export default class Form extends Component {
 
     is_chemical_fertilizer_used.push(
       is_chemical_fertilizer_used2 === "Yes" ? 1 : 0,
-      parseInt(is_chemical_fertilizer_used3)
+      parseFloat(is_chemical_fertilizer_used3)
     );
     is_chemical_insecticide_used.push(
       is_chemical_insecticide_used2 === "Yes" ? 1 : 0,
-      parseInt(is_chemical_insecticide_used3)
+      parseFloat(is_chemical_insecticide_used3)
     );
     is_chemical_weedice_used.push(
       is_chemical_weedice_used2 === "Yes" ? 1 : 0,
-      parseInt(is_chemical_weedice_used3)
+      parseFloat(is_chemical_weedice_used3)
     );
     is_chemical_organic_manures.push(
       is_chemical_organic_manures2 === "Yes" ? 1 : 0,
-      parseInt(is_chemical_organic_manures3)
+      parseFloat(is_chemical_organic_manures3)
     );
-    const agri_inputs = {};
 
+    const agri_inputs = {};
     agri_inputs["is_chemical_fertilizer_used"] = is_chemical_fertilizer_used;
     agri_inputs["is_chemical_insecticide_used"] = is_chemical_insecticide_used;
     agri_inputs["is_chemical_weedicide_used"] = is_chemical_weedice_used;
@@ -554,46 +522,30 @@ export default class Form extends Component {
     agri_inputs["irrigation"] = irrigation;
     agri_inputs["irrigation_sys"] = irrigation_sys;
 
-    console.log("agri_inputs", agri_inputs);
     // table10**************************************************
-
     const agri_products = this.state.agri_products;
 
-    console.log("agri_products", agri_products);
     //table11**************************************************
-
-    const cows = this.state.cows;
-    const buffalo = this.state.buffalo;
-    const goats_and_sheeps = this.state.goats_and_sheeps;
-    const calves = this.state.calves;
-    const bullocks = this.state.bullocks;
-    const poultry_and_ducks = this.state.poultry_and_ducks;
     const livestock_shelter2 = this.state.livestock_shelter2;
-    const avg_daily_milk_prod_litres = this.state.avg_daily_milk_prod_litres;
-    const animal_waste_or_cow_dung_kgs =
-      this.state.animal_waste_or_cow_dung_kgs;
-
     const livestock_shelter = [];
     livestock_shelter.push(livestock_shelter2);
 
     const livestock_nos = {};
-    livestock_nos["cows"] = parseInt(cows);
-    livestock_nos["buffalo"] = parseInt(buffalo);
-    livestock_nos["goats_and_sheeps"] = parseInt(goats_and_sheeps);
-    livestock_nos["calves"] = parseInt(calves);
-    livestock_nos["bullocks"] = parseInt(bullocks);
-    livestock_nos["poultry_and_ducks"] = parseInt(poultry_and_ducks);
+    livestock_nos["cows"] = parseInt(this.state.cows);
+    livestock_nos["buffalo"] = parseInt(this.state.buffalo);
+    livestock_nos["goats_and_sheeps"] = parseInt(this.state.goats_and_sheeps);
+    livestock_nos["calves"] = parseInt(this.state.calves);
+    livestock_nos["bullocks"] = parseInt(this.state.bullocks);
+    livestock_nos["poultry_and_ducks"] = parseInt(this.state.poultry_and_ducks);
     livestock_nos["livestock_shelter"] = livestock_shelter;
-    livestock_nos["avg_daily_milk_prod_litres"] = parseInt(
-      avg_daily_milk_prod_litres
+    livestock_nos["avg_daily_milk_prod_litres"] = parseFloat(
+      this.state.avg_daily_milk_prod_litres
     );
-    livestock_nos["animal_waste_or_cow_dung_kgs"] = parseInt(
-      animal_waste_or_cow_dung_kgs
+    livestock_nos["animal_waste_or_cow_dung_kgs"] = parseFloat(
+      this.state.animal_waste_or_cow_dung_kgs
     );
 
-    console.log("livestock_nos", livestock_nos);
     //Table12**************************************************
-
     const problems = [];
     const Suggestions_by_villagers = [];
 
@@ -605,8 +557,6 @@ export default class Form extends Component {
     const major_problems = {};
     major_problems["problems"] = problems;
     major_problems["Suggestions_by_villagers"] = Suggestions_by_villagers;
-
-    console.log("major_problems", major_problems);
 
     const postData = {
       static_vars: {
@@ -630,7 +580,7 @@ export default class Form extends Component {
       livestock_nos: livestock_nos,
       major_problems: major_problems,
     };
-    console.log("postData", JSON.stringify(postData));
+    console.log(postData);
 
     const settings = {
       method: "POST",
@@ -644,22 +594,34 @@ export default class Form extends Component {
       body: JSON.stringify(postData),
     };
     let newURL = "https://ubaformapi.vercel.app/api/post_data";
-    const fetchResponse = await fetch(newURL, settings);
-    const data = await fetchResponse.json();
-    console.log("data", data.status);
-    if (data?.status === "success") {
-      console.log("data", data.status);
-      document.getElementById("alert").innerHTML =
-        "Form Submitted Successfully";
-      document.getElementById("alert").style.display = "block";
-      document.getElementById("form-submit-button").innerHTML = "Submit Form";
-      setTimeout(function () {
-        document.getElementById("alert").style.display = "none";
-      }, 4000);
-      setTimeout(() => {
-        window.location.reload();
-      }, 4000);
-    } else {
+    try {
+      const fetchResponse = await fetch(newURL, settings);
+      const data = await fetchResponse.json();
+      if (data?.status === "success") {
+        document.getElementById("alert").innerHTML =
+          "Form Submitted Successfully";
+        document.querySelector(".alert_style").style.backgroundColor =
+          "#6eca46";
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("form-submit-button").innerHTML = "Submit Form";
+        document.getElementById("form-submit-button").disabled = false;
+        setTimeout(function () {
+          document.getElementById("alert").style.display = "none";
+          // window.location.reload();
+        }, 4000);
+      } else {
+        document.querySelector(".alert_style").style.display = "block";
+        document.querySelector(".alert_style").style.backgroundColor =
+          "#f44336";
+        document.getElementById("alert").innerHTML =
+          "Form Submission Failed, Please Try Again.";
+        document.getElementById("form-submit-button").disabled = false;
+        document.getElementById("form-submit-button").innerHTML = "Submit Form";
+        setTimeout(function () {
+          document.querySelector(".alert_style").style.display = "none";
+        }, 4000);
+      }
+    } catch (error) {
       document.querySelector(".alert_style").style.display = "block";
       document.querySelector(".alert_style").style.backgroundColor = "#f44336";
       document.getElementById("alert").innerHTML =
@@ -768,7 +730,6 @@ export default class Form extends Component {
                       <TableData colSpan={2}>
                         <InputLabel>Identity Card Number:</InputLabel>
                         <Input
-                          // required={this.state.id_type !== "select"}
                           type="text"
                           onChange={this.getValue}
                           name="id_no"
@@ -830,7 +791,17 @@ export default class Form extends Component {
                       <TableData colSpan={2}>
                         <InputLabel>Name of the Head(Household):</InputLabel>
                         <Input
-                          required
+                          required={
+                            this.state.relation_w_hoh === "Self" ? false : true
+                          }
+                          disabled={
+                            this.state.relation_w_hoh === "Self" ? true : false
+                          }
+                          placeholder={
+                            this.state.relation_w_hoh === "Self"
+                              ? this.state.respondents_name
+                              : "Head of Household"
+                          }
                           type="text"
                           onChange={this.getValue}
                           name="hoh_name"
@@ -1182,7 +1153,6 @@ export default class Form extends Component {
                         </TableData>
                         <TableData>
                           <Input
-                            required
                             type={"text"}
                             name="AADHAR_No"
                             minLength={12}
@@ -1726,7 +1696,10 @@ export default class Form extends Component {
                   <thead>
                     <TableRow>
                       <TableHeading colSpan={3}>Source of Water</TableHeading>
-                      <TableHeading>Distance</TableHeading>
+                      <TableHeading>
+                        Distance{" "}
+                        <span style={{ fontWeight: 400 }}>(in meters)</span>
+                      </TableHeading>
                     </TableRow>
                   </thead>
 
@@ -2104,6 +2077,7 @@ export default class Form extends Component {
                           min="0"
                           onChange={this.handleLandAreaChange}
                           name="cultivable_area"
+                          step={0.01}
                         />
                       </TableData>
                       <TableData>
@@ -2116,6 +2090,7 @@ export default class Form extends Component {
                           min="0"
                           onChange={this.handleLandAreaChange}
                           name="irrigated_area"
+                          step={0.01}
                         />
                       </TableData>
                     </TableRow>
@@ -2131,6 +2106,7 @@ export default class Form extends Component {
                           min="0"
                           onChange={this.handleLandAreaChange}
                           name="unirrigated_area"
+                          step={0.01}
                         />
                       </TableData>
                       <TableData>
@@ -2143,6 +2119,7 @@ export default class Form extends Component {
                           min="0"
                           onChange={this.handleLandAreaChange}
                           name="barren_or_wasteland"
+                          step={0.01}
                         />
                       </TableData>
                     </TableRow>
@@ -2158,6 +2135,7 @@ export default class Form extends Component {
                           min="0"
                           onChange={this.handleLandAreaChange}
                           name="uncultivable_area"
+                          step={0.01}
                         />
                       </TableData>
                       <TableData>
@@ -2213,6 +2191,7 @@ export default class Form extends Component {
                         <Input
                           type="number"
                           min="0"
+                          step={0.01}
                           onChange={this.getValue}
                           name="is_chemical_fertilizer_used3"
                           disabled={
@@ -2247,6 +2226,7 @@ export default class Form extends Component {
                         <Input
                           type="number"
                           min="0"
+                          step={0.01}
                           onChange={this.getValue}
                           name="is_chemical_insecticide_used3"
                           disabled={
@@ -2279,6 +2259,7 @@ export default class Form extends Component {
                         <Input
                           type="number"
                           min="0"
+                          step={0.01}
                           onChange={this.getValue}
                           name="is_chemical_weedice_used3"
                           disabled={
@@ -2311,6 +2292,7 @@ export default class Form extends Component {
                         <Input
                           type="number"
                           min="0"
+                          step={0.01}
                           onChange={this.getValue}
                           name="is_chemical_organic_manures3"
                           disabled={
@@ -2408,6 +2390,7 @@ export default class Form extends Component {
                           <Input
                             required
                             type={"number"}
+                            step={0.01}
                             name="crop_area_prev_yr_acre"
                             value={
                               this.state.agri_products[index]
@@ -2420,6 +2403,7 @@ export default class Form extends Component {
                           <Input
                             required
                             type={"number"}
+                            step={0.01}
                             name="productivity_in_quintals_per_acre"
                             value={
                               this.state.agri_products[index]

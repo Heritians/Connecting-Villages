@@ -39,16 +39,17 @@ export default class AboutPage extends Component {
             <AboutSubTitle>Our Motto:</AboutSubTitle>
             <AboutContentContainer className="row">
               <AboutParaContainer className="col-md-5 d-flex align-items-stretch">
-                <AboutHeading>Heading 1</AboutHeading>
+                <AboutHeading>Motivation</AboutHeading>
                 <AboutPara>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  70% of the country’s population still resides in rural areas.
+                  Despite this, it only contributes about 17% to India’s GDP.
+                  This is because of the disparity in development between rural
+                  and urban areas in almost all areas like healthcare,
+                  education, infrastructure, employment opportunities etc. The
+                  lack of facilities and opportunities has also led to an influx
+                  of migration to urban areas in the past few decades. As a
+                  result, the cities are getting overpopulated, polluted and the
+                  cost of living is skyrocketing.
                 </AboutPara>
               </AboutParaContainer>
               <AboutImgContainer className="col-md-5 d-flex align-items-stretch">
@@ -64,16 +65,20 @@ export default class AboutPage extends Component {
                 />
               </AboutImgContainer>
               <AboutParaContainer className="col-md-5 d-flex align-items-stretch">
-                <AboutHeading>Heading 2</AboutHeading>
+                <AboutHeading>Objective</AboutHeading>
                 <AboutPara>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Gandhi ji, in “Hind Swaraj” foresaw that the western
+                  development standard of urbanization is not sustainable.
+                  Hence, it is imperative to promote the holistic development of
+                  villages in a way that all their standard needs are locally
+                  met. The Unnat Bharat Abhiyan is a step forward on the path of
+                  empowering the agrarian economy. By being a part of this
+                  program, we hope to make a small contribution to this
+                  initiative. With this website, we will be able to digitize the
+                  “Unnat Bharat Abhiyan Baseline Household Survey Form” and
+                  analyze the data entered. Through this website, we hope to
+                  lend the authorities a hand in identifying the areas that
+                  might need urgent attention.
                 </AboutPara>
               </AboutParaContainer>
             </AboutContentContainer>
