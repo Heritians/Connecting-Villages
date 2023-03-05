@@ -3,6 +3,7 @@ import { useContext } from "react";
 import AuthContext from "./Auth";
 
 import React from "react";
+import UnauthorizedPage from "../../pages/Unauthorized/UnauthorizedPage";
 
 const RouteAuth = ({ allowedRoles }) => {
   const loginUserAuth = useContext(AuthContext);
@@ -13,7 +14,7 @@ const RouteAuth = ({ allowedRoles }) => {
   ) ? (
     <Outlet />
   ) : loginUserAuth.user["sub"].split("_")[1] ? (
-    <Navigate to="/unauthorized" state={{ from: location }} replace />
+    <UnauthorizedPage />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
   );

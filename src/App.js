@@ -62,7 +62,6 @@ export default function App() {
               </Route>
             </>
           ) : null}
-          <Route path="/unauthorized" element={<UnauthorizedPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </AuthProvider>
