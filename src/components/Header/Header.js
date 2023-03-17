@@ -17,9 +17,9 @@ import {
   NavLogoImg,
 } from "./HeaderStyles";
 import logo from "../../assets/images/logo_sm.png";
-import Dropdown from "../Dropdown/Dropdown";
+import Header from "./Header.css";
 
-export default function Header() {
+function Test_Nav1() {
   const loginAuthUser = useContext(AuthContext);
   // const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -42,83 +42,82 @@ export default function Header() {
       setDropdown(false);
     }
   };
-
   return (
     <>
       <HeaderMain>
         <HeaderContainer>
-          <div className="row navbar-fixed-top">
-            <div className="container">
-              <NavRow>
-                <LogoContainer>
-                  <Link to="/" style={{ textDecoration: "none" }}>
-                    <NavLogo>
-                      <NavLogoSpan>Heri</NavLogoSpan>
-                      <NavLogoSpan2>tians</NavLogoSpan2>
-                      <NavLogoImg src={logo} alt="Heritians" />
-                    </NavLogo>
-                  </Link>
-                </LogoContainer>
+          <nav class="navbar  navbar-expand-lg navbar-light bg-white container-fluid fixed-top shadow-sm">
+            <LogoContainer className="logoMedia">
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <NavLogo>
+                  <NavLogoSpan>Heri</NavLogoSpan>
+                  <NavLogoSpan2>tians</NavLogoSpan2>
+                  <NavLogoImg src={logo} alt="Heritians" />
+                </NavLogo>
+              </Link>
+            </LogoContainer>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <NavContainer className="row">
-                  <NavMenu>
-                    <NavItem>
-                      <Link to="/" style={{ textDecoration: "none" }}>
-                        <NavLinks>Home</NavLinks>
-                      </Link>
-                      <Link to="/about" style={{ textDecoration: "none" }}>
-                        <NavLinks>About</NavLinks>
-                      </Link>
-                      <Link to="/team" style={{ textDecoration: "none" }}>
-                        <NavLinks>Team</NavLinks>
-                      </Link>
-                      <Link to="/contact" style={{ textDecoration: "none" }}>
-                        <NavLinks>Contact Us</NavLinks>
-                      </Link>
-
-                      {/* <NavDropdown>
-                    <DropdownBtn>
-                      Services <i class="bi bi-caret-down-fill"></i>
-                    </DropdownBtn>
-                    <DropdownItems>
-                      <Link to="/" style={{ textDecoration: "none" }}>
-                        <NavLinks>View Analytics</NavLinks>
-                      </Link>
-                      <Link to="/form" style={{ textDecoration: "none" }}>
-                        <NavLinks>Fill the form</NavLinks>
-                      </Link>
-                      <Link to="/createuser" style={{ textDecoration: "none" }}>
-                        <NavLinks>Create User</NavLinks>
-                      </Link>
-                    </DropdownItems>
-                  </NavDropdown>
-  */}
-                      {localStorage.getItem("authTokens") ? (
-                        <>
-                          <NavLinks
-                            onMouseEnter={onMouseEnter}
-                            onMouseLeave={onMouseLeave}
-                          >
-                            Services <i className="bi bi-caret-down-fill"></i>
-                            {dropdown && <Dropdown />}
-                          </NavLinks>
-                          <NavLoginBtn onClick={loginAuthUser.logoutUser}>
-                            Logout
-                          </NavLoginBtn>
-                        </>
-                      ) : (
-                        <Link to="/login">
-                          <NavLoginBtn>Login</NavLoginBtn>
+            <div
+              class="collapse navbar-collapse navbar-nav-collapse"
+              id="navbarNavAltMarkup"
+            >
+              <div class="navbar-nav flex-column text-center">
+                <NavRow>
+                  <NavContainer className="row flex-column">
+                    <NavMenu id="mediaQueryMobile_Nav_Parent">
+                      <NavItem id="mediaQueryMobile_Nav_Child">
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                          <NavLinks>Home</NavLinks>
                         </Link>
-                      )}
-                    </NavItem>
-                  </NavMenu>
-                </NavContainer>
-              </NavRow>
+                        <Link to="/about" style={{ textDecoration: "none" }}>
+                          <NavLinks>About</NavLinks>
+                        </Link>
+                        <Link to="/team" style={{ textDecoration: "none" }}>
+                          <NavLinks>Team</NavLinks>
+                        </Link>
+                        <Link to="/contact" style={{ textDecoration: "none" }}>
+                          <NavLinks>Contact Us</NavLinks>
+                        </Link>
+
+                        {localStorage.getItem("authTokens") ? (
+                          <>
+                            <NavLinks
+                              onMouseEnter={onMouseEnter}
+                              onMouseLeave={onMouseLeave}
+                            >
+                              Services <i className="bi bi-caret-down-fill"></i>
+                            </NavLinks>
+                            <NavLoginBtn id="loginButton_mediaQuery" onClick={loginAuthUser.logoutUser}>
+                              Logout
+                            </NavLoginBtn>
+                          </>
+                        ) : (
+                          <Link to="/login">
+                            <NavLoginBtn id="loginButton_mediaQuery">Login</NavLoginBtn>
+                          </Link>
+                        )}
+                      </NavItem>
+                    </NavMenu>
+                  </NavContainer>
+                </NavRow>
+              </div>
             </div>
-          </div>
+          </nav>
         </HeaderContainer>
       </HeaderMain>
     </>
   );
 }
+
+export default Test_Nav1;

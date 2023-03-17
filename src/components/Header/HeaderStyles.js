@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderMain = styled.div`
   background: #ffffff;
-  height: 4.5rem;
+  height: 5.1rem;
 `;
 
 export const HeaderContainer = styled.div`
@@ -19,7 +19,7 @@ export const NavRow = styled.div`
   background: #ffffff;
   flex-direction: row;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 3rem;
 `;
 
@@ -32,6 +32,7 @@ export const LogoContainer = styled.div`
   flex-direction: row;
   width: max-content;
 `;
+
 
 export const NavLogo = styled.span`
   display: flex;
@@ -69,9 +70,10 @@ export const NavContainer = styled.div`
 
 export const NavMenu = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-left: auto;
   flex-direction: row;
-  list-style: none;
+  list-style: none; 
   text-align: center;
 `;
 
@@ -81,7 +83,6 @@ export const NavItem = styled.ul`
   padding: 0.5rem 0;
   color: #231bbc;
   display: flex;
-  align-items: center;
   justify-content: center;
   margin: 0 1rem;
   cursor: pointer;

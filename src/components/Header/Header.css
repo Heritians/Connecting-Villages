@@ -1,0 +1,32 @@
+.navbar-nav {
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .logoMedia {
+    margin-left: 10px;
+  }
+  #mediaQueryMobile_Nav_Child {
+    display: block;
+    justify-content: center;
+    text-align: center;
+  }
+  #mediaQueryMobile_Nav_Parent {
+    display: block;
+    text-align: center;
+    justify-content: center;
+  }
+  #loginButton_mediaQuery {
+    margin-left: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .logoMedia {
+    margin-left: 45px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .logoMedia {
+    margin-left: 40px;
+  }
+}
