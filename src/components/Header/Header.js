@@ -21,12 +21,7 @@ import Header from "./Header.css";
 
 function Test_Nav1() {
   const loginAuthUser = useContext(AuthContext);
-  // const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
-  // const handleClick = () => setClick(!click);
-  // const closeMobileMenu = () => setClick(false);
-
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
       setDropdown(false);
@@ -97,6 +92,7 @@ function Test_Nav1() {
                               onMouseLeave={onMouseLeave}
                             >
                               Services <i className="bi bi-caret-down-fill"></i>
+                              {dropdown && <Dropdown />}
                             </NavLinks>
                             <NavLoginBtn id="loginButton_mediaQuery" onClick={loginAuthUser.logoutUser}>
                               Logout

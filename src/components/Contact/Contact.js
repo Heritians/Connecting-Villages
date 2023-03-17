@@ -30,6 +30,8 @@ export default class Contact extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    document.getElementById("contact-form-submit").innerHTML = "Sending...";
+    document.getElementById("contact-form-submit").disabled = true;
 
     var status = document.getElementById("alert");
     const { name, email, subject, phone, message } = this.state;
@@ -51,6 +53,9 @@ export default class Contact extends Component {
       .then((response) => {
         status.innerHTML = "Your message has been sent.";
         document.querySelector(".alert_style").style.display = "block";
+        document.getElementById("contact-form-submit").innerHTML =
+          "Send Message";
+        document.getElementById("contact-form-submit").disabled = false;
 
         setTimeout(function () {
           document.querySelector(".alert_style").style.display = "none";
@@ -61,6 +66,9 @@ export default class Contact extends Component {
         status.innerHTML =
           "Appologies! There was a problem delivering your message.";
         document.querySelector(".alert_style").style.display = "block";
+        document.getElementById("contact-form-submit").innerHTML =
+          "Send Message";
+        document.getElementById("contact-form-submit").disabled = false;
 
         setTimeout(function () {
           document.querySelector(".alert_style").style.display = "none";

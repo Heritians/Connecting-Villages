@@ -31,6 +31,12 @@ export default function CreateUserForm1() {
         ? " " + loginAuthUser.user["sub"].split("_")[3]
         : "")
     : "Not Authenticated";
+  const villageValue = loginAuthUser?.user
+    ? loginAuthUser.user["sub"].split("_")[2] +
+      (loginAuthUser.user["sub"].split("_")[3]
+        ? "_" + loginAuthUser.user["sub"].split("_")[3]
+        : "")
+    : "Not Authenticated";
 
   const [aadhaarNo, setAadhaarNo] = useState("");
   const [password, setPassword] = useState("");
@@ -72,7 +78,6 @@ export default function CreateUserForm1() {
         "Content-Type": "application/json",
       },
     };
-    console.log(settings);
 
     let newURL = "https://ubaformapi.vercel.app/auth/signup";
     const fetchResponse = await fetch(newURL, settings);
@@ -80,7 +85,6 @@ export default function CreateUserForm1() {
     document.getElementById("create-user-page-button").disabled = false;
     document.getElementById("create-user-page-button").innerHTML =
       "Create User";
-    console.log(data);
     if (data?.status === "success") {
       document.getElementById("create-user-alert").style.display = "block";
       document.getElementById("create-user-alert").innerHTML =
@@ -102,7 +106,6 @@ export default function CreateUserForm1() {
       setTimeout(function () {
         document.getElementById("create-user-alert").style.display = "none";
       }, 4000);
-      console.log(data);
     }
   };
   return (
@@ -186,7 +189,7 @@ export default function CreateUserForm1() {
                   disabled
                   onChange={handleUserVillageChange}
                 >
-                  <CreateUserOption defaultValue={village}>
+                  <CreateUserOption defaultValue={villageValue}>
                     {village}
                   </CreateUserOption>
                 </CreateUserSelect>
