@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   LogoContainer,
   HeadRow,
@@ -6,7 +5,6 @@ import {
   UBATitle,
   UBASubTitle,
 } from "./HeadSectionStyles";
-import AuthContext from "../../context/Auth";
 import UBA_Logo from "../../../assets/images/uba_logo.jpg";
 import vitb_logo from "../../../assets/images/vitb_logo.png";
 

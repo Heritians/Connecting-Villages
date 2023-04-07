@@ -22,7 +22,6 @@ import "./Header.css";
 
 function Header() {
   const loginAuthUser = useContext(AuthContext);
-  // const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
   const [isNavOpen, setIsNavOpen] = useState(false);

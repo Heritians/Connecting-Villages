@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import {
   TeamCard,
-  TeamCardDesc,
   TeamCardImg,
   TeamCardName,
   TeamCardSocial,
@@ -44,7 +43,6 @@ export default class TeamPage extends Component {
                 <TeamCardImg src={member.image} alt={member.imageAlt} />
                 <TeamCardName>{member.name}</TeamCardName>
                 <TeamCardTitle>{member.title}</TeamCardTitle>
-                {/* <TeamCardDesc>{member.description}</TeamCardDesc> */}
                 <TeamCardSocial>
                   {member.github ? (
                     <TeamCardSocialLink href={member.github}>
@@ -75,7 +73,6 @@ export default class TeamPage extends Component {
                 />
                 <TeamCardName>{contributor.name}</TeamCardName>
                 <TeamCardTitle>{contributor.title}</TeamCardTitle>
-                {/* <TeamCardDesc>{contributor.description}</TeamCardDesc> */}
                 <TeamCardSocial>
                   {contributor.github ? (
                     <TeamCardSocialLink href={contributor.github}>

@@ -9,8 +9,9 @@ export const VillagesContainer = styled.div`
 `;
 
 export const VillageCard = styled.div`
-  width: 20rem;
+  width: 22rem;
   height: 24rem;
+  min-height: 30rem;
   background-color: #ffe8c2;
   border-radius: 0.7rem;
   padding: 1.2rem;
@@ -19,6 +20,8 @@ export const VillageCard = styled.div`
   text-align: center;
   justify-content: space-evenly;
   height: max-content;
+  display: flex;
+  flex-direction: column;
   &:hover {
     transform: scale(1.03);
     transition: all 0.2s ease-in-out;

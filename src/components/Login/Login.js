@@ -45,18 +45,12 @@ export default function LoginForm1() {
             type="text"
             placeholder="Aadhaar No."
             name="AN"
-            // id="Aadhaar"
-            // value={this.state.AadhaarNo}
-            // onChange={this.onAadhaarNoChange.bind(this)}
             required
           />
           <LoginInput
             type="password"
             placeholder="Password"
             name="pwd"
-            // id="Password"
-            // value={this.state.Password}
-            // onChange={this.onPasswordChange.bind(this)}
             required
           />
           <InputsRow className="row">
@@ -66,9 +60,6 @@ export default function LoginForm1() {
             <div className="col-md-5 form-group mt-3">
               <LoginSelect
                 name="role"
-                // id="Role"
-                // value={this.state.Role}
-                // onChange={this.onRoleChange.bind(this)}
                 onChange={IsOwner}
                 required
               >
@@ -87,9 +78,6 @@ export default function LoginForm1() {
               <LoginSelect
                 name="villname"
                 id="Village"
-                // value={this.state.VillageName}
-                // onChange={this.onVillageNameChange.bind(this)}
-                // disabled={this.state.isDisabled}
                 disabled={isDisabled}
               >
                 <LoginOption defaultValue="None">None</LoginOption>

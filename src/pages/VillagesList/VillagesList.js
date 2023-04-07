@@ -1,5 +1,4 @@
-import { Component, useEffect, useState } from "react";
-// import useRunOnce from "../../assets/js/useRunOnce";
+import { useEffect, useState } from "react";
 import BackHome from "../../components/BackHome/BackHome";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
@@ -22,20 +21,8 @@ import {
 import { SectionTitle, SectionTitleArea } from "../../components/GlobalStyles";
 
 export default function VillagesList() {
-  // state = {
-  //   villages: [],
-  //   newVillage: "",
-  // };
-
   const [villages, setVillages] = useState([]);
   const [newVillage, setNewVillage] = useState("");
-  // constructor(props) {
-  //   super(props);
-  //   this.
-  //   this.GetVillages = this.GetVillages.bind(this);
-  //   this.handleVillNameChange = this.handleVillNameChange.bind(this);
-  // }
-
   const GetVillages = async () => {
     const settings = {
       method: "GET",
@@ -51,27 +38,22 @@ export default function VillagesList() {
     let newURL = "https://ubaformapi.vercel.app/ops/get_village_list";
     const fetchResponse = await fetch(newURL, settings);
     const data = await fetchResponse.json();
-    console.log(data.data.village_names);
     setVillages(data.data.village_names);
   };
 
   const handleVillNameChange = async (e) => {
-    // this.state.newVillage = e.target.value;
     setNewVillage(e.target.value);
   };
 
   const handleAddContainer = async () => {
-    console.log("Add Container");
     document.getElementById("add-vill-container").style.display = "flex";
   };
 
   const handleCancelContainer = async () => {
-    console.log("Cancel Container");
     document.getElementById("add-vill-container").style.display = "none";
   };
 
   const handleAddVillage = async () => {
-    console.log("Add Village");
     const VillageName = newVillage.split(" ").join("_");
     const settings = {
       method: "PUT",
@@ -89,23 +71,17 @@ export default function VillagesList() {
       VillageName;
     const fetchResponse = await fetch(newURL, settings);
     const data = await fetchResponse.json();
-    console.log(data);
     if (data?.status === "success") {
       GetVillages();
-      console.log("Village Added");
       handleCancelContainer();
     } else {
-      console.log("Village Not Added");
+      console.log("Error while adding village");
     }
   };
 
   useEffect(() => {
     GetVillages();
   }, []);
-
-  // componentDidMount() {
-  //   this.GetVillages();
-  // }
 
   return (
     <>
@@ -114,7 +90,6 @@ export default function VillagesList() {
       <VillagesListContainer>
         <SectionTitleArea>
           <SectionTitle>Our Prosperous Villages</SectionTitle>
-          {/* <SectionTitlePara>Sehore District</SectionTitlePara> */}
         </SectionTitleArea>
 
         <VillagesContainer>

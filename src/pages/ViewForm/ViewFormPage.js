@@ -56,8 +56,6 @@ export default function ViewFormPage() {
     document.getElementById("req-button").innerHTML = "Request Information";
     document.getElementById("aadhaarno").value = "";
 
-    // console.log(data.data);
-
     setFamdata(data.data);
   };
 
