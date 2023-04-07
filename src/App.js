@@ -23,7 +23,6 @@ export default function App() {
   // const role = loginAuthUser?.user
   //   ? loginAuthUser.user["sub"].split("_")[1]
   //   : "Not Authenticated";
-  
   return (
     <Router>
       <AuthProvider>

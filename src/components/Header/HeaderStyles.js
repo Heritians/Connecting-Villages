@@ -96,7 +96,7 @@ export const NavItem = styled.ul`
 export const NavLinks = styled.div`
   padding: 0.5rem 1rem;
   color: #231bbc;
-  display: flex;
+  display: block;
   justify-content: center;
   text-decoration: none;
   height: 100%;
@@ -126,3 +126,5 @@ export const NavLoginBtn = styled.button`
     color: #000000;
   }
 `;
+
+

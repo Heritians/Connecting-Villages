@@ -24,6 +24,10 @@
   .logoMedia {
     margin-left: 45px;
   }
+  #responsive{
+    top:120px;
+    right:250px;
+  }
 }
 @media only screen and (min-width: 1024px) {
   .logoMedia {

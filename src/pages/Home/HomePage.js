@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import Villages from "../../components/Villages/Villages";
 import BackToTopButton from "../../components/BackToTopButton/BackToTopButton";
 
+
 export default class HomePage extends Component {
   render() {
     const scrollToTop = () => {

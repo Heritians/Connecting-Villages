@@ -15,7 +15,7 @@ export default class LogosRow extends Component {
   render() {
     return (
       <>
-        <div className="row pt-1">
+        <div className="row">
           <LogoRow>
             <LogoContainer src={vitb_Logo} alt="VITB" />
             <Link

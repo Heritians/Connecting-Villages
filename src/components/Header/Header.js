@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import AuthContext from "../context/Auth";
 import { Link } from "react-router-dom";
 import {
@@ -17,18 +17,39 @@ import {
   NavLogoImg,
 } from "./HeaderStyles";
 import logo from "../../assets/images/logo_sm.png";
-import Header from "./Header.css";
+import Dropdown from "../Dropdown/Dropdown";
+import "./Header.css";
 
-function Test_Nav1() {
+function Header() {
   const loginAuthUser = useContext(AuthContext);
   // const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const navbarRef = useRef(null);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+      setIsNavOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // const handleClick = () => setClick(!click);
   // const closeMobileMenu = () => setClick(false);
 
   const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
+    if (window.innerWidth < 360) {
       setDropdown(false);
     } else {
       setDropdown(true);
@@ -36,17 +57,21 @@ function Test_Nav1() {
   };
 
   const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
+    if (window.innerWidth < 360) {
       setDropdown(false);
     } else {
       setDropdown(false);
     }
   };
+
   return (
     <>
       <HeaderMain>
         <HeaderContainer>
-          <nav class="navbar  navbar-expand-lg navbar-light bg-white container-fluid fixed-top shadow-sm">
+          <nav
+            class="navbar  navbar-expand-lg navbar-light bg-white container-fluid fixed-top"
+            ref={navbarRef}
+          >
             <LogoContainer className="logoMedia">
               <Link to="/" style={{ textDecoration: "none" }}>
                 <NavLogo>
@@ -57,20 +82,23 @@ function Test_Nav1() {
               </Link>
             </LogoContainer>
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNavAltMarkup"
               aria-controls="navbarNavAltMarkup"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              onClick={toggleNav}
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
 
             <div
-              class="collapse navbar-collapse navbar-nav-collapse"
               id="navbarNavAltMarkup"
+              className={`collapse navbar-collapse navbar-nav-collapse ${
+                isNavOpen ? "show" : ""
+              }`}
             >
               <div class="navbar-nav flex-column text-center">
                 <NavRow>
@@ -91,22 +119,23 @@ function Test_Nav1() {
                         </Link>
 
                         {localStorage.getItem("authTokens") ? (
-                          <>
-                            <NavLinks
-                              onMouseEnter={onMouseEnter}
-                              onMouseLeave={onMouseLeave}
-                            >
-                              Services <i className="bi bi-caret-down-fill"></i>
-                            </NavLinks>
-                            <NavLoginBtn id="loginButton_mediaQuery" onClick={loginAuthUser.logoutUser}>
-                              Logout
-                            </NavLoginBtn>
-                          </>
-                        ) : (
-                          <Link to="/login">
-                            <NavLoginBtn id="loginButton_mediaQuery">Login</NavLoginBtn>
-                          </Link>
-                        )}
+                        <>
+                          <NavLinks
+                            onMouseEnter={onMouseEnter}
+                            onMouseLeave={onMouseLeave}
+                          >
+                            Services <i className="bi bi-caret-down-fill"></i>
+                            {dropdown && <Dropdown />}
+                          </NavLinks>
+                          <NavLoginBtn onClick={loginAuthUser.logoutUser}>
+                            Logout
+                          </NavLoginBtn>
+                        </>
+                      ) : (
+                        <Link to="/login">
+                          <NavLoginBtn>Login</NavLoginBtn>
+                        </Link>
+                      )}
                       </NavItem>
                     </NavMenu>
                   </NavContainer>
@@ -120,4 +149,4 @@ function Test_Nav1() {
   );
 }
 
-export default Test_Nav1;
+export default Header;

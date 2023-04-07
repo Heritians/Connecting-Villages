@@ -13,6 +13,11 @@ export const DropdownContainer = styled.div`
   background: rgba(255, 255, 255, 1);
   transition: 0.3s ease-in-out;
   border-radius: 0.5rem;
+  border: 1px solid black;
+  @media (max-width: 768px) {
+    top: 270px;
+    right: 40px;
+  },
 `;
 
 export const DropdownMenu = styled.div`
