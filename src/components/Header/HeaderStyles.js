@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   position: fixed;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
   background: #ffffff;
   transition: 0.3s ease-in-out;
 `;
@@ -108,7 +108,7 @@ export const NavLinks = styled.div`
 `;
 
 export const NavLoginBtn = styled.button`
-  margin: 0 -0.4rem 0 1rem;
+  
   border-radius: 10px;
   background: #ff7400;
   color: #ffffff;

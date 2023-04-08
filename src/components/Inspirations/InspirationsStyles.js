@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 export const InspirationsContainer = styled.div`
   margin-top: 1rem;
+  position: relative;
+  z-index:-1;
 `;
 
 export const SwiperImage = styled.img`
+  
   width: 100%;
   height: auto;
   object-fit: cover;

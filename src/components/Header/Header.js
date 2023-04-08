@@ -48,7 +48,7 @@ function Header() {
   // const closeMobileMenu = () => setClick(false);
 
   const onMouseEnter = () => {
-    if (window.innerWidth < 360) {
+    if (window.innerWidth < 0) {
       setDropdown(false);
     } else {
       setDropdown(true);
@@ -56,7 +56,7 @@ function Header() {
   };
 
   const onMouseLeave = () => {
-    if (window.innerWidth < 360) {
+    if (window.innerWidth < 0) {
       setDropdown(false);
     } else {
       setDropdown(false);
