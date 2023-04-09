@@ -19,12 +19,16 @@
   #loginButton_mediaQuery {
     margin-left: 0;
   }
+  #responsive{
+    top: 270px;
+    right: 40px;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .logoMedia {
     margin-left: 45px;
   }
-  #responsive{
+  #responsive{  
     top:120px;
     right:250px;
   }

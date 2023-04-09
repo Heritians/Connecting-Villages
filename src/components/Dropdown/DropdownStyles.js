@@ -6,18 +6,12 @@ export const DropdownContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: max-content;
-  position: fixed;
-  top: 3rem;
-  right: 9rem;
+  position: absolute;
   z-index: 1;
   background: rgba(255, 255, 255, 1);
   transition: 0.3s ease-in-out;
   border-radius: 0.5rem;
   border: 1px solid black;
-  @media (max-width: 768px) {
-    top: 270px;
-    right: 40px;
-  },
 `;
 
 export const DropdownMenu = styled.div`

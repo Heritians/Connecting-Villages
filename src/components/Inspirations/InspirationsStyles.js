@@ -7,7 +7,6 @@ export const InspirationsContainer = styled.div`
 `;
 
 export const SwiperImage = styled.img`
-  
   width: 100%;
   height: auto;
   object-fit: cover;

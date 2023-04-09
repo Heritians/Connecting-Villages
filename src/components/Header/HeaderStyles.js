@@ -108,7 +108,6 @@ export const NavLinks = styled.div`
 `;
 
 export const NavLoginBtn = styled.button`
-  
   border-radius: 10px;
   background: #ff7400;
   color: #ffffff;

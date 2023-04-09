@@ -43,10 +43,7 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  // const handleClick = () => setClick(!click);
-  // const closeMobileMenu = () => setClick(false);
-
+  
   const onMouseEnter = () => {
     if (window.innerWidth < 0) {
       setDropdown(false);
