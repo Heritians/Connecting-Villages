@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import AuthContext from "../context/Auth";
 import { Link } from "react-router-dom";
 import {
@@ -18,12 +18,34 @@ import {
 } from "./HeaderStyles";
 import logo from "../../assets/images/logo_sm.png";
 import Dropdown from "../Dropdown/Dropdown";
+import "./Header.css";
 
-export default function Header() {
+function Header() {
   const loginAuthUser = useContext(AuthContext);
   const [dropdown, setDropdown] = useState(false);
+
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const navbarRef = useRef(null);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+      setIsNavOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  
   const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
+    if (window.innerWidth < 0) {
       setDropdown(false);
     } else {
       setDropdown(true);
@@ -31,7 +53,7 @@ export default function Header() {
   };
 
   const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
+    if (window.innerWidth < 0) {
       setDropdown(false);
     } else {
       setDropdown(false);
@@ -42,36 +64,57 @@ export default function Header() {
     <>
       <HeaderMain>
         <HeaderContainer>
-          <div className="row navbar-fixed-top">
-            <div className="container">
-              <NavRow>
-                <LogoContainer>
-                  <Link to="/" style={{ textDecoration: "none" }}>
-                    <NavLogo>
-                      <NavLogoSpan>Heri</NavLogoSpan>
-                      <NavLogoSpan2>tians</NavLogoSpan2>
-                      <NavLogoImg src={logo} alt="Heritians" />
-                    </NavLogo>
-                  </Link>
-                </LogoContainer>
+          <nav
+            class="navbar  navbar-expand-lg navbar-light bg-white container-fluid fixed-top"
+            ref={navbarRef}
+          >
+            <LogoContainer className="logoMedia">
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <NavLogo>
+                  <NavLogoSpan>Heri</NavLogoSpan>
+                  <NavLogoSpan2>tians</NavLogoSpan2>
+                  <NavLogoImg src={logo} alt="Heritians" />
+                </NavLogo>
+              </Link>
+            </LogoContainer>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              onClick={toggleNav}
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
 
-                <NavContainer className="row">
-                  <NavMenu>
-                    <NavItem>
-                      <Link to="/" style={{ textDecoration: "none" }}>
-                        <NavLinks>Home</NavLinks>
-                      </Link>
-                      <Link to="/about" style={{ textDecoration: "none" }}>
-                        <NavLinks>About</NavLinks>
-                      </Link>
-                      <Link to="/team" style={{ textDecoration: "none" }}>
-                        <NavLinks>Team</NavLinks>
-                      </Link>
-                      <Link to="/contact" style={{ textDecoration: "none" }}>
-                        <NavLinks>Contact Us</NavLinks>
-                      </Link>
+            <div
+              id="navbarNavAltMarkup"
+              className={`collapse navbar-collapse navbar-nav-collapse ${
+                isNavOpen ? "show" : ""
+              }`}
+            >
+              <div class="navbar-nav flex-column text-center">
+                <NavRow>
+                  <NavContainer className="row flex-column">
+                    <NavMenu id="mediaQueryMobile_Nav_Parent">
+                      <NavItem id="mediaQueryMobile_Nav_Child">
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                          <NavLinks>Home</NavLinks>
+                        </Link>
+                        <Link to="/about" style={{ textDecoration: "none" }}>
+                          <NavLinks>About</NavLinks>
+                        </Link>
+                        <Link to="/team" style={{ textDecoration: "none" }}>
+                          <NavLinks>Team</NavLinks>
+                        </Link>
+                        <Link to="/contact" style={{ textDecoration: "none" }}>
+                          <NavLinks>Contact Us</NavLinks>
+                        </Link>
 
-                      {localStorage.getItem("authTokens") ? (
+                        {localStorage.getItem("authTokens") ? (
                         <>
                           <NavLinks
                             onMouseEnter={onMouseEnter}
@@ -89,14 +132,17 @@ export default function Header() {
                           <NavLoginBtn>Login</NavLoginBtn>
                         </Link>
                       )}
-                    </NavItem>
-                  </NavMenu>
-                </NavContainer>
-              </NavRow>
+                      </NavItem>
+                    </NavMenu>
+                  </NavContainer>
+                </NavRow>
+              </div>
             </div>
-          </div>
+          </nav>
         </HeaderContainer>
       </HeaderMain>
     </>
   );
 }
+
+export default Header;

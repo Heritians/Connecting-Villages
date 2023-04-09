@@ -42,4 +42,4 @@ const DropdownMenuItems = {
   ],
 };
 
-export default DropdownMenuItems;
+export { DropdownMenuItems };

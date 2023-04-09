@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import DropdownMenuItems from "./DropdownMenuItems";
+import { DropdownMenuItems } from "./DropdownMenuItems";
 import AuthContext from "../context/Auth";
 import {
   DropdownContainer,
@@ -15,7 +15,7 @@ export default function Dropdown() {
     : "Not Authenticated";
   return (
     <>
-      <DropdownContainer>
+      <DropdownContainer id="responsive">
         <DropdownMenu>
           {UserRole === "GOVTOff"
             ? DropdownMenuItems.GOVTOff.map((item, index) => {

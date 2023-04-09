@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderMain = styled.div`
   background: #ffffff;
-  height: 4.5rem;
+  height: 5.1rem;
 `;
 
 export const HeaderContainer = styled.div`
@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   position: fixed;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
   background: #ffffff;
   transition: 0.3s ease-in-out;
 `;
@@ -19,7 +19,7 @@ export const NavRow = styled.div`
   background: #ffffff;
   flex-direction: row;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 3rem;
 `;
 
@@ -32,6 +32,7 @@ export const LogoContainer = styled.div`
   flex-direction: row;
   width: max-content;
 `;
+
 
 export const NavLogo = styled.span`
   display: flex;
@@ -69,9 +70,10 @@ export const NavContainer = styled.div`
 
 export const NavMenu = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-left: auto;
   flex-direction: row;
-  list-style: none;
+  list-style: none; 
   text-align: center;
 `;
 
@@ -81,7 +83,6 @@ export const NavItem = styled.ul`
   padding: 0.5rem 0;
   color: #231bbc;
   display: flex;
-  align-items: center;
   justify-content: center;
   margin: 0 1rem;
   cursor: pointer;
@@ -95,7 +96,7 @@ export const NavItem = styled.ul`
 export const NavLinks = styled.div`
   padding: 0.5rem 1rem;
   color: #231bbc;
-  display: flex;
+  display: block;
   justify-content: center;
   text-decoration: none;
   height: 100%;
@@ -107,7 +108,6 @@ export const NavLinks = styled.div`
 `;
 
 export const NavLoginBtn = styled.button`
-  margin: 0 -0.4rem 0 1rem;
   border-radius: 10px;
   background: #ff7400;
   color: #ffffff;
@@ -125,3 +125,5 @@ export const NavLoginBtn = styled.button`
     color: #000000;
   }
 `;
+
+
