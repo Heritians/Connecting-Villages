@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
       : null
   );
 
+  // eslint-disable-next-line no-unused-vars
   const [formData, setFormData] = useState({
     AADHAR_NO: "",
     password: "",
@@ -159,7 +160,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (loading) {
+    if (loading && authTokens) {
       updateToken();
     }
 
@@ -171,6 +172,7 @@ export const AuthProvider = ({ children }) => {
       }
     }, fourMinutes);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authTokens, loading]);
 
   return (

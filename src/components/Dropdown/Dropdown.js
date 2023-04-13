@@ -15,7 +15,7 @@ export default function Dropdown() {
     : "Not Authenticated";
   return (
     <>
-      <DropdownContainer id="responsive">
+      <DropdownContainer>
         <DropdownMenu>
           {UserRole === "GOVTOff"
             ? DropdownMenuItems.GOVTOff.map((item, index) => {

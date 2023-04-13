@@ -17,6 +17,8 @@ export const InputLabel = styled.label`
   font-size: 1rem;
   font-weight: 600;
   padding: 0 0.5rem;
+  background-color: #dfdfdf;
+  width: 100%;
 `;
 
 export const OutputLabel = styled.label`
@@ -24,13 +26,13 @@ export const OutputLabel = styled.label`
   text-transform: capitalize;
   font-size: 1rem;
   padding: 0 0.5rem;
-  background: #ffffff;
 `;
 
 export const Table = styled.table`
   width: 100%;
   border: 1.5px solid #000000;
   margin: 1rem 0;
+  background-color: #ffffff;
 `;
 
 export const TableHeading = styled.th`
@@ -39,6 +41,7 @@ export const TableHeading = styled.th`
   align-items: center;
   text-align: center;
   padding: 0.2rem 0.4rem;
+  background-color: #dfdfdf;
 `;
 
 export const TableRow = styled.tr`
@@ -58,17 +61,16 @@ export const Input = styled.input`
   transition: 0.3s;
   color: #000000;
   border: 0;
-  background-color: #ffffff;
   &:focus {
     outline: none !important;
     outline-offset: 0 !important;
     outline-style: none !important;
     outline-width: 0 !important;
-    background-color: #ffffff;
   }
   &:disabled {
     background-color: #dfdfdf;
     opacity: 0.6;
+    cursor: not-allowed;
   }
   &::-webkit-input-placeholder {
     color: #000000;
@@ -92,17 +94,16 @@ export const InputTextArea = styled.textarea`
   transition: 0.3s;
   color: #000000;
   border: 0;
-  background-color: #ffffff;
   &:focus {
     outline: none !important;
     outline-offset: 0 !important;
     outline-style: none !important;
     outline-width: 0 !important;
-    background-color: #ffffff;
   }
   &:disabled {
     background-color: #dfdfdf;
     opacity: 0.8;
+    cursor: not-allowed;
   }
   &::-webkit-input-placeholder {
     color: #000000;
@@ -136,8 +137,10 @@ export const InputSelect = styled.select`
     background-color: #ffffff;
   }
   &:disabled {
+    background-color: #dfdfdf;
     color: #000000;
     opacity: 0.8;
+    cursor: not-allowed;
   }
   &::-webkit-input-placeholder {
     color: #000000;

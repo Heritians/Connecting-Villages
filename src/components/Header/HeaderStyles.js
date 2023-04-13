@@ -31,8 +31,16 @@ export const LogoContainer = styled.div`
   justify-content: flex-start;
   flex-direction: row;
   width: max-content;
+  @media only screen and (max-width: 767px) {
+    margin-left: 10px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 45px;
+  }
+  @media only screen and (min-width: 1024px) {
+    margin-left: 40px;
+  }
 `;
-
 
 export const NavLogo = styled.span`
   display: flex;
@@ -73,8 +81,13 @@ export const NavMenu = styled.div`
   justify-content: center;
   margin-left: auto;
   flex-direction: row;
-  list-style: none; 
+  list-style: none;
   text-align: center;
+  @media only screen and (max-width: 767px) {
+    display: block;
+    text-align: center;
+    justify-content: center;
+  }
 `;
 
 export const NavItem = styled.ul`
@@ -91,6 +104,19 @@ export const NavItem = styled.ul`
     color: #ff9944;
     transition: all 0.2s ease-in-out;
   }
+  @media only screen and (max-width: 767px) {
+    display: block;
+    justify-content: center;
+    text-align: center;
+  }
+`;
+
+export const NavHamburgerBtn = styled.button`
+  border: none;
+  box-shadow: none !important;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
 `;
 
 export const NavLinks = styled.div`
@@ -125,5 +151,3 @@ export const NavLoginBtn = styled.button`
     color: #000000;
   }
 `;
-
-

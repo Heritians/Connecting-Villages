@@ -24,7 +24,8 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 20%;
+  min-width: 20%;
+  width: max-content;
   margin: 1rem;
   border-radius: 0.5rem;
   background: #ff7400;

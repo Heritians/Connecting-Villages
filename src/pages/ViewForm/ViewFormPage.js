@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet";
-import ViewForm from "../../components/ViewForm/ViewForm";
+import ViewForm from "../../components/Form/ViewForm/ViewForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import BackHome from "../../components/BackHome/BackHome";
@@ -59,6 +59,10 @@ export default function ViewFormPage() {
     setFamdata(data.data);
   };
 
+  const resp_id = famdata?.respondent_prof
+    ? famdata.respondent_prof[0].id_no
+    : "";
+
   const handleChange = (e) => {
     setAadhaar(e.target.value);
   };
@@ -67,16 +71,13 @@ export default function ViewFormPage() {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     pageStyle: "@page { size: 8.8in 12in;  margin: 0.3in; }",
+    documentTitle: `${resp_id}_Annexture VI`,
   });
 
   return (
     <>
       <Helmet>
-        {famdata?.gen_ho_info ? (
-          <title>Annexture_VI_{famdata.respondent_prof[0].id_no}</title>
-        ) : (
-          <title>View Form | Heritians</title>
-        )}
+        <title>View Form | Heritians</title>
       </Helmet>
       <Header />
 
@@ -100,28 +101,16 @@ export default function ViewFormPage() {
                     <tbody>
                       <TableRow>
                         <TableData>
-                          <InputLabel
-                            style={{ fontWeight: "normal", width: "30%" }}
-                          >
-                            Aadhaar No:
-                          </InputLabel>
-                          <OutputLabel
-                            style={{ fontWeight: "normal", width: "70%" }}
-                          >
+                          <InputLabel>Aadhaar No:</InputLabel>
+                          <OutputLabel>
                             {famdata["filled_by"] !== null
                               ? famdata["filled_by"]
                               : "Cannot be displayed"}
                           </OutputLabel>
                         </TableData>
                         <TableData>
-                          <InputLabel
-                            style={{ fontWeight: "normal", width: "30%" }}
-                          >
-                            Date Filled:
-                          </InputLabel>
-                          <OutputLabel
-                            style={{ fontWeight: "normal", width: "70%" }}
-                          >
+                          <InputLabel>Date Filled:</InputLabel>
+                          <OutputLabel>
                             {famdata["filled_time"] !== null
                               ? famdata["filled_time"].split("T")[0] +
                                 " " +

@@ -9,7 +9,7 @@ import {
   TableData,
   TableHeading,
   TableRow,
-} from "./ViewFormStyles";
+} from "../FormStyles";
 
 export default class ViewForm extends Component {
   render() {
