@@ -549,6 +549,7 @@ export default class Form extends Component {
     const problems = [];
     const Suggestions_by_villagers = [];
 
+    // eslint-disable-next-line array-callback-return
     this.state.major_problems.map((item, index) => {
       problems.push(item.problems);
       Suggestions_by_villagers.push(item.Suggestions_by_villagers);

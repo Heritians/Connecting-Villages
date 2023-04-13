@@ -15,6 +15,7 @@ import {
   LogoContainer,
   NavContainer,
   NavLogoImg,
+  NavHamburgerBtn,
 } from "./HeaderStyles";
 import logo from "../../assets/images/logo_sm.png";
 import Dropdown from "../Dropdown/Dropdown";
@@ -43,7 +44,7 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
+
   const onMouseEnter = () => {
     if (window.innerWidth < 0) {
       setDropdown(false);
@@ -65,10 +66,10 @@ function Header() {
       <HeaderMain>
         <HeaderContainer>
           <nav
-            class="navbar  navbar-expand-lg navbar-light bg-white container-fluid fixed-top"
+            className="navbar navbar-expand-lg navbar-light bg-white container-fluid fixed-top"
             ref={navbarRef}
           >
-            <LogoContainer className="logoMedia">
+            <LogoContainer>
               <Link to="/" style={{ textDecoration: "none" }}>
                 <NavLogo>
                   <NavLogoSpan>Heri</NavLogoSpan>
@@ -77,7 +78,7 @@ function Header() {
                 </NavLogo>
               </Link>
             </LogoContainer>
-            <button
+            <NavHamburgerBtn
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
@@ -87,8 +88,12 @@ function Header() {
               aria-label="Toggle navigation"
               onClick={toggleNav}
             >
-              <span className="navbar-toggler-icon"></span>
-            </button>
+              {isNavOpen ? (
+                <i className="bi bi-x-lg"></i>
+              ) : (
+                <i className="bi bi-list"></i>
+              )}
+            </NavHamburgerBtn>
 
             <div
               id="navbarNavAltMarkup"
@@ -96,11 +101,11 @@ function Header() {
                 isNavOpen ? "show" : ""
               }`}
             >
-              <div class="navbar-nav flex-column text-center">
+              <div className="navbar-nav flex-column text-center">
                 <NavRow>
                   <NavContainer className="row flex-column">
-                    <NavMenu id="mediaQueryMobile_Nav_Parent">
-                      <NavItem id="mediaQueryMobile_Nav_Child">
+                    <NavMenu>
+                      <NavItem>
                         <Link to="/" style={{ textDecoration: "none" }}>
                           <NavLinks>Home</NavLinks>
                         </Link>
@@ -115,23 +120,23 @@ function Header() {
                         </Link>
 
                         {localStorage.getItem("authTokens") ? (
-                        <>
-                          <NavLinks
-                            onMouseEnter={onMouseEnter}
-                            onMouseLeave={onMouseLeave}
-                          >
-                            Services <i className="bi bi-caret-down-fill"></i>
-                            {dropdown && <Dropdown />}
-                          </NavLinks>
-                          <NavLoginBtn onClick={loginAuthUser.logoutUser}>
-                            Logout
-                          </NavLoginBtn>
-                        </>
-                      ) : (
-                        <Link to="/login">
-                          <NavLoginBtn>Login</NavLoginBtn>
-                        </Link>
-                      )}
+                          <>
+                            <NavLinks
+                              onMouseEnter={onMouseEnter}
+                              onMouseLeave={onMouseLeave}
+                            >
+                              Services <i className="bi bi-caret-down-fill"></i>
+                              {dropdown && <Dropdown />}
+                            </NavLinks>
+                            <NavLoginBtn onClick={loginAuthUser.logoutUser}>
+                              Logout
+                            </NavLoginBtn>
+                          </>
+                        ) : (
+                          <Link to="/login">
+                            <NavLoginBtn>Login</NavLoginBtn>
+                          </Link>
+                        )}
                       </NavItem>
                     </NavMenu>
                   </NavContainer>

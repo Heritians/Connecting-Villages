@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
 import ContactPage from "./pages/Contact/ContactPage";
@@ -30,16 +25,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/instructions" element={<GettingStartedPage />} />
-          <Route
-            path="/login"
-            element={
-              localStorage.getItem("authTokens") ? (
-                <Navigate to={"/"} />
-              ) : (
-                <LoginPage />
-              )
-            }
-          />
+          <Route path="/login" element={<LoginPage />} />
           {localStorage.getItem("authTokens") ? (
             <>
               <Route element={<RouteAuth allowedRoles={["GOVTOff"]} />}>
