@@ -14,6 +14,7 @@ import ViewFormPage from "./pages/ViewForm/ViewFormPage";
 import { AuthProvider } from "./components/context/Auth";
 import VillagesList from "./pages/VillagesList/VillagesList";
 import RouteAuth from "./components/context/RouteAuth";
+import VillageOverview from "./pages/Dashboard/VillageOverview/VillageOverview";
 
 export default function App() {
   return (
@@ -44,6 +45,11 @@ export default function App() {
               </Route>
               <Route element={<RouteAuth allowedRoles={["admin", "user"]} />}>
                 <Route path="/form" element={<FormPage />} />
+              </Route>
+              <Route
+                element={<RouteAuth allowedRoles={["admin", "GOVTOff"]} />}
+              >
+                <Route path="/dashboard" element={<VillageOverview/>} />
               </Route>
             </>
           ) : null}

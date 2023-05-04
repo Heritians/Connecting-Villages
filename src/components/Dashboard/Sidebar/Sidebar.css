@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 1rem;
+  height: 100vh;
+  width: 250px;
+  background-color: #ffff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.sidebarLogo {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.sidebarLogo img {
+  width: 150px;
+  border-bottom: 2px solid #58585e;
+  padding: 1rem;
+}
+.sidebarMenus .sidebarMenusList {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-style: regular;
+  line-height: 29px;
+  color: #9d9cba;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.listActive{
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-style: regular;
+  line-height: 29px;
+  color: #692dfb;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.sidebarMenus .sidebarMenusList:hover {
+  color: #692dfb;
+}
+.sidebarMenus ul {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
