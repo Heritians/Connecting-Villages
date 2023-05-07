@@ -10,6 +10,11 @@ const DropdownMenuItems = {
       title: "Villages List",
       path: "/villages",
     },
+    {
+      id: 3,
+      title: "Dashboard",
+      path: "/dashboard",
+    }
   ],
   user: [
     {
@@ -39,6 +44,11 @@ const DropdownMenuItems = {
       title: "Fill the form",
       path: "/form",
     },
+    {
+      id: 5,
+      title: "Dashboard",
+      path: "/dashboard",
+    }
   ],
 };
 
