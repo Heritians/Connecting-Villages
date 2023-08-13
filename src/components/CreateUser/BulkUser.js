@@ -19,6 +19,7 @@ import {
   CheckBoxRow,
   MessageSentAlert,
 } from "./CreateUserStyles";
+import Papa from "papaparse";
 
 export default function BulkUserForm() {
   const loginAuthUser = useContext(AuthContext);
@@ -38,91 +39,77 @@ export default function BulkUserForm() {
         : "")
     : "Not Authenticated";
 
-  const [aadhaarNo, setAadhaarNo] = useState("");
-  const [password, setPassword] = useState("");
+  const [aadhaarPassword, setAadhaarPassword] = useState();
 
-  const handleAadhaarChange = (e) => {
-    setAadhaarNo(e.target.value);
-  };
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleFileChange = (e) => {
+    Papa.parse(e.target.files[0], {
+      complete: function (results) {
+        setAadhaarPassword(() => {
+          let chunks = [];
+
+          while (results.data.length > 0) {
+            chunks.push(results.data.splice(0, 10));
+          }
+
+          let chunkedAadhaar = [];
+          let chunkedPassword = [];
+
+          chunks.forEach((chunk) => {
+            let aadhaar = [];
+            let pass = [];
+            chunk.forEach((chun) => {
+              aadhaar.push(chun[0]);
+              pass.push(chun[1]);
+            });
+            chunkedAadhaar.push(aadhaar);
+            chunkedPassword.push(pass);
+          });
+
+          const newaadhaarPassword = chunkedAadhaar.map((aadhaar, index) => {
+            return [aadhaar, chunkedPassword[index]];
+          });
+
+          return newaadhaarPassword;
+        });
+      },
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     document.getElementById("create-user-page-button").disabled = true;
     document.getElementById("create-user-page-button").innerHTML =
-      "Creating User...";
+      "Creating Users...";
 
-    const newaadhaarnos = aadhaarNo.split(" ");
-    const newpasswords = password.split(" ");
-    const postingdata = JSON.stringify({
-      AADHAR_NOS: newaadhaarnos,
-      passwords: newpasswords,
-      village_name: villageValue,
-      role: "user",
+    aadhaarPassword.forEach(async (datapass) => {
+      const postingdata = JSON.stringify({
+        AADHAR_NOS: datapass[0],
+        passwords: datapass[1],
+        village_name: villageValue,
+        role: "user",
+      });
+      const settings = {
+        method: "POST",
+        body: postingdata,
+        headers: {
+          Authorization:
+            "Bearer " +
+            JSON.parse(localStorage.getItem("authTokens")).access_token,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      };
+
+      const fetchResponse = await fetch(
+        "https://ubaformapi.vercel.app/auth/signup",
+        settings
+      );
+      const data = await fetchResponse.json();
+      console.log(data);
     });
-    const settings = {
-      method: "POST",
-      body: postingdata,
-      headers: {
-        Authorization:
-          "Bearer " +
-          JSON.parse(localStorage.getItem("authTokens")).access_token,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    };
-
-    let newURL = "https://ubaformapi.vercel.app/auth/signup";
-    const fetchResponse = await fetch(newURL, settings);
-    const data = await fetchResponse.json();
     document.getElementById("create-user-page-button").disabled = false;
     document.getElementById("create-user-page-button").innerHTML =
       "Create User";
-    if (data?.status === "success") {
-      document.getElementById("create-user-alert").style.display = "block";
-      if (data?.message[1].length > 61) {
-        document.getElementById(
-          "create-user-alert"
-        ).innerHTML = `Users Created Successfully!`;
-        document.getElementById("create-user-alert-new").style.display =
-          "block";
-        document.getElementById(
-          "create-user-alert-new"
-        ).innerHTML = `${data?.message[1]}`;
-        document.getElementById("create-user-alert-new").style.backgroundColor =
-          "#f44336";
-      } else {
-        // document.getElementById(
-        //   "create-user-alert"
-        // ).innerHTML = `Users Created Successfully!`;
-      }
-      document.getElementById("create-user-alert").style.backgroundColor =
-        "#6eca46";
-      setTimeout(function () {
-        document.getElementById("create-user-alert").style.display = "none";
-      }, 8000);
-      setTimeout(() => {
-        window.location.reload();
-      }, 8000);
-    } else {
-      document.getElementById("create-user-alert").style.display = "block";
-      document.getElementById("create-user-alert-new").style.display = "block";
-      document.getElementById("create-user-alert").style.backgroundColor =
-        "#f44336";
-      document.getElementById("create-user-alert-new").style.backgroundColor =
-        "#f44336";
-      document.getElementById(
-        "create-user-alert"
-      ).innerHTML = `Error Creating Users, Please Try Again!`;
-      document.getElementById("create-user-alert-new").innerHTML =
-        data?.message[1];
-      setTimeout(function () {
-        document.getElementById("create-user-alert").style.display = "none";
-        document.getElementById("create-user-alert-new").style.display = "none";
-      }, 8000);
-    }
   };
 
   return (
@@ -135,18 +122,12 @@ export default function BulkUserForm() {
         </CreateUserTitle>
         <CreateUserForm onSubmit={handleSubmit}>
           <CreateUserInput
-            onChange={handleAadhaarChange}
-            type="text"
-            placeholder="Enter Aadhaar Nos."
-            name="AADHAR_NO"
+            onChange={handleFileChange}
+            type="file"
+            placeholder="Upload CSV File"
+            name="file"
             required
-          />
-          <CreateUserInput
-            onChange={handlePasswordChange}
-            type="text"
-            placeholder="Enter Passwords"
-            name="password"
-            required
+            accept=".csv"
           />
           <InputsRow className="row">
             <div className="col-md-5 form-group mt-3">
@@ -200,14 +181,12 @@ export default function BulkUserForm() {
               agree to the <Link to={GlobalLinks.TnC}>Terms & Conditions</Link>
             </CreateUserLabel>
           </CheckBoxRow>
-
           <MessageSentAlert id="create-user-alert" className="alert_style">
             Users Created Successfully
           </MessageSentAlert>
           <MessageSentAlert id="create-user-alert-new" className="alert_style">
             Users Created Successfully
           </MessageSentAlert>
-
           <CreateUserSubmit type="submit" id="create-user-page-button">
             Create Users
           </CreateUserSubmit>
