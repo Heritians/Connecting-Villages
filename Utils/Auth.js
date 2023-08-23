@@ -14,8 +14,6 @@ export const AuthProvider = ({ children }) => {
 
   const [authData, setAuthData] = useState(null);
 
-  console.log("authData", authData);
-
   useEffect(() => {
     if (loading && authData) {
       updateToken();
