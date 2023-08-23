@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.2",
     "autoprefixer": "10.4.14",
     "emailjs-com": "^3.2.0",
     "jwt-decode": "^3.1.2",

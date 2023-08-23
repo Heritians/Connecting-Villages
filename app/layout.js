@@ -1,6 +1,7 @@
 import "@/Styles/globals.css";
 import { Footer, Nav } from "@/components";
 import { AuthProvider } from "@/Utils/Auth";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Heritians",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );
