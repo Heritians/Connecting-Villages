@@ -1,42 +1,39 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import jwt_decode from "jwt-decode";
 import { Unauthorized } from "..";
+import { useContext } from "react";
+import AuthContext from "@/Utils/Auth";
 
 export default function authCheck(Component) {
   return function ProtectedRoute({ ...props }) {
+    const { authData } = useContext(AuthContext);
     const pathname = usePathname();
     let userIsAuthenticated = false;
 
-    const localAuthTokens = JSON.parse(localStorage.getItem("authTokens"));
-    const localUserData = localAuthTokens
-      ? jwt_decode(localAuthTokens.access_token).sub.split("_")
-      : null;
-
-    if (!localAuthTokens) {
+    if (!authData) {
       return <Unauthorized />;
     }
 
     if (
       pathname === "/form" &&
-      (localUserData[1] === "admin" || localUserData[1] === "user")
+      (authData.role === "admin" || authData.role === "user")
     ) {
       userIsAuthenticated = true;
     }
 
     if (
       pathname === "/createuser" &&
-      (localUserData[1] === "admin" || localUserData[1] === "GOVTOff")
+      (authData.role === "admin" || authData.role === "GOVTOff")
     ) {
       userIsAuthenticated = true;
     }
 
-    if (pathname === "/viewform" && localUserData[1] === "admin") {
+    if (pathname === "/viewform" && authData.role === "admin") {
       userIsAuthenticated = true;
     }
 
-    if (pathname === "/villages" && localUserData[1] === "GOVTOff") {
+    if (pathname === "/villages" && authData.role === "GOVTOff") {
       userIsAuthenticated = true;
     }
 

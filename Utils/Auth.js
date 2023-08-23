@@ -12,33 +12,43 @@ export const AuthProvider = ({ children }) => {
   const [villages_list, setVillagesList] = useState([]);
   const router = useRouter();
 
-  const localAuthTokens = JSON.parse(localStorage.getItem("authTokens"));
-  const localUserData = localAuthTokens
-    ? jwt_decode(localAuthTokens.access_token).sub.split("_")
-    : null;
+  const [authData, setAuthData] = useState(null);
 
-  const [authData, setAuthData] = useState(() =>
-    localAuthTokens
-      ? {
-          access_token: localAuthTokens ? localAuthTokens.access_token : null,
-          refresh_token: localAuthTokens ? localAuthTokens.refresh_token : null,
-          aadhaar_no: localUserData ? localUserData[0] : null,
-          role: localUserData ? localUserData[1] : null,
-          village_name: localUserData
-            ? localUserData[2] +
-              (localUserData[3] ? " " + localUserData[3] : "") +
-              (localUserData[4] ? " " + localUserData[4] : "")
-            : null,
-        }
-      : null
-  );
+  console.log("authData", authData);
 
   useEffect(() => {
     if (loading && authData) {
       updateToken();
     }
 
+    const localAuthTokens = JSON.parse(localStorage.getItem("authTokens"));
+    const localUserData = localAuthTokens
+      ? jwt_decode(localAuthTokens.access_token).sub.split("_")
+      : null;
+
+    setAuthData(() =>
+      localAuthTokens
+        ? {
+            access_token: localAuthTokens ? localAuthTokens.access_token : null,
+            refresh_token: localAuthTokens
+              ? localAuthTokens.refresh_token
+              : null,
+            aadhaar_no: localUserData ? localUserData[0] : null,
+            role: localUserData ? localUserData[1] : null,
+            village_name: localUserData
+              ? localUserData[2] +
+                (localUserData[3] ? " " + localUserData[3] : "") +
+                (localUserData[4] ? " " + localUserData[4] : "")
+              : null,
+          }
+        : null
+    );
+
     getVillagesList();
+
+    if (loading) {
+      setLoading(false);
+    }
 
     setInterval(() => {
       if (authData) {

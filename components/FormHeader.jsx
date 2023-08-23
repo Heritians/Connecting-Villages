@@ -15,7 +15,7 @@ const FormHeader = () => {
         </div>
         <div className="w-3/5 flex flex-col justify-center items-center text-center">
           <h1 className="text-lg sm:text-xl text-primary-orange font-bold">
-            Annexture VI
+            Annexure VI
           </h1>
           <h3 className="text-xs sm:text-lg font-normal sm:font-medium">
             UBA Baseline Household Survey Form
