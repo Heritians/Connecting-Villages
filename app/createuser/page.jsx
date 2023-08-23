@@ -6,6 +6,7 @@ import { GlobalLinks } from "@/assets";
 import { UploadCloud } from "lucide-react";
 import Papa from "papaparse";
 import authCheck from "@/components/HOC/authCheck";
+import { Eye, EyeOff } from "lucide-react";
 
 const CreateUserPage = () => {
   const { authData, villages_list } = useContext(AuthContext);
@@ -19,6 +20,11 @@ const CreateUserPage = () => {
       ? authData.village_name.split(" ").join("_")
       : "",
   });
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -212,22 +218,34 @@ const CreateUserPage = () => {
             required={usersFile ? false : true}
             disabled={usersFile ? true : false}
           />
-          <input
-            className="login_create_input my-2"
-            type="text"
-            placeholder="Password"
-            name="create_password"
-            id="create_password"
-            minLength={5}
-            onChange={(e) => {
-              setAadhaarPassword({
-                ...aadhaarPassword,
-                password: e.target.value,
-              });
-            }}
-            required={usersFile ? false : true}
-            disabled={usersFile ? true : false}
-          />
+          <div className="w-full relative">
+            <input
+              className="login_create_input my-2"
+              type={isPasswordVisible ? "text" : "password"}
+              placeholder="Password"
+              name="create_password"
+              id="create_password"
+              minLength={5}
+              onChange={(e) => {
+                setAadhaarPassword({
+                  ...aadhaarPassword,
+                  password: e.target.value,
+                });
+              }}
+              required={usersFile ? false : true}
+              disabled={usersFile ? true : false}
+            />
+            <button
+              className="absolute inset-y-0 right-3 text-black/50"
+              onClick={togglePasswordVisibility}
+            >
+              {isPasswordVisible ? (
+                <EyeOff className="w-5 h-5" />
+              ) : (
+                <Eye className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
 
         <span className="w-full text-center text-black/50 my-2">

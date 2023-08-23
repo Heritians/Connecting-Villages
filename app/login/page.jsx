@@ -3,11 +3,17 @@
 import { useState, useContext } from "react";
 import AuthContext from "@/Utils/Auth";
 import { GlobalLinks } from "@/assets";
+import { Eye, EyeOff } from "lucide-react";
 
 const LoginPage = () => {
   const { loginUser, villages_list } = useContext(AuthContext);
 
   const [isVillageDisabled, setIsVillageDisabled] = useState(true);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const handleRoleChange = (e) => {
     if (e.target.value === "GOVTOff" || e.target.value === "None") {
@@ -38,16 +44,28 @@ const LoginPage = () => {
             maxLength={12}
             required
           />
-          <input
-            className="login_create_input my-2"
-            type="password"
-            placeholder="Password"
-            name="login_password"
-            id="login_password"
-            minLength={6}
-            maxLength={24}
-            required
-          />
+          <div className="w-full relative">
+            <input
+              className="login_create_input my-2"
+              type={isPasswordVisible ? "text" : "password"}
+              placeholder="Password"
+              name="login_password"
+              id="login_password"
+              minLength={6}
+              maxLength={24}
+              required
+            />
+            <button
+              className="absolute inset-y-0 right-3 text-black/50"
+              onClick={togglePasswordVisibility}
+            >
+              {isPasswordVisible ? (
+                <EyeOff className="w-5 h-5" />
+              ) : (
+                <Eye className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
 
         <div className="w-full flex flex-row items-center justify-start mt-5">
