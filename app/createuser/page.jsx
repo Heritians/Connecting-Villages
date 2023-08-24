@@ -126,7 +126,9 @@ const CreateUserPage = () => {
                     "Content-Type": "application/json",
                   },
                 }
-              );
+              ).catch((error) => {
+                console.log("error creating user(s)", error);
+              });
               const data = await fetchResponse.json();
               console.log(data);
 
@@ -161,29 +163,34 @@ const CreateUserPage = () => {
               "Content-Type": "application/json",
             },
           }
-        );
-        let data = await fetchResponse.json();
-        create_user_page_button.disabled = false;
-        create_user_page_button.innerHTML = "Create User(s)";
-        if (data?.status === "success") {
-          create_user_page_alert.classList.remove("hidden");
-          create_user_page_alert.classList.add("bg-green-600");
-          create_user_page_alert.innerHTML = "User(s) Created Successfully!";
-          setTimeout(() => {
-            create_user_page_alert.classList.add("hidden");
-          }, 4000);
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000);
-        } else {
-          data = JSON.parse(data);
+        ).catch((error) => {
+          console.log("error creating user(s)", error);
           create_user_page_alert.classList.remove("hidden");
           create_user_page_alert.classList.add("bg-red-600");
-          create_user_page_alert.innerHTML = data.message[1];
+          create_user_page_alert.innerHTML = "Error creating user(s)!";
           setTimeout(() => {
             create_user_page_alert.classList.add("hidden");
           }, 4000);
+        });
+        const createSingleUserRes = await fetchResponse.json();
+        create_user_page_button.disabled = false;
+        create_user_page_button.innerHTML = "Create User(s)";
+        create_user_page_alert.classList.remove("hidden");
+        if (createSingleUserRes.status === "success") {
+          create_user_page_alert.classList.add("bg-green-600");
+          create_user_page_alert.innerHTML = "User(s) Created Successfully!";
+
+          document.getElementById("create_aadhaar_no").value = "";
+          document.getElementById("create_password").value = "";
+        } else {
+          create_user_page_alert.classList.remove("hidden");
+          create_user_page_alert.classList.add("bg-red-600");
+          create_user_page_alert.innerHTML =
+            JSON.parse(createSingleUserRes).message[1];
         }
+        setTimeout(() => {
+          create_user_page_alert.classList.add("hidden");
+        }, 4000);
       }
     } catch (error) {
       console.log("error creating user(s)", error);

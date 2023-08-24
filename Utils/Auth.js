@@ -76,76 +76,64 @@ export const AuthProvider = ({ children }) => {
     const LoginPageButton = document.getElementById("login_page_button");
     const login_error_alert = document.getElementById("login_error_alert");
 
-    try {
-      LoginPageButton.disabled = true;
-      LoginPageButton.innerHTML = "Logging In...";
+    LoginPageButton.disabled = true;
+    LoginPageButton.innerHTML = "Logging In...";
 
-      const fetchResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login?role=${e.target.login_role.value}&village_name=${e.target.login_village.value}&AADHAR_NO=${e.target.login_aadhaar_no.value}&password=${e.target.login_password.value}`,
-        // `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login`,
-        {
-          method: "POST",
-          body: "",
-          // body: JSON.stringify({
-          //   AADHAR_NO: e.target.login_aadhaar_no.value,
-          //   password: e.target.login_password.value,
-          //   village_name: e.target.login_village.value,
-          //   role: e.target.login_role.value,
-          // }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      ).catch((error) => {
-        LoginPageButton.disabled = false;
-        LoginPageButton.innerHTML = "Login";
-        login_error_alert.classList.remove("hidden");
-        login_error_alert.classList.add("bg-red-600");
-        login_error_alert.innerHTML = "Error Logging In! Please try again.";
-        setTimeout(() => {
-          login_error_alert.classList.add("hidden");
-        }, 3000);
-      });
+    const fetchResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login?role=${e.target.login_role.value}&village_name=${e.target.login_village.value}&AADHAR_NO=${e.target.login_aadhaar_no.value}&password=${e.target.login_password.value}`,
+      // `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login`,
+      {
+        method: "POST",
+        body: "",
+        // body: JSON.stringify({
+        //   AADHAR_NO: e.target.login_aadhaar_no.value,
+        //   password: e.target.login_password.value,
+        //   village_name: e.target.login_village.value,
+        //   role: e.target.login_role.value,
+        // }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    ).catch((error) => {
+      LoginPageButton.disabled = false;
+      LoginPageButton.innerHTML = "Login";
+      login_error_alert.classList.remove("hidden");
+      login_error_alert.classList.add("bg-red-600");
+      login_error_alert.innerHTML = "Error Logging In! Please try again.";
+      setTimeout(() => {
+        login_error_alert.classList.add("hidden");
+      }, 3000);
+    });
 
-      const login_response = await fetchResponse.json();
+    const login_response = await fetchResponse.json();
 
-      if (fetchResponse.status === 200) {
-        window.localStorage.setItem(
-          "authTokens",
-          JSON.stringify({
-            access_token: login_response.access_token,
-            refresh_token: login_response.refresh_token,
-          })
-        );
-        const userData = jwt_decode(login_response.access_token).sub.split("_");
-        setAuthData({
+    if (fetchResponse.status === 200) {
+      window.localStorage.setItem(
+        "authTokens",
+        JSON.stringify({
           access_token: login_response.access_token,
           refresh_token: login_response.refresh_token,
-          aadhaar_no: userData[0],
-          role: userData[1],
-          village_name:
-            userData[2] +
-            (userData[3] ? " " + userData[3] : "") +
-            (userData[4] ? " " + userData[4] : ""),
-        });
-        LoginPageButton.disabled = false;
-        LoginPageButton.innerHTML = "Login";
-        if (window.location.pathname === "/login") {
-          router.push("/");
-        }
-      } else {
-        LoginPageButton.disabled = false;
-        LoginPageButton.innerHTML = "Login";
-        login_error_alert.classList.remove("hidden");
-        login_error_alert.classList.add("bg-red-600");
-        login_error_alert.innerHTML = "Error Logging In! Please try again.";
-        setTimeout(() => {
-          login_error_alert.classList.add("hidden");
-        }, 3000);
+        })
+      );
+      const userData = jwt_decode(login_response.access_token).sub.split("_");
+      setAuthData({
+        access_token: login_response.access_token,
+        refresh_token: login_response.refresh_token,
+        aadhaar_no: userData[0],
+        role: userData[1],
+        village_name:
+          userData[2] +
+          (userData[3] ? " " + userData[3] : "") +
+          (userData[4] ? " " + userData[4] : ""),
+      });
+      LoginPageButton.disabled = false;
+      LoginPageButton.innerHTML = "Login";
+      if (window.location.pathname === "/login") {
+        router.push("/");
       }
-    } catch (error) {
-      console.log("error loggin in", error);
+    } else {
       LoginPageButton.disabled = false;
       LoginPageButton.innerHTML = "Login";
       login_error_alert.classList.remove("hidden");

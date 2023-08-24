@@ -28,7 +28,15 @@ const ViewFormPage = () => {
           "Content-Type": "application/json",
         },
       }
-    );
+    ).catch((err) => {
+      console.log("error fetching family data", err);
+      request_info_btn.disabled = false;
+      request_info_btn.innerHTML = "Request Information";
+      request_error_alert.classList.remove("hidden");
+      setTimeout(() => {
+        request_error_alert.classList.add("hidden");
+      }, 3000);
+    });
     const data = await fetchResponse.json();
 
     if (data.status === "success") {

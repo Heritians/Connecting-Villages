@@ -478,7 +478,18 @@ const FillFormPage = () => {
           },
           body: JSON.stringify(postData),
         }
-      );
+      ).catch((error) => {
+        console.log(error);
+        form_submit_alert.classList.remove("hidden");
+        form_submit_alert.classList.add("bg-red-500");
+        form_submit_alert.innerHTML = "Form Submission Failed";
+        setTimeout(() => {
+          form_submit_button.disabled = false;
+          form_submit_button.innerHTML = "Submit";
+          form_submit_alert.classList.add("hidden");
+          form_submit_alert.classList.remove("bg-red-500");
+        }, 4000);
+      });
       const data = await fetchResponse.json();
       if (data?.status === "success") {
         form_submit_alert.classList.remove("hidden");
@@ -505,14 +516,14 @@ const FillFormPage = () => {
     } catch (error) {
       console.log(error);
       form_submit_alert.classList.remove("hidden");
-        form_submit_alert.classList.add("bg-red-500");
-        form_submit_alert.innerHTML = "Form Submission Failed";
-        setTimeout(() => {
-          form_submit_button.disabled = false;
-          form_submit_button.innerHTML = "Submit";
-          form_submit_alert.classList.add("hidden");
-          form_submit_alert.classList.remove("bg-red-500");
-        }, 4000);
+      form_submit_alert.classList.add("bg-red-500");
+      form_submit_alert.innerHTML = "Form Submission Failed";
+      setTimeout(() => {
+        form_submit_button.disabled = false;
+        form_submit_button.innerHTML = "Submit";
+        form_submit_alert.classList.add("hidden");
+        form_submit_alert.classList.remove("bg-red-500");
+      }, 4000);
     }
   };
 

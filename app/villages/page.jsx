@@ -44,7 +44,9 @@ const VillagesPage = () => {
           "Content-Type": "application/json",
         },
       }
-    );
+    ).catch((err) => {
+      console.log("error fetching villages", err);
+    });
     const data = await fetchResponse.json();
     setVillages(data.data.village_names);
   };
@@ -65,7 +67,16 @@ const VillagesPage = () => {
         },
         body: "",
       }
-    );
+    ).catch((err) => {
+      console.log("error adding village", err);
+      add_village_alert.classList.remove("hidden");
+      add_village_alert.innerHTML = "Error adding village!";
+      add_village_alert.classList.add("bg-red-500");
+      setTimeout(() => {
+        add_village_alert.classList.add("hidden");
+        add_village_alert.classList.remove("bg-red-500");
+      }, 3000);
+    });
     const data = await fetchResponse.json();
     if (data?.status === "success") {
       GetVillages();
