@@ -15,10 +15,6 @@ export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState(null);
 
   useEffect(() => {
-    if (loading && authData) {
-      updateToken();
-    }
-
     const localAuthTokens = JSON.parse(localStorage.getItem("authTokens"));
     const localUserData = localAuthTokens
       ? jwt_decode(localAuthTokens.access_token).sub.split("_")
@@ -45,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     getVillagesList();
 
     if (loading) {
-      setLoading(false);
+      updateToken();
     }
 
     setInterval(() => {
@@ -77,9 +73,10 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (e) => {
     e.preventDefault();
+    const LoginPageButton = document.getElementById("login_page_button");
+    const login_error_alert = document.getElementById("login_error_alert");
 
     try {
-      const LoginPageButton = document.getElementById("login_page_button");
       LoginPageButton.disabled = true;
       LoginPageButton.innerHTML = "Logging In...";
 
@@ -100,7 +97,16 @@ export const AuthProvider = ({ children }) => {
             "Content-Type": "application/json",
           },
         }
-      );
+      ).catch((error) => {
+        LoginPageButton.disabled = false;
+        LoginPageButton.innerHTML = "Login";
+        login_error_alert.classList.remove("hidden");
+        login_error_alert.classList.add("bg-red-600");
+        login_error_alert.innerHTML = "Error Logging In! Please try again.";
+        setTimeout(() => {
+          login_error_alert.classList.add("hidden");
+        }, 3000);
+      });
 
       const login_response = await fetchResponse.json();
 
@@ -128,9 +134,26 @@ export const AuthProvider = ({ children }) => {
         if (window.location.pathname === "/login") {
           router.push("/");
         }
+      } else {
+        LoginPageButton.disabled = false;
+        LoginPageButton.innerHTML = "Login";
+        login_error_alert.classList.remove("hidden");
+        login_error_alert.classList.add("bg-red-600");
+        login_error_alert.innerHTML = "Error Logging In! Please try again.";
+        setTimeout(() => {
+          login_error_alert.classList.add("hidden");
+        }, 3000);
       }
     } catch (error) {
       console.log("error loggin in", error);
+      LoginPageButton.disabled = false;
+      LoginPageButton.innerHTML = "Login";
+      login_error_alert.classList.remove("hidden");
+      login_error_alert.classList.add("bg-red-600");
+      login_error_alert.innerHTML = "Error Logging In! Please try again.";
+      setTimeout(() => {
+        login_error_alert.classList.add("hidden");
+      }, 3000);
     }
   };
 
@@ -184,13 +207,36 @@ export const AuthProvider = ({ children }) => {
       } else {
         setAuthData(null);
         localStorage.removeItem("authTokens");
+        document
+          .getElementById("session_expired_alert")
+          .classList.remove("hidden");
+
+        setTimeout(() => {
+          document
+            .getElementById("session_expired_alert")
+            .classList.add("hidden");
+          router.push("/");
+        }, 3000);
       }
 
       if (loading) {
         setLoading(false);
       }
     } catch (error) {
-      console.log("error updating token", error);
+      if (authData) {
+        setAuthData(null);
+        localStorage.removeItem("authTokens");
+        document
+          .getElementById("session_expired_alert")
+          .classList.remove("hidden");
+
+        setTimeout(() => {
+          document
+            .getElementById("session_expired_alert")
+            .classList.add("hidden");
+          router.push("/");
+        }, 3000);
+      }
     }
   };
 

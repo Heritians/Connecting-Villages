@@ -1,5 +1,4 @@
 import { Header, VillageCard, InspirationsSection } from "@/components";
-import Link from "next/link";
 import { GitHub } from "@/assets/js/GlobalLinks";
 import { Villages } from "@/assets";
 
@@ -19,9 +18,6 @@ export default function Home() {
             comprehension. With this data, it will be easier for the concerned
             authorities to identify which areas need immediate help.
           </p>
-          <Link href="/instructions" className="orange_btn my-4">
-            Get Started
-          </Link>
         </div>
       </div>
       <div>

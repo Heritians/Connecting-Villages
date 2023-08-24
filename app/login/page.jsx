@@ -11,7 +11,8 @@ const LoginPage = () => {
   const [isVillageDisabled, setIsVillageDisabled] = useState(true);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault();
     setIsPasswordVisible(!isPasswordVisible);
   };
 
@@ -117,6 +118,11 @@ const LoginPage = () => {
             </a>
           </label>
         </div>
+
+        <p
+          id="login_error_alert"
+          className="w-full text-center p-1 my-1 text-white rounded-lg hidden"
+        ></p>
 
         <button className="orange_btn mt-3" id="login_page_button">
           Login
