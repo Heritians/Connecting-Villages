@@ -3,15 +3,25 @@
 import { Logo } from "@/assets/images";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import AuthContext from "@/Utils/Auth";
 import DropdownMenuItems from "@/Utils/DropdownMenuItems";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const Nav = () => {
   const { authData, logoutUser } = useContext(AuthContext);
+  const menuRef = useRef();
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!menuRef?.current?.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+  }, [menuRef]);
 
   return (
     <>
@@ -43,17 +53,44 @@ const Nav = () => {
           {/*Mobile Nav*/}
           <div className="w-full bg-white">
             {showMenu && (
-              <div className="absolute w-full bg-white p-4 rounded-lg mt-3 flex flex-col items-center justify-center">
-                <Link href="/" className="mob_nav_link">
+              <div
+                ref={menuRef}
+                className="absolute w-full bg-white p-4 rounded-lg mt-3 flex flex-col items-center justify-center z-30"
+              >
+                <Link
+                  href="/"
+                  className="mob_nav_link"
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   Home
                 </Link>
-                <Link href="/about" className="mob_nav_link">
+                <Link
+                  href="/about"
+                  className="mob_nav_link"
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   About
                 </Link>
-                <Link href="/team" className="mob_nav_link">
+                <Link
+                  href="/team"
+                  className="mob_nav_link"
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   Team
                 </Link>
-                <Link href="/contact" className="mob_nav_link">
+                <Link
+                  href="/contact"
+                  className="mob_nav_link"
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   Contact Us
                 </Link>
                 {authData ? (
@@ -86,6 +123,9 @@ const Nav = () => {
                                   href={item.path}
                                   key={index}
                                   className="mob_nav_link my-1 mx-2"
+                                  onClick={() => {
+                                    setShowMenu(false);
+                                  }}
                                 >
                                   {item.title}
                                 </Link>
@@ -96,6 +136,9 @@ const Nav = () => {
                                   href={item.path}
                                   key={index}
                                   className="mob_nav_link my-1 mx-2 p-2"
+                                  onClick={() => {
+                                    setShowMenu(false);
+                                  }}
                                 >
                                   {item.title}
                                 </Link>
@@ -105,6 +148,9 @@ const Nav = () => {
                                   href={item.path}
                                   key={index}
                                   className="mob_nav_link my-1 mx-2"
+                                  onClick={() => {
+                                    setShowMenu(false);
+                                  }}
                                 >
                                   {item.title}
                                 </Link>
@@ -113,12 +159,24 @@ const Nav = () => {
                       )}
                     </div>
 
-                    <button className="orange_btn" onClick={logoutUser}>
+                    <button
+                      className="orange_btn"
+                      onClick={() => {
+                        logoutUser();
+                        setShowMenu(false);
+                      }}
+                    >
                       Logout
                     </button>
                   </>
                 ) : (
-                  <Link className="orange_btn" href="/login">
+                  <Link
+                    className="orange_btn"
+                    href="/login"
+                    onClick={() => {
+                      setShowMenu(false);
+                    }}
+                  >
                     Login
                   </Link>
                 )}
