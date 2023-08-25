@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #fef5ec;
+}
+
+.swiper-pagination-bullet {
+  background-color: #00000072 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #000000 !important;
+}
+
+.orange_btn {
+  @apply bg-primary-orange text-white py-2 px-4 rounded-lg hover:bg-primary-orange/90 hover:text-black disabled:hover:text-white disabled:bg-primary-orange/60 disabled:cursor-not-allowed;
+}
+
+.blue_btn {
+  @apply bg-primary-blue text-white py-2 px-4 rounded-lg hover:bg-primary-blue/90 disabled:bg-primary-blue/60 disabled:cursor-not-allowed;
+}
+
+.orange_outline_btn {
+  @apply border border-primary-orange text-primary-orange py-2 px-4 rounded-lg hover:bg-primary-orange/90 hover:text-black disabled:cursor-not-allowed;
+}
+
+.section_title {
+  @apply w-full flex items-center justify-center text-[2rem] sm:text-[2.5rem] font-semibold relative text-primary-orange my-3 sm:my-5 uppercase text-center leading-none pb-2 -z-10
+
+  before:content-[''] before:absolute before:block before:w-[8rem] before:h-[0.1rem] before:bg-black before:bottom-0 before:left-[calc(50%-4rem)]
+
+  after:content-[''] after:absolute after:block after:w-[3rem] after:h-[0.1rem] after:bg-primary-orange after:bottom-0 after:left-[calc(50%-1.5rem)];
+}
+
+.login_create_input {
+  @apply w-full border-b border-b-primary-orange rounded-xl py-1 px-2 focus:outline-none focus:outline-offset-0 focus:border-primary-blue disabled:bg-gray-300;
+}
+
+.nav_link {
+  @apply mx-2 w-max text-primary-blue hover:text-primary-orange hover:cursor-pointer;
+}
+
+.mob_nav_link {
+  @apply my-2 w-max text-primary-blue hover:text-primary-orange hover:cursor-pointer;
+}
+
+.contact_page_input {
+  @apply m-3 w-full bg-white p-2 rounded-xl border-b border-b-primary-orange focus:outline-none focus:outline-offset-0 focus:border-b-primary-blue disabled:bg-gray-300;
+}
+
+.form_section_container {
+  @apply p-5;
+}
+
+.form_table_title {
+  @apply text-2xl font-semibold;
+}
+
+.form_table_container {
+  @apply overflow-x-scroll;
+}
+
+.form_table {
+  @apply w-full  py-2 my-2 border border-black bg-white;
+}
+
+.form_table_heading {
+  @apply border border-black py-1 px-2 bg-gray-200 text-center items-center;
+}
+
+.form_table_row {
+  @apply border-t border-black;
+}
+
+.form_table_data {
+  @apply border border-black p-0;
+}
+
+.form_input_label {
+  @apply w-full h-full font-semibold p-1 bg-gray-200;
+}
+
+.form_output_label {
+  @apply bg-white w-full h-full p-1;
+}
+
+.form_input {
+  @apply p-1 w-full h-full shadow-none border-0 focus:outline-none focus:outline-offset-0 disabled:cursor-not-allowed disabled:bg-gray-300;
+}
+
+.form_input_select {
+  @apply p-1 w-full h-full bg-white shadow-none border-0 focus:outline-none focus:outline-offset-0 disabled:cursor-not-allowed disabled:bg-gray-300;
+}
+
+.form_text_area {
+  @apply p-1 h-auto w-full bg-white shadow-none border-0 focus:outline-none focus:outline-offset-0 disabled:cursor-not-allowed disabled:bg-gray-300;
+}
+
+.form_add_row_btn_container {
+  @apply w-full flex justify-end items-end;
+}
+
+.form_add_row_btn {
+  @apply border border-primary-orange rounded-lg bg-primary-orange text-white py-1 px-2 hover:bg-primary-orange/90 hover:text-black disabled:cursor-not-allowed;
+}
+
+.form_remove_row_btn {
+  @apply ml-3 border border-primary-orange rounded-lg bg-white text-primary-orange py-1 px-2 hover:bg-primary-orange/90 hover:text-black disabled:cursor-not-allowed;
+}
