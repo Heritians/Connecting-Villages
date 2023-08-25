@@ -51,7 +51,7 @@ const Nav = () => {
           </div>
 
           {/*Mobile Nav*/}
-          <div className="w-full bg-white">
+          <div className="w-full bg-white block md:block lg:hidden xl:hidden">
             {showMenu && (
               <div
                 ref={menuRef}

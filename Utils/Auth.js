@@ -67,7 +67,16 @@ export const AuthProvider = ({ children }) => {
       const new_villages_list = await fetchResponse.json();
       setVillagesList(new_villages_list.data.village_names);
     } catch (error) {
-      console.log("error getting villages list", error);
+      const multipurpose_alert = document.getElementById("multipurpose_alert");
+      multipurpose_alert.classList.remove("hidden");
+      multipurpose_alert.classList.add("bg-red-600");
+      multipurpose_alert.innerHTML =
+        "Error Fetching Villages List! Please refresh the page.";
+      setTimeout(() => {
+        multipurpose_alert.classList.add("hidden");
+        multipurpose_alert.classList.remove("bg-red-600");
+        multipurpose_alert.innerHTML = "";
+      }, 3000);
     }
   };
 
@@ -95,16 +104,7 @@ export const AuthProvider = ({ children }) => {
           "Content-Type": "application/json",
         },
       }
-    ).catch((error) => {
-      LoginPageButton.disabled = false;
-      LoginPageButton.innerHTML = "Login";
-      login_error_alert.classList.remove("hidden");
-      login_error_alert.classList.add("bg-red-600");
-      login_error_alert.innerHTML = "Error Logging In! Please try again.";
-      setTimeout(() => {
-        login_error_alert.classList.add("hidden");
-      }, 3000);
-    });
+    );
 
     const login_response = await fetchResponse.json();
 
@@ -145,13 +145,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   let logoutUser = () => {
-    try {
-      setAuthData(null);
-      localStorage.removeItem("authTokens");
-      router.push("/");
-    } catch (error) {
-      console.log("error logging out", error);
-    }
+    setAuthData(null);
+    localStorage.removeItem("authTokens");
+    router.push("/");
+    const multipurpose_alert = document.getElementById("multipurpose_alert");
+    multipurpose_alert.classList.remove("hidden");
+    multipurpose_alert.classList.add("bg-green-600");
+    multipurpose_alert.innerHTML = "Logged Out Successfully!";
+    setTimeout(() => {
+      multipurpose_alert.classList.add("hidden");
+      multipurpose_alert.classList.remove("bg-green-600");
+      multipurpose_alert.innerHTML = "";
+    }, 2000);
   };
 
   const updateToken = async () => {
