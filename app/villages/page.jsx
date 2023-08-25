@@ -44,8 +44,16 @@ const VillagesPage = () => {
           "Content-Type": "application/json",
         },
       }
-    ).catch((err) => {
-      console.log("error fetching villages", err);
+    ).catch((error) => {
+      const multipurpose_alert = document.getElementById("multipurpose_alert");
+      multipurpose_alert.classList.remove("hidden");
+      multipurpose_alert.innerHTML = "Error getting villages list";
+      multipurpose_alert.classList.add("bg-red-500");
+      setTimeout(() => {
+        multipurpose_alert.classList.add("hidden");
+        multipurpose_alert.classList.remove("bg-red-500");
+        multipurpose_alert.innerHTML = "";
+      }, 3000);
     });
     const data = await fetchResponse.json();
     setVillages(data.data.village_names);
@@ -68,7 +76,6 @@ const VillagesPage = () => {
         body: "",
       }
     ).catch((err) => {
-      console.log("error adding village", err);
       add_village_alert.classList.remove("hidden");
       add_village_alert.innerHTML = "Error adding village!";
       add_village_alert.classList.add("bg-red-500");
@@ -77,13 +84,30 @@ const VillagesPage = () => {
         add_village_alert.classList.remove("bg-red-500");
       }, 3000);
     });
-    const data = await fetchResponse.json();
-    if (data?.status === "success") {
+    if (fetchResponse.status === 200) {
       GetVillages();
       add_village_popup.classList.remove("flex");
       add_village_popup.classList.add("hidden");
       document.getElementById("villageName").value = "";
       document.getElementById("confirmVillageName").value = "";
+      add_village_btn.disabled = true;
+      document.getElementById("toc_agreed").checked = false;
+    } else if (fetchResponse.status === 401) {
+      add_village_alert.classList.remove("hidden");
+      add_village_alert.innerHTML = "Unauthorized Access";
+      add_village_alert.classList.add("bg-red-500");
+      setTimeout(() => {
+        add_village_alert.classList.add("hidden");
+        add_village_alert.classList.remove("bg-red-500");
+      }, 3000);
+    } else if (fetchResponse.status === 409) {
+      add_village_alert.classList.remove("hidden");
+      add_village_alert.innerHTML = "Village already exists!";
+      add_village_alert.classList.add("bg-red-500");
+      setTimeout(() => {
+        add_village_alert.classList.add("hidden");
+        add_village_alert.classList.remove("bg-red-500");
+      }, 3000);
     } else {
       add_village_alert.classList.remove("hidden");
       add_village_alert.innerHTML = "Error adding village!";
@@ -187,7 +211,7 @@ const VillagesPage = () => {
               Village names do not match!
             </p>
             <div className="w-full flex flex-row items-center justify-start mt-3">
-              <input type="checkbox" name="terms" required />
+              <input id="toc_agreed" type="checkbox" name="terms" required />
               <label className="ml-2">
                 I agree to the{" "}
                 <a href={GlobalLinks.TnC} className="underline text-blue-600">

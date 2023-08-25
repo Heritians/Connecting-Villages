@@ -29,27 +29,38 @@ const ViewFormPage = () => {
         },
       }
     ).catch((err) => {
-      console.log("error fetching family data", err);
       request_info_btn.disabled = false;
       request_info_btn.innerHTML = "Request Information";
       request_error_alert.classList.remove("hidden");
+      request_error_alert.innerHTML = "Error fetching data. Please try again.";
       setTimeout(() => {
         request_error_alert.classList.add("hidden");
-      }, 3000);
+      }, 5000);
     });
+
     const data = await fetchResponse.json();
 
-    if (data.status === "success") {
+    if (fetchResponse.status === 200) {
       request_info_btn.disabled = false;
       request_info_btn.innerHTML = "Request Information";
       setFamdata(data.data);
+    } else if (fetchResponse.status === 401) {
+      request_info_btn.disabled = false;
+      request_info_btn.innerHTML = "Request Information";
+      request_error_alert.classList.remove("hidden");
+      request_error_alert.innerHTML =
+        "Not Authorized. Please check Respondent's ID and try again.";
+      setTimeout(() => {
+        request_error_alert.classList.add("hidden");
+      }, 5000);
     } else {
       request_info_btn.disabled = false;
       request_info_btn.innerHTML = "Request Information";
       request_error_alert.classList.remove("hidden");
+      request_error_alert.innerHTML = "Error fetching data. Please try again.";
       setTimeout(() => {
         request_error_alert.classList.add("hidden");
-      }, 3000);
+      }, 5000);
     }
   };
 
@@ -83,7 +94,7 @@ const ViewFormPage = () => {
         className="w-4/5 flex flex-col sm:flex-row items-center justify-center my-4 p-4"
       >
         <input
-          placeholder="Enter Respondent's Aadhaar no."
+          placeholder="Enter Respondent's ID no."
           className="w-full sm:w-2/3 p-2 border border-gray-200 rounded-md"
           onChange={handleChange}
           required
@@ -100,9 +111,7 @@ const ViewFormPage = () => {
       <p
         id="request_error_alert"
         className="w-4/5 p-2 text-white bg-red-600 text-center rounded-lg hidden mb-3"
-      >
-        Requested form was not found. Please try again.
-      </p>
+      ></p>
     </div>
   );
 };

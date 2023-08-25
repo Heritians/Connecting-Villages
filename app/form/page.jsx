@@ -481,7 +481,6 @@ const FillFormPage = () => {
           body: JSON.stringify(postData),
         }
       ).catch((error) => {
-        console.log(error);
         form_submit_alert.classList.remove("hidden");
         form_submit_alert.classList.add("bg-red-500");
         form_submit_alert.innerHTML = "Form Submission Failed";
@@ -492,8 +491,7 @@ const FillFormPage = () => {
           form_submit_alert.classList.remove("bg-red-500");
         }, 4000);
       });
-      const data = await fetchResponse.json();
-      if (data?.status === "success") {
+      if (fetchResponse.status === 200) {
         form_submit_alert.classList.remove("hidden");
         form_submit_alert.classList.add("bg-green-500");
         form_submit_alert.innerHTML = "Form Submitted Successfully";
@@ -505,7 +503,17 @@ const FillFormPage = () => {
           event.target.reset();
           setFillFormData(defaultFormData);
         }, 4000);
-      } else {
+      } else if (fetchResponse.status === 409) {
+        form_submit_alert.classList.remove("hidden");
+        form_submit_alert.classList.add("bg-red-500");
+        form_submit_alert.innerHTML = "Respondent with this Aadhaar Number already exists.";
+        setTimeout(() => {
+          form_submit_button.disabled = false;
+          form_submit_button.innerHTML = "Submit";
+          form_submit_alert.classList.add("hidden");
+          form_submit_alert.classList.remove("bg-red-500");
+        }, 4000);
+    } else {
         form_submit_alert.classList.remove("hidden");
         form_submit_alert.classList.add("bg-red-500");
         form_submit_alert.innerHTML = "Form Submission Failed";
@@ -517,7 +525,6 @@ const FillFormPage = () => {
         }, 4000);
       }
     } catch (error) {
-      console.log(error);
       form_submit_alert.classList.remove("hidden");
       form_submit_alert.classList.add("bg-red-500");
       form_submit_alert.innerHTML = "Form Submission Failed";

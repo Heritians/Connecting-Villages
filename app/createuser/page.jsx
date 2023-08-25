@@ -72,51 +72,62 @@ const CreateUserPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const create_user_page_button = document.getElementById(
+      "create_user_page_button"
+    );
+    const create_user_page_alert_green = document.getElementById(
+      "create_user_page_alert_green"
+    );
+    const create_user_page_alert_red = document.getElementById(
+      "create_user_page_alert_red"
+    );
+    const create_user_page_alert_orange = document.getElementById(
+      "create_user_page_alert_orange"
+    );
     try {
-      const create_user_page_button = document.getElementById(
-        "create_user_page_button"
-      );
-      const create_user_page_alert = document.getElementById(
-        "create_user_page_alert"
-      );
       create_user_page_button.disabled = true;
       create_user_page_button.innerHTML = "Creating User(s)...";
 
       if (usersFile) {
         Papa.parse(usersFile, {
-          complete: function (results) {
-            let chunks = [];
+          complete: async function (results) {
+            const userLists = {
+              validation_ignores: [],
+              invalid_users: [],
+              valid_users: [],
+            };
 
-            while (results.data.length > 0) {
-              chunks.push(results.data.splice(0, 10));
-            }
+            for (let index = 0; index * 10 < results.data.length; index++) {
+              create_user_page_button.innerHTML = `Creating User(s) ${
+                index * 10 + 1
+              } - ${Math.min(results.data.length, (index + 1) * 10)}...`;
 
-            let chunkedAadhaar = [];
-            let chunkedPassword = [];
+              const chunk = results.data.slice(
+                index * 10,
+                Math.min(results.data.length, (index + 1) * 10)
+              );
 
-            chunks.forEach((chunk) => {
-              let aadhaar = [];
-              let pass = [];
-              chunk.forEach((chun) => {
-                aadhaar.push(chun[0]);
-                pass.push(chun[1]);
+              let valid_users = {
+                aadhaar_nos: [],
+                passwords: [],
+              };
+
+              chunk.map((user) => {
+                if (user[0].length === 12 && user[1].length >= 5) {
+                  valid_users.aadhaar_nos.push(user[0]);
+                  valid_users.passwords.push(user[1]);
+                } else {
+                  userLists.validation_ignores.push(user[0]);
+                }
               });
-              chunkedAadhaar.push(aadhaar);
-              chunkedPassword.push(pass);
-            });
 
-            const usersToCreate = chunkedAadhaar.map((aadhaar, index) => {
-              return [aadhaar, chunkedPassword[index]];
-            });
-
-            usersToCreate.forEach(async (user, index) => {
               const fetchResponse = await fetch(
                 `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/signup`,
                 {
                   method: "POST",
                   body: JSON.stringify({
-                    AADHAR_NOS: user[0],
-                    passwords: user[1],
+                    AADHAR_NOS: valid_users.aadhaar_nos,
+                    passwords: valid_users.passwords,
                     village_name: aadhaarPassword.village,
                     role: aadhaarPassword.role,
                   }),
@@ -126,24 +137,53 @@ const CreateUserPage = () => {
                     "Content-Type": "application/json",
                   },
                 }
-              ).catch((error) => {
-                console.log("error creating user(s)", error);
-              });
-              const data = await fetchResponse.json();
-              console.log(data);
+              );
 
-              if (index === usersToCreate.length - 1) {
-                create_user_page_button.disabled = false;
-                create_user_page_button.innerHTML = "Create User(s)";
-                create_user_page_alert.classList.remove("hidden");
-                create_user_page_alert.classList.add("bg-green-600");
-                create_user_page_alert.innerHTML =
-                  "User(s) Created Successfully!";
-                setTimeout(() => {
-                  create_user_page_alert.classList.add("hidden");
-                }, 4000);
+              const responseData = await fetchResponse.json();
+
+              if (fetchResponse.status === 200) {
+                responseData.data.valid_users.forEach((aadhaar) => {
+                  userLists.valid_users.push(aadhaar);
+                });
+                responseData.data.invalid_users.forEach((aadhaar) => {
+                  userLists.invalid_users.push(aadhaar);
+                });
               }
-            });
+            }
+
+            if (userLists.valid_users.length > 0) {
+              create_user_page_alert_green.classList.remove("hidden");
+              create_user_page_alert_green.innerHTML = `User(s) Created Successfully!`;
+              setTimeout(() => {
+                create_user_page_alert_green.classList.add("hidden");
+                create_user_page_alert_green.innerHTML = "";
+              }, 5000);
+            }
+
+            if (userLists.invalid_users.length > 0) {
+              create_user_page_alert_red.classList.remove("hidden");
+              create_user_page_alert_red.innerHTML = `User(s) not created for Aadhaar(s): ${userLists.invalid_users.join(
+                ", "
+              )}`;
+              setTimeout(() => {
+                create_user_page_alert_red.classList.add("hidden");
+                create_user_page_alert_red.innerHTML = "";
+              }, 5000);
+            }
+
+            if (userLists.validation_ignores.length > 0) {
+              create_user_page_alert_orange.classList.remove("hidden");
+              create_user_page_alert_orange.innerHTML = `Invalid users not considered: ${userLists.validation_ignores.join(
+                ", "
+              )}`;
+              setTimeout(() => {
+                create_user_page_alert_orange.classList.add("hidden");
+                create_user_page_alert_orange.innerHTML = "";
+              }, 5000);
+            }
+
+            create_user_page_button.disabled = false;
+            create_user_page_button.innerHTML = "Create User(s)";
           },
         });
       } else {
@@ -163,37 +203,47 @@ const CreateUserPage = () => {
               "Content-Type": "application/json",
             },
           }
-        ).catch((error) => {
-          console.log("error creating user(s)", error);
-          create_user_page_alert.classList.remove("hidden");
-          create_user_page_alert.classList.add("bg-red-600");
-          create_user_page_alert.innerHTML = "Error creating user(s)!";
-          setTimeout(() => {
-            create_user_page_alert.classList.add("hidden");
-          }, 4000);
-        });
-        const createSingleUserRes = await fetchResponse.json();
+        );
         create_user_page_button.disabled = false;
         create_user_page_button.innerHTML = "Create User(s)";
-        create_user_page_alert.classList.remove("hidden");
-        if (createSingleUserRes.status === "success") {
-          create_user_page_alert.classList.add("bg-green-600");
-          create_user_page_alert.innerHTML = "User(s) Created Successfully!";
-
+        if (fetchResponse.status === 200) {
+          create_user_page_alert_green.classList.remove("hidden");
+          create_user_page_alert_green.innerHTML =
+            "User(s) Created Successfully!";
           document.getElementById("create_aadhaar_no").value = "";
           document.getElementById("create_password").value = "";
+          setTimeout(() => {
+            create_user_page_alert_green.classList.add("hidden");
+          }, 4000);
+        } else if (fetchResponse.status === 226) {
+          create_user_page_alert_red.classList.remove("hidden");
+          create_user_page_alert_red.innerHTML =
+            "User with this Aadhaar already exists.";
+          setTimeout(() => {
+            create_user_page_alert_red.classList.add("hidden");
+          }, 4000);
+        } else if (fetchResponse.status === 401) {
+          create_user_page_alert_red.classList.remove("hidden");
+          create_user_page_alert_red.innerHTML = "Unauthorized Access.";
+          setTimeout(() => {
+            create_user_page_alert_red.classList.add("hidden");
+          }, 4000);
         } else {
-          create_user_page_alert.classList.remove("hidden");
-          create_user_page_alert.classList.add("bg-red-600");
-          create_user_page_alert.innerHTML =
-            JSON.parse(createSingleUserRes).message[1];
+          create_user_page_alert_red.classList.remove("hidden");
+          create_user_page_alert_red.innerHTML =
+            "Error creating user(s). Please try again.";
+          setTimeout(() => {
+            create_user_page_alert_red.classList.add("hidden");
+          }, 4000);
         }
-        setTimeout(() => {
-          create_user_page_alert.classList.add("hidden");
-        }, 4000);
       }
     } catch (error) {
-      console.log("error creating user(s)", error);
+      create_user_page_alert_red.classList.remove("hidden");
+      create_user_page_alert_red.innerHTML =
+        "Error creating user(s). Please try again.";
+      setTimeout(() => {
+        create_user_page_alert_red.classList.add("hidden");
+      }, 4000);
     }
   };
 
@@ -416,8 +466,18 @@ const CreateUserPage = () => {
         </div>
 
         <div
-          id="create_user_page_alert"
-          className="w-full text-center p-2 mt-2 rounded-lg hidden"
+          id="create_user_page_alert_green"
+          className="w-full text-center p-2 mt-2 rounded-lg bg-green-600 hidden"
+        ></div>
+
+        <div
+          id="create_user_page_alert_red"
+          className="w-full text-center p-2 mt-2 rounded-lg bg-red-600 hidden"
+        ></div>
+
+        <div
+          id="create_user_page_alert_orange"
+          className="w-full text-center p-2 mt-2 rounded-lg bg-orange-600 hidden"
         ></div>
 
         <button className="orange_btn mt-3" id="create_user_page_button">
