@@ -80,17 +80,16 @@ export const AuthProvider = ({ children }) => {
     LoginPageButton.innerHTML = "Logging In...";
 
     const fetchResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login?role=${e.target.login_role.value}&village_name=${e.target.login_village.value}&AADHAR_NO=${e.target.login_aadhaar_no.value}&password=${e.target.login_password.value}`,
-      // `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login`,
+      `${process.env.NEXT_PUBLIC_UBA_FORM_API}/auth/login`,
       {
         method: "POST",
         body: "",
-        // body: JSON.stringify({
-        //   AADHAR_NO: e.target.login_aadhaar_no.value,
-        //   password: e.target.login_password.value,
-        //   village_name: e.target.login_village.value,
-        //   role: e.target.login_role.value,
-        // }),
+        body: JSON.stringify({
+          AADHAR_NO: e.target.login_aadhaar_no.value,
+          password: e.target.login_password.value,
+          village_name: e.target.login_village.value,
+          role: e.target.login_role.value,
+        }),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

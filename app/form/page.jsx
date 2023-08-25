@@ -7,7 +7,7 @@ import authCheck from "@/components/HOC/authCheck";
 
 const FillFormPage = () => {
   const { authData } = useContext(AuthContext);
-  const [fillFormData, setFillFormData] = useState({
+  const defaultFormData = {
     //Table1*****************************
     respondents_name: "",
     respondents_gender: "",
@@ -153,7 +153,9 @@ const FillFormPage = () => {
     //Table12*********************************
 
     major_problems: [{ problems: "", Suggestions_by_villagers: "" }],
-  });
+  };
+
+  const [fillFormData, setFillFormData] = useState(defaultFormData);
 
   const form_submit_alert = document.getElementById("form_submit_alert");
   const form_submit_button = document.getElementById("form_submit_button");
@@ -500,7 +502,8 @@ const FillFormPage = () => {
           form_submit_button.innerHTML = "Submit";
           form_submit_alert.classList.add("hidden");
           form_submit_alert.classList.remove("bg-green-500");
-          window.location.reload();
+          event.target.reset();
+          setFillFormData(defaultFormData);
         }, 4000);
       } else {
         form_submit_alert.classList.remove("hidden");

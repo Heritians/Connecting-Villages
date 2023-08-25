@@ -19,6 +19,7 @@ const LoginPage = () => {
   const handleRoleChange = (e) => {
     if (e.target.value === "GOVTOff" || e.target.value === "None") {
       setIsVillageDisabled(true);
+      document.getElementById("login_village").value = "None";
     } else {
       setIsVillageDisabled(false);
     }
